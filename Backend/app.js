@@ -6,7 +6,7 @@ let cors = require("cors");
 
 
 
-let url = "mongodb://localhost:27017/meanstack";
+let url = "mongodb://localhost:27017/groceryStore";
 
 
 app.use(bodyParser.urlencoded({extended:true}));   
