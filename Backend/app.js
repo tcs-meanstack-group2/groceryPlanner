@@ -25,11 +25,12 @@ mongoose.connection
 //connecting with the routers
 var Product = require("./router/admin/product.router.js");
 var adminSignIn=require("./router/admin/signin.router.js");
+var User = require("./router/user/user.router.js");
 
 app.use("/admin/product",Product);
 app.use("/admin",adminSignIn);
 
-
+app.use("/user", User);
 
 
 app.listen(9090,()=>console.log("Server running on port number 9090"));
