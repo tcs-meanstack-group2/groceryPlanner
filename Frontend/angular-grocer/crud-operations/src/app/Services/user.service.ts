@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Order } from './order.model';
+import { Order } from '../order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class UserService {
     return this.http.get<Order[]>("http://localhost:9090/user/retrieveOrder/" + id);
   }
 
-  editProfile(productRef: any): any {
-    return this.http.put("http://localhost:9090/product/updateProductPrice/", productRef, {responseType: 'text'})
+  editProfile(profileRef: any): any {
+    return this.http.put("http://localhost:9090/user/editProfile/", profileRef, {responseType: 'text'})
   }
 }
