@@ -6,7 +6,7 @@ let cors = require("cors");
 
 
 
-let url = "mongodb://localhost:27017/meanstack";
+let url = "mongodb://localhost:27017/groceryStore";
 
 
 app.use(bodyParser.urlencoded({extended:true}));   
@@ -21,7 +21,12 @@ const mongooseDbOption ={
 mongoose.connect(url,mongooseDbOption);   
 mongoose.connection
 
+//connecting with the routers
+var Product = require("./router/admin/product.router.js");
+var adminSignIn=require("./router/admin/signin.router.js");
 
+app.use("/admin/product",Product);
+app.use("/admin",adminSignIn);
 
 app.listen(9090,()=>console.log("Server running on port number 9090"));
 
