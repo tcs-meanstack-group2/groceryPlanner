@@ -7,10 +7,12 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RetrieveStatusComponent } from './retrieve-status/retrieve-status.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
-    RetrieveStatusComponent
+    RetrieveStatusComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

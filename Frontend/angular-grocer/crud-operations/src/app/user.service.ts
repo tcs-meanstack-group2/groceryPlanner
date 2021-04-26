@@ -14,4 +14,8 @@ export class UserService {
   retrieveOrder(id: any): Observable<Order[]> {
     return this.http.get<Order[]>("http://localhost:9090/user/retrieveOrder/" + id);
   }
+
+  editProfile(productRef: any): any {
+    return this.http.put("http://localhost:9090/product/updateProductPrice/", productRef, {responseType: 'text'})
+  }
 }

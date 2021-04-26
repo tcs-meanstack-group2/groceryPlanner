@@ -1,0 +1,12 @@
+<div>
+    <h2>Edit Profile</h2>
+    <form #profileRef="ngForm" (ngSubmit)="editProfile(profileRef.value)">
+        <label>User ID</label>
+        <input type="text" name="id" ngModel><br>
+        <label>Current Password</label>
+        <input type="password" name="pass" ngModel><br>
+        <label>New Password</label>
+        <input type="password" name="newPass" ngModel><br>
+        <input type="submit" value="Update Profile">
+    </form>
+</div>
