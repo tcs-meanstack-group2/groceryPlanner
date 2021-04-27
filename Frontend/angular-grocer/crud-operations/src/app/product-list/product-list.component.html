@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document2</title>
+</head>
+<body>
+    
+        <h2 style="color: blue">Product List</h2>
+ <div class ="container" id="productList">
+
+ </div>
+
+</body>
+</html>
+
+<div class= "container" id="productItem">
+    <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>ProductName</th>
+                <th>ProductPrice</th>
+                <th>ProductQuantity</th>
+                <th>ProductDiscount</th>
+                <th>Add to cart</th>
+            </tr>
+            <tr *ngFor="let pp of products">
+                    <td>{{pp._id}}</td>
+                    <td>{{pp.ProductName}}</td>
+                    <td>{{pp.ProductPrice}}</td>
+                    <td>{{pp.ProductQuantity}}</td>
+                    <td>{{pp.Discount}}</td>
+                    <input type="checkbox" (click)="addToCart(pp)"/>
+                    
+            </tr>
+            
+            
+            
+        </table>
+
+        <router-outlet></router-outlet>
+</div>
