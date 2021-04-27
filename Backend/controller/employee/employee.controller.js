@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const EmployeeModel = require("../../model/admin/employee.model");
+const EmployeeModel = require("../../model/employee/employee.model");
 
 const addEmployeeDetails = (req,res)=> {
     const employee = new EmployeeModel({
@@ -7,8 +7,8 @@ const addEmployeeDetails = (req,res)=> {
         FirstName:req.body.first,
         LastName:req.body.last,
         EmailID:req.body.email,
-        //auto gen password
-        // Password:req.body.pwd
+        //generic password to be changed on first login
+        Password: "welcome123"
     });
 
     const errors = validationResult(req);
