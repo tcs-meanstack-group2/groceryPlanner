@@ -1,0 +1,12 @@
+<div>
+    <form #EmpRef="ngForm" (ngSubmit)="EmployeeDetails(EmpRef.value)" >
+        
+      
+        <label >Employee ID</label>
+        <input type="number" name="EmployeeID" id="EmployeeID" ngModel><br/>
+        <label >Password</label>
+        <input type="password" name="Password" id="Password" ngModel><br/>
+    
+        <input class="btn btn-success btn-lg" type="submit" value ="Log In" />
+        <input type="reset" value="reset"/>
+</div>
