@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RetrieveStatusComponent } from './Components/user/retrieve-status/retrieve-status.component';
 import { EditProfileComponent } from './Components/user/edit-profile/edit-profile.component';
 import { MainPageComponent } from './components/mainPage/main-page/main-page.component';
 import { AdminPageSignInComponent } from './components/admin/admin-page-sign-in/admin-page-sign-in.component';
@@ -17,6 +16,7 @@ import { AdminUpdateProductsComponent } from './Components/admin/admin-update-pr
 import { AdminDeleteProductsComponent } from './Components/admin/admin-delete-products/admin-delete-products.component';
 import {AdminPanelComponent} from './Components/admin/admin-panel/admin-panel.component';
 import { EmployeeComponent } from './Components/employee/employee.component';
+import { RetrieveStatusComponent } from './Components/user/retrieve-status/retrieve-status.component';
     
 @NgModule({
   declarations: [
@@ -29,8 +29,8 @@ import { EmployeeComponent } from './Components/employee/employee.component';
     AdminDeleteProductsComponent,
     AdminPanelComponent,
     EmployeeComponent,
-    RetrieveStatusComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    RetrieveStatusComponent
   ],
   imports: [
     BrowserModule,
