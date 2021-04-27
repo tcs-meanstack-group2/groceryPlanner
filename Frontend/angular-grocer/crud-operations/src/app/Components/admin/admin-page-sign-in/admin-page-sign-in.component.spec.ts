@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavComponent } from './nav.component';
+import { AdminPageSignInComponent } from './admin-page-sign-in.component';
 
-describe('NavComponent', () => {
-  let component: NavComponent;
-  let fixture: ComponentFixture<NavComponent>;
+describe('AdminPageSignInComponent', () => {
+  let component: AdminPageSignInComponent;
+  let fixture: ComponentFixture<AdminPageSignInComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavComponent ]
+      declarations: [ AdminPageSignInComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavComponent);
+    fixture = TestBed.createComponent(AdminPageSignInComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
