@@ -1,4 +1,3 @@
-
 let app = require("express")();
 let bodyParser = require("body-parser");
 let mongoose = require("mongoose");
@@ -26,9 +25,12 @@ mongoose.connection
 var Product = require("./router/admin/product.router.js");
 var adminSignIn=require("./router/admin/signin.router.js");
 var User = require("./router/user/user.router.js");
+const Employee = require("./router/employee/employee.router.js");
+
 
 app.use("/admin/product",Product);
 app.use("/admin",adminSignIn);
+app.use("/admin/employee",Employee);
 
 app.use("/user", User);
 

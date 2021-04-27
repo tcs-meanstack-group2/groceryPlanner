@@ -4,6 +4,7 @@ const jwt = require('jwt-simple');
 let SignInModel = require("../../model/admin/signin.model.js");
 
 let SignInFuction = (req,res)=> {
+  //  try{
     //getting the id and password from the request body
     let AdminId = req.body.AdminId;       
     let Password = req.body.Password;
@@ -18,6 +19,7 @@ let SignInFuction = (req,res)=> {
             errorMessage=errorMessage+element.msg+"\n";
         });
         //return res.status(422).json(errorMessage);
+        
         return res.send(errorMessage);
       }
       //Checking whether the id and password match the db credentials 
@@ -28,16 +30,24 @@ let SignInFuction = (req,res)=> {
             {
             //res.send("Login Sucess");
             const token = jwt.encode(AdminId,jwtKey);
-            res.send(token);
+            res.send({token});
             }
             else{
                 res.send("Login Failure");
+                //const error = new Error("Login Failure");
+                //error.statusCode = 401;
+                //throw error;
             }
         }
         else{
             res.send("Wrong Admin Credentials Try Again");
         }
     })
+/*}
+catch(err1){
+    next(err1);
+}
+*/
 }
 
 
