@@ -17,6 +17,7 @@ import { AdminDeleteProductsComponent } from './Components/admin/admin-delete-pr
 import {AdminPanelComponent} from './Components/admin/admin-panel/admin-panel.component';
 import { EmployeeComponent } from './Components/employee/employee.component';
 import { RetrieveStatusComponent } from './Components/user/retrieve-status/retrieve-status.component';
+import { AddFundsComponent } from './Components/user/add-funds/add-funds.component';
     
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { RetrieveStatusComponent } from './Components/user/retrieve-status/retri
     AdminPanelComponent,
     EmployeeComponent,
     EditProfileComponent,
-    RetrieveStatusComponent
+    RetrieveStatusComponent,
+    EditProfileComponent,
+    AddFundsComponent,
   ],
   imports: [
     BrowserModule,

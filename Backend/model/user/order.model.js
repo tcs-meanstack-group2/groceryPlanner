@@ -6,7 +6,8 @@ let OrderSchema = mongoose.Schema({
     _id: Number,
     userID: Number,
     status: String,
-    amount: Number
+    amount: Number,
+    timestamp: Date
 });
 
 let OrderModel = mongoose.model("orderModel", OrderSchema, "Orders");

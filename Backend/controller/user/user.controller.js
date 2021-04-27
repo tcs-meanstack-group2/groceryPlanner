@@ -1,5 +1,6 @@
 let OrderModel = require("../../model/user/order.model.js")
 let UserModel = require("../../model/user/user.model.js")
+let BankModel = require("../../model/user/bank.model.js")
 
 // Retrieving Order status from Mongo Database
 let getOrderById = (req, res) => {
@@ -28,4 +29,20 @@ let editProfile = (req,res)=> {
     })
 }
 
-module.exports = {getOrderById, editProfile};
+let addFunds = (req,res)=> {
+    let id = req.body.accNum;
+    let addFund = req.body.funds;
+    BankModel.updateOne({_id: id}, {$inc:{funds: addFund}}, (err, result)=> {
+        if(!err){
+            if(result.nModified > 0){
+                    res.send("Balance updated succesfully");
+            }else {
+                    res.send("Account number is incorrect");
+            }
+        }else {
+            res.send("Error generated " + err);
+        }
+    })
+}
+
+module.exports = {getOrderById, editProfile, addFunds};
