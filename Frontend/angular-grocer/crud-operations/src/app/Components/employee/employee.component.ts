@@ -18,5 +18,7 @@ export class EmployeeComponent implements OnInit {
 
   addEmployee(empDetails:any) {
     this.empService.addEmployee(empDetails);
+
+    //send alert employee added
   }
 }
