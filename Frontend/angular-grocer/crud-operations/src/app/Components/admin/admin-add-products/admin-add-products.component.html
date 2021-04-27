@@ -15,7 +15,7 @@
     
     <form  #adminAddProductsRef="ngForm" (ngSubmit)="addProduct(adminAddProductsRef.value)">
         <div class="d-grid gap-2 col-4 ">
-    <label >Product ID</label>
+    <!--<label >Product ID</label>
     <input type="text" name="ProductID" id="ProductID" ngModel required pattern="^[0-9]+$" #ProductID="ngModel">
     <div *ngIf="ProductID.invalid && (ProductID.dirty || ProductID.touched)">
         <div class="errorMessage" *ngIf="ProductID.errors.required">
@@ -24,7 +24,7 @@
         <div class="errorMessage" *ngIf="ProductID.errors.pattern">
             Product ID must be a number.
         </div>
-      </div>
+      </div>-->
 
     <label >Product Name</label>
     <input type="text" name="ProductName" id="ProductName" ngModel required pattern="^[a-z]+$" #ProductName="ngModel">

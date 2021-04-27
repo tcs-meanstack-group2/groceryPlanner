@@ -3,33 +3,30 @@ const { validationResult } = require('express-validator');
 let ProductModel = require("../../model/admin/product.model.js");
 
 
-
 let addProductDetails = (req,res)=> {
-    //let productCount=100;
-    //productCount=ProductModel.find({}).countDocuments({});
-    var productCount;
+    let productCount;
     ProductModel.countDocuments().then((count) => {
-        productCount=count;     
-    });
-    console.log(productCount);
+        productCount=count+1; 
+        console.log(productCount);    
+        //
     let product = new ProductModel({
-        _id:req.body.ProductID,
-        //_id:productCount,
-        //ProductID:req.body.ProductID,
-        ProductName:req.body.ProductName,
-        ProductPrice:req.body.ProductPrice,
-        ProductQuantity:req.body.ProductQuantity,
-        Discount:req.body.Discount
+         _id:productCount,
+         ProductName:req.body.ProductName,
+         ProductPrice:req.body.ProductPrice,
+         ProductQuantity:req.body.ProductQuantity,
+         Discount:req.body.Discount
+     });
+   
+     product.save((err,result)=> {
+         if(!err){
+             res.send("Product added successfully ")
+         }else {
+             res.send("Product didn't add ");
+         }
+     })
+     //    
     });
-  
-    product.save((err,result)=> {
-        if(!err){
-            res.send("Product added successfully ")
-            //res.json({"msg":"Record stored successfully"})
-        }else {
-            res.send("Product didn't add ");
-        }
-    })
+    
 
 }
 
