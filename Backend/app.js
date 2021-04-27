@@ -2,7 +2,7 @@ let app = require("express")();
 let bodyParser = require("body-parser");
 let mongoose = require("mongoose");
 let cors = require("cors");
-
+const SignInModel = require('./model/admin/signin.model');
 
 
 let url = "mongodb://localhost:27017/groceryStore";
@@ -20,6 +20,15 @@ const mongooseDbOption ={
 mongoose.connect(url,mongooseDbOption);   
 mongoose.connection
 
+//Generate admin credentials if not present
+SignInModel.find({},async (error,data)=>{
+    if(data.length==0){
+        adminLogin = new SignInModel();
+        adminLogin._id = "123";
+        adminLogin.Password = "admin123";
+        adminLogin.save();
+    }
+});
 
 //connecting with the routers
 var Product = require("./router/admin/product.router.js");
