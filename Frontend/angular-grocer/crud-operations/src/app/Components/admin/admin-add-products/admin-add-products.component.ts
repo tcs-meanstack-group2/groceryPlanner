@@ -17,8 +17,7 @@ export class AdminAddProductsComponent implements OnInit {
   }
   addProduct(adminAddProductsRef:any){
     console.log(adminAddProductsRef);
-    this.adminService.storeProductDetailsInfo(adminAddProductsRef);
-    this.adminService.retrieveAllProductDetails().subscribe(result=>this.products=result);
+    this.adminService.storeProductDetailsInfo(adminAddProductsRef).subscribe(result=>this.message=result);
 }
 
 }
