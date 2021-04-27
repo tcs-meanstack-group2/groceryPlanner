@@ -1,0 +1,7 @@
+<div>
+        Enter Order ID: <input type="text" #idRef>
+        <br>
+        <input type="button" class="btn btn-primary mt-2" value="Check Status" (click)="searchDetails(idRef.value)">
+        <br>
+        {{resultMsg}}
+</div>
