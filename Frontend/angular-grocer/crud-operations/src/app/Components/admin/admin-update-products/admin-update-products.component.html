@@ -16,17 +16,50 @@
     <form  #adminUpdateProductsRef="ngForm" (ngSubmit)="updateProduct(adminUpdateProductsRef.value)">
         <div class="d-grid gap-2 col-4 ">
     <label >Product ID</label>
-    <input type="text" name="ProductID" id="ProductID" ngModel>
+    <input type="text" name="ProductID" id="ProductID" ngModel required pattern="^[0-9]+$" #ProductID="ngModel">
+    <div *ngIf="ProductID.invalid && (ProductID.dirty || ProductID.touched)">
+        <div class="errorMessage" *ngIf="ProductID.errors.required">
+            Product ID is required.
+        </div>
+        <div class="errorMessage" *ngIf="ProductID.errors.pattern">
+            Product ID must be a number.
+        </div>
+      </div>
 
     <label >Product Price</label>
-    <input type="text" name="ProductPrice" id="ProductPrice" ngModel>
+    <input type="text" name="ProductPrice" id="ProductPrice" ngModel required pattern="^[0-9]+$" #ProductPrice="ngModel">
+    <div *ngIf="ProductPrice.invalid && (ProductPrice.dirty || ProductPrice.touched)">
+        <div class="errorMessage" *ngIf="ProductPrice.errors.required">
+            Product Price is required.
+        </div>
+        <div class="errorMessage" *ngIf="ProductPrice.errors.pattern">
+            Product Price must be a number.
+        </div>
+      </div>
 
     <label >Product Quantity</label>
-    <input type="text" name="ProductQuantity" id="ProductQuantity" ngModel>
+    <input type="text" name="ProductQuantity" id="ProductQuantity" ngModel required pattern="^[0-9]+$" #ProductQuantity="ngModel">
+    <div *ngIf="ProductQuantity.invalid && (ProductQuantity.dirty || ProductQuantity.touched)">
+        <div class="errorMessage" *ngIf="ProductQuantity.errors.required">
+            Product Quantity is required.
+        </div>
+        <div class="errorMessage" *ngIf="ProductQuantity.errors.pattern">
+            Product Quantity must be a number.
+        </div>
+      </div>
 
     <label >Discount</label>
-    <input type="text" name="Discount" id="Discount" ngModel>
-    <input class="btn btn-success btn-lg" type="submit" value ="Update Product"  />
+    <input type="text" name="Discount" id="Discount" ngModel required pattern="^[0-9]+$" #Discount="ngModel">
+    <div *ngIf="Discount.invalid && (Discount.dirty || Discount.touched)">
+        <div class="errorMessage" *ngIf="Discount.errors.required">
+            Discount is required.
+        </div>
+        <div class="errorMessage" *ngIf="Discount.errors.pattern">
+            Discount must be a number.
+        </div>
+      </div>
+
+    <input class="btn btn-success btn-lg" type="submit" [disabled]='!adminUpdateProductsRef.valid' value ="Update Product"  />
   </div>
     </form>
     {{message}}

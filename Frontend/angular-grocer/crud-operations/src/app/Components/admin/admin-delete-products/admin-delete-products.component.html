@@ -16,9 +16,17 @@
     <form  #adminDeleteProductsRef="ngForm" (ngSubmit)="deleteProduct(adminDeleteProductsRef.value)">
         <div class="d-grid gap-2 col-4 ">
     <label >Product ID</label>
-    <input type="text" name="ProductID" id="ProductID" ngModel>
+    <input type="text" name="ProductID" id="ProductID" ngModel required pattern="^[0-9]+$" #ProductID="ngModel">
+    <div *ngIf="ProductID.invalid && (ProductID.dirty || ProductID.touched)">
+        <div class="errorMessage" *ngIf="ProductID.errors.required">
+            Product ID is required.
+        </div>
+        <div class="errorMessage" *ngIf="ProductID.errors.pattern">
+            Product ID must be a number.
+        </div>
+      </div>
 
-    <input class="btn btn-success btn-lg" type="submit" value ="Delete Product"  />
+    <input class="btn btn-success btn-lg" type="submit" [disabled]='!adminDeleteProductsRef.valid' value ="Delete Product"  />
   </div>
     </form>
     {{message}}
