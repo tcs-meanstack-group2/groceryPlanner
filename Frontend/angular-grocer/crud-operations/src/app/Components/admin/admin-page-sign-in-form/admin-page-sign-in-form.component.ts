@@ -15,26 +15,18 @@ export class AdminPageSignInFormComponent implements OnInit {
   signIn(adminSignInRef:any){
     console.log(adminSignInRef.adminId);
     this.adminService.signIn(adminSignInRef.adminId,adminSignInRef.password).subscribe(data=>{
-      console.log(data);
-      sessionStorage.setItem('token',data.token);
-      this.router.navigateByUrl('\admin\DashBoard');
+      console.log(data.token);
+      if(!(data.token=="Enter Correct Credentials"))
+      {
+        sessionStorage.setItem('token',data.token);
+        this.router.navigateByUrl('\admin\DashBoard');
+      }else{
+        this.message=data.token;
+      }
+      
     },
-    /*err=>{
-      this.message = err.error.message;
-      if(err.error.message == "Login Failure")
-      {
-        
-        this.message = 'Login Failure';
-      }
-      else if(err.error.message == "Please enter a id")
-      {
-        this.message = 'Please enter a id';
-      }
-      else if(err.error.message == "Please enter a password")
-      {
-        this.message = 'Please enter a password';
-      }
-    }*/
     )
   }
+
+  onSubmit(){}
 }
