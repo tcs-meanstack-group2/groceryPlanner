@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { FundsDetails } from './funds.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +19,9 @@ export class ProductService {
    return this.http.get<FundsDetails>("http://localhost:9090/user/addFunds/")
  }
   user_cart(ProductDetails:any):any{
-  return this.http.put("http://localhost:9090/user/cart/", {Response:JSON})
+  return this.http.post("http://localhost:9090/user/selectedOrders/", ProductDetails, {Response:JSON})
  }
+  addTicket(TicketRef: any): any {
+  return this.http.post("http://localhost:9090/user/addTicket/", TicketRef, {Response:JSON})
+}
 }

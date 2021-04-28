@@ -14,6 +14,7 @@ import { UserPanelComponent } from './Components/user/user-panel/user-panel.comp
 import { AdminAuthGuard } from './Guards/adminAuthGuard';
 import { CartComponent } from './Components/user/cart/cart.component';
 import { ProductListComponent } from './Components/user/product-list/product-list.component';
+import { RaiseTicketComponent } from './Components/user/raise-ticket/raise-ticket.component';
 
 const routes: Routes = [
   {path:"\home",component:MainPageComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:"\customer\Logout",component:UserLogoutComponent},
   { path:"\user\product-list", component: ProductListComponent },
   { path:"\user\cart", component: CartComponent },
+  { path:"\user\raise-ticket", component: RaiseTicketComponent },
   {path:"",redirectTo:"\home",pathMatch:"full"}
 ];
 

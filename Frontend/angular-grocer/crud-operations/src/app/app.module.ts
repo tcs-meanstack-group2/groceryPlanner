@@ -21,6 +21,7 @@ import { AddFundsComponent } from './Components/user/add-funds/add-funds.compone
 import { UserLogoutComponent } from './Components/user/user-logout/user-logout.component';
 import { CommonModule } from '@angular/common';
 import { UserPanelComponent } from './Components/user/user-panel/user-panel.component';
+import { RaiseTicketComponent } from './Components/user/raise-ticket/raise-ticket.component';
     
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UserPanelComponent } from './Components/user/user-panel/user-panel.comp
     EditProfileComponent,
     AddFundsComponent,
     UserLogoutComponent,
-    UserPanelComponent
+    UserPanelComponent,
+    RaiseTicketComponent
   ],
   imports: [
     BrowserModule,
