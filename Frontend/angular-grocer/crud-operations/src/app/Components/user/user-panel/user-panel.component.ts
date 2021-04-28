@@ -17,19 +17,19 @@ export class UserPanelComponent implements OnInit {
   }
   
   selectItemsLink(){
-    this.router.navigateByUrl('\user\product-list');
+    this.router.navigateByUrl('/user/product-list');
   }
 
   deleteItemsLink(){
-    this.router.navigateByUrl('\user\cart');
+    this.router.navigateByUrl('/user/cart');
   }
 
   viewItemsLink(){
-    this.router.navigateByUrl('\user\cart');
+    this.router.navigateByUrl('/user/cart');
   }
 
   checkOutLink(){
-    this.router.navigateByUrl('\user\cart');
+    this.router.navigateByUrl('/user/cart');
   }
 
   orderStatusLink(){
