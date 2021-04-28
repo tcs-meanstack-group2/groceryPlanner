@@ -38,7 +38,7 @@ let editProfile = (req,res)=> {
                     res.send("User ID or Password is incorrect");
             }
         }else {
-            res.send("Error generated " + err);
+            res.send("Error: Please ensure your User ID is valid");
         }
     })
 }
