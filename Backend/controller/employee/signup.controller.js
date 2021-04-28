@@ -1,3 +1,4 @@
+/*
 let empSignUpModel=require("../../model/employee/signup.model.js")
 
 
@@ -18,3 +19,4 @@ let storeEmpDetails=(req,res)=>{
     })
   }
 module.exports={storeEmpDetails}
+*/

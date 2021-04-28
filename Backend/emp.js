@@ -1,7 +1,7 @@
 let app = require("express")();
 let http = require("http").Server(app)
-let io = require ("socket.io")(http)
 let bodyParser = require("body-parser");
+let obj=require("mongoose");
 
 let port=9090
 
@@ -14,7 +14,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use (bodyParser.json())
 
 let url="mongodb://localhost:27017/groceryStore"
-let obj=require("mongoose");
+
+
 obj.connect(url,mogodboption)
 obj.Mongoose.connection
 

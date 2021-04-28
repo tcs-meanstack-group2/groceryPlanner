@@ -1,3 +1,4 @@
+/*
 let mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
@@ -15,3 +16,4 @@ let empSignUpModel=mongoose.model("",SignUpSchemaemp,"EmployeeDetails")
 
 
 module.exports=empSignUpModel
+*/
