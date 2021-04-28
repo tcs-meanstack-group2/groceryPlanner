@@ -47,7 +47,7 @@ import { CartComponent } from './Components/user/cart/cart.component';
     AddFundsComponent,
     UserLogoutComponent,
     UserPanelComponent,
-    RaiseTicketComponent
+    RaiseTicketComponent,
     SigninComponent,
     SignupComponent,
     AddEmployeeComponent,
