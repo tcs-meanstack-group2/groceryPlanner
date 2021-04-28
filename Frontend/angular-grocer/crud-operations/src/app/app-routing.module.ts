@@ -12,6 +12,8 @@ import { RetrieveStatusComponent } from './Components/user/retrieve-status/retri
 import { UserLogoutComponent } from './Components/user/user-logout/user-logout.component';
 import { UserPanelComponent } from './Components/user/user-panel/user-panel.component';
 import { AdminAuthGuard } from './Guards/adminAuthGuard';
+import { CartComponent } from './Components/user/cart/cart.component';
+import { ProductListComponent } from './Components/user/product-list/product-list.component';
 
 const routes: Routes = [
   {path:"\home",component:MainPageComponent},
@@ -25,6 +27,8 @@ const routes: Routes = [
   {path:"\customer\EditProfile",component:EditProfileComponent},
   {path:"\customer\AddFunds",component:AddFundsComponent},
   {path:"\customer\Logout",component:UserLogoutComponent},
+  { path:"\user\product-list", component: ProductListComponent },
+  { path:"\user\cart", component: CartComponent },
   {path:"",redirectTo:"\home",pathMatch:"full"}
 ];
 
