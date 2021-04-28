@@ -22,9 +22,9 @@ import { AddFundsComponent } from './Components/user/add-funds/add-funds.compone
 import { UserLogoutComponent } from './Components/user/user-logout/user-logout.component';
 import { CommonModule } from '@angular/common';
 import { UserPanelComponent } from './Components/user/user-panel/user-panel.component';
-import { EmployeeComponent } from './Components/employee/employee.component';
-import { AddEmployeeComponent } from './Components/employee/add-employee/add-employee.component';
-import { DeleteEmployeeComponent } from './Components/employee/delete-employee/delete-employee.component';
+import { EmployeePageComponent } from './Components/admin/employee-page/employee-page.component';
+import { AddEmployeeComponent } from './Components/admin/add-employee/add-employee.component';
+import { DeleteEmployeeComponent } from './Components/admin/delete-employee/delete-employee.component';
 import { GenerateReportsComponent } from './Components/admin/generate-reports/generate-reports.component';
 import { CartComponent } from './Components/user/cart/cart.component';
     
@@ -38,7 +38,7 @@ import { CartComponent } from './Components/user/cart/cart.component';
     AdminUpdateProductsComponent,
     AdminDeleteProductsComponent,
     AdminPanelComponent,
-    EmployeeComponent,
+    EmployeePageComponent,
     EditProfileComponent,
     RetrieveStatusComponent,
     EditProfileComponent,
