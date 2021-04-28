@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Funds } from '../funds.model';
 import { Order } from '../order.model';
 
 @Injectable({
@@ -17,6 +18,10 @@ export class UserService {
 
   editProfile(profileRef: any): any {
     return this.http.put("http://localhost:9090/user/editProfile/", profileRef, {responseType: 'text'})
+  }
+
+  retrieveFunds(id: any): Observable<Funds[]> {
+    return this.http.get<Funds[]>("http://localhost:9090/user/retrieveFunds/" + id);
   }
 
   addFunds(fundsRef: any): any {
