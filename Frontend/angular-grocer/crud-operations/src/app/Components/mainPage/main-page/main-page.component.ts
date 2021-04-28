@@ -12,10 +12,10 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
   }
   adminPage(){
-    this.router.navigate(["admin\SignIn"]);
+    this.router.navigate(["admin/SignIn"]);
   }
   userPage(){
-    this.router.navigate(["customer\SignIn"]);
+    this.router.navigate(["user/SignIn"]);
   }
   employeePage(){}
 
