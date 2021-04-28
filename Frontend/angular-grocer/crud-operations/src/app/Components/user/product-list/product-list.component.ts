@@ -1,8 +1,8 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { ProductDetails } from '../../../Model/model.product';
-import { ProductService } from '../product.service';
 import { Router } from '@angular/router'
+import { ProductDetails } from 'src/app/Model/model.productmodel';
+import { ProductService } from 'src/app/Services/product.service';
 
 let user_products = []
 

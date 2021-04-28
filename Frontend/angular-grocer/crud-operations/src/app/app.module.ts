@@ -26,6 +26,7 @@ import { EmployeeComponent } from './Components/employee/employee.component';
 import { AddEmployeeComponent } from './Components/employee/add-employee/add-employee.component';
 import { DeleteEmployeeComponent } from './Components/employee/delete-employee/delete-employee.component';
 import { GenerateReportsComponent } from './Components/admin/generate-reports/generate-reports.component';
+import { CartComponent } from './Components/user/cart/cart.component';
     
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { GenerateReportsComponent } from './Components/admin/generate-reports/ge
     SignupComponent,
     AddEmployeeComponent,
     DeleteEmployeeComponent,
-    GenerateReportsComponent
+    GenerateReportsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

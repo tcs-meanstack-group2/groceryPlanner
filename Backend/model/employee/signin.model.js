@@ -12,7 +12,7 @@ let empSignInSchema = mongoose.Schema({
 
 
 
-let empSignInModel=mongoose.model("",empSignInSchema,"EmployeeDetails")
+let empSignInModel=mongoose.model("empSignInModel",empSignInSchema,"EmployeeDetails")
 
 
 module.exports = empSignInModel

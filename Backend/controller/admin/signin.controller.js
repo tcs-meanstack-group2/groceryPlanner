@@ -1,7 +1,7 @@
 
 const { validationResult } = require('express-validator');
 const jwt = require('jwt-simple');
-let SignInModel = require("../../model/employee/signin.model.js");
+let SignInModel = require("../../model/admin/signin.model.js");
 
 let SignInFuction = (req,res)=> {
     //getting the id and password from the request body
