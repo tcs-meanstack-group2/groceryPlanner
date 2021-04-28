@@ -19,7 +19,9 @@ export class AdminPageSignInFormComponent implements OnInit {
       if(!(data.token=="Enter Correct Credentials"))
       {
         sessionStorage.setItem('token',data.token);
-        this.router.navigateByUrl('/admin/DashBoard');
+
+        this.router.navigateByUrl('admin/DashBoard');
+
       }else{
         this.message=data.token;
       }
