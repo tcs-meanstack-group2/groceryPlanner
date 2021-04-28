@@ -11,5 +11,8 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  UserDetails(UserRef:any){
+    console.log(UserRef)
 
+  }
 }

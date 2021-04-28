@@ -12,8 +12,8 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  StoreEmployeeDetails(EmpRef:any){
-    console.log(EmpRef)
+  StoreUserDetails(UserRef:any){
+    console.log(UserRef)
 
   }
 }
