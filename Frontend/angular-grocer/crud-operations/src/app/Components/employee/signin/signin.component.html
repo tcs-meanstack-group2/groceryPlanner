@@ -20,7 +20,10 @@
         <label >Password</label>
         <input type="password" name="Password" id="Password" ngModel><br/><br/>
     
-        <input class="btn btn-success btn-lg" type="submit" value ="Log In" />
+        <a class="btn btn-success btn-lg" data-bs-toggle="collapse" 
+    (click)="employeeSigin()" role="button" aria-expanded="false" aria-controls="collapseExample">
+     Sign In 
+     </a><br/><br/>
         <input class="btn btn-success btn-lg" type="reset" value="reset"/>
         </div>
         <hr><br/><br/><br/>

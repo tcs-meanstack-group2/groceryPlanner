@@ -24,6 +24,8 @@ import { UserLogoutComponent } from './Components/user/user-logout/user-logout.c
 import { CommonModule } from '@angular/common';
 import { UserPanelComponent } from './Components/user/user-panel/user-panel.component';
 import { CartComponent } from './Components/user/cart/cart.component';
+import { EmpHomeComponent } from './Components/employee/emp-home/emp-home.component';
+import { UserHomeComponent } from './Components/user/user-home/user-home.component';
     
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { CartComponent } from './Components/user/cart/cart.component';
     UserPanelComponent,
     SigninComponent,
     SignupComponent,
-    CartComponent
+    CartComponent,
+    EmpHomeComponent,
+    UserHomeComponent
   ],
   imports: [
     BrowserModule,
