@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-panel',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPanelComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,11 +21,19 @@ export class UserPanelComponent implements OnInit {
 
   checkOutLink(){}
 
-  orderStatusLink(){}
+  orderStatusLink(){
+    this.router.navigateByUrl('\customer\OrderStatus');
+  }
 
-  editProfileLink(){}
+  editProfileLink(){
+    this.router.navigateByUrl('\customer\EditProfile');
+  }
 
-  fundsLink(){}
+  fundsLink(){
+    this.router.navigateByUrl('\customer\AddFunds');
+  }
 
-  logoutLink(){}
+  logoutLink(){
+    this.router.navigateByUrl('\customer\Logout');
+  }
 }

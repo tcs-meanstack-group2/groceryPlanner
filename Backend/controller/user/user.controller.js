@@ -16,7 +16,21 @@ let editProfile = (req,res)=> {
     let id = req.body.id;
     let oldPass = req.body.pass;
     let newPass = req.body.newPass;
-    UserModel.updateOne({_id: id, password: oldPass}, {$set:{password: newPass}}, (err, result)=> {
+    let fName = req.body.newFname;
+    let lName = req.body.newLname;
+    let email = req.body.newEmail;
+    let pNum = req.body.newPhone;
+    let dob = req.body.newDob;
+    let add = req.body.newAdd;
+    UserModel.updateOne({_id: id, password: oldPass}, {$set:{
+        password: newPass,
+        fName: fName,
+        lName: lName,
+        email: email,
+        pNumber: pNum,
+        dob: dob,
+        address: add
+    }}, (err, result)=> {
         if(!err){
             if(result.nModified > 0){
                     res.send("Password updated succesfully")
