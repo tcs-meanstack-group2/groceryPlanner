@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-  import { Employee } from '../../Classes/employee.model';
+import { Employee } from '../../Classes/employee.model';
 import { EmployeeService } from '../../Services/employee.service';
 
 @Component({
@@ -7,18 +7,15 @@ import { EmployeeService } from '../../Services/employee.service';
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
+
 export class EmployeeComponent implements OnInit {
 
-  employees:Employee[];
+  employees?:Employee[];
 
   constructor(private empService:EmployeeService) { }
 
   ngOnInit(): void {
+    this.empService.getEmployeeDetails().subscribe(res => this.employees = res);
   }
 
-  addEmployee(empDetails:any) {
-    this.empService.addEmployee(empDetails);
-
-    //send alert employee added
-  }
 }

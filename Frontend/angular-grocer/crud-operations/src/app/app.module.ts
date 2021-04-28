@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductListComponent } from './product-list/product-list.component';
@@ -17,6 +17,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NavComponent } from './nav/nav.component';
 import { EmployeeComponent } from './Components/employee/employee.component';
+import { AddEmployeeComponent } from './Components/employee/add-employee/add-employee.component';
+import { DeleteEmployeeComponent } from './Components/employee/delete-employee/delete-employee.component';
+import { GenerateReportsComponent } from './Components/admin/generate-reports/generate-reports.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { EmployeeComponent } from './Components/employee/employee.component';
     ProductListComponent,
     CartComponent,
     NavComponent,
+    AddEmployeeComponent,
+    DeleteEmployeeComponent,
+    GenerateReportsComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,8 @@ import { EmployeeComponent } from './Components/employee/employee.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
