@@ -1,7 +1,9 @@
 <div>
-        Enter Order ID: <input type="text" #idRef>
+        <h2>Track Your Order Status</h2>
+        Enter Order ID: <input type="text" class="form-control" #idRef>
         <br>
         <input type="button" class="btn btn-primary mt-2" value="Check Status" (click)="searchDetails(idRef.value)">
         <br>
-        {{resultMsg}}
+        <br>
+        <h3>{{resultMsg}}</h3>
 </div>

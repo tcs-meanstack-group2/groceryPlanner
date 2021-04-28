@@ -15,7 +15,7 @@ export class UserLogoutComponent implements OnInit {
 
   logout() {
     sessionStorage.removeItem("token");
-    this.router.navigate(["\home"]);
+    this.router.navigateByUrl("");
     alert("You have been successfully logged out.");
   }
 }

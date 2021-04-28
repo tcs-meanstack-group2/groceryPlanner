@@ -6,6 +6,11 @@ import { AdminPageSignInFormComponent } from './components/admin/admin-page-sign
 import { AdminPageSignInComponent } from './components/admin/admin-page-sign-in/admin-page-sign-in.component';
 import { AdminUpdateProductsComponent } from './Components/admin/admin-update-products/admin-update-products.component';
 import { MainPageComponent } from './components/mainPage/main-page/main-page.component';
+import { AddFundsComponent } from './Components/user/add-funds/add-funds.component';
+import { EditProfileComponent } from './Components/user/edit-profile/edit-profile.component';
+import { RetrieveStatusComponent } from './Components/user/retrieve-status/retrieve-status.component';
+import { UserLogoutComponent } from './Components/user/user-logout/user-logout.component';
+import { UserPanelComponent } from './Components/user/user-panel/user-panel.component';
 import { AdminAuthGuard } from './Guards/adminAuthGuard';
 
 const routes: Routes = [
@@ -15,6 +20,11 @@ const routes: Routes = [
   {path:"\admin\DashBoard",component:AdminAddProductsComponent,canActivate:[AdminAuthGuard]},
   {path:"\admin\UpdateProducts",component:AdminUpdateProductsComponent,canActivate:[AdminAuthGuard]},
   {path:"\admin\DeleteProducts",component:AdminDeleteProductsComponent,canActivate:[AdminAuthGuard]},
+  {path:"\customer",component:UserPanelComponent},
+  {path:"\customer\OrderStatus",component:RetrieveStatusComponent},
+  {path:"\customer\EditProfile",component:EditProfileComponent},
+  {path:"\customer\AddFunds",component:AddFundsComponent},
+  {path:"\customer\Logout",component:UserLogoutComponent},
   {path:"",redirectTo:"\home",pathMatch:"full"}
 ];
 

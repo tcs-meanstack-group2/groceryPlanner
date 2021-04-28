@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-panel',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
-
-  constructor() { }
+  displayOrder: Boolean;
+  displayEdit: Boolean;
+  displayFunds: Boolean;
+  displayLogout: Boolean;
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,11 +24,30 @@ export class UserPanelComponent implements OnInit {
 
   checkOutLink(){}
 
-  orderStatusLink(){}
+  orderStatusLink(){
+    this.hideAll();
+    this.displayOrder = true;
+  }
 
-  editProfileLink(){}
+  editProfileLink(){
+    this.hideAll();
+    this.displayEdit = true;
+  }
 
-  fundsLink(){}
+  fundsLink(){
+    this.hideAll();
+    this.displayFunds = true;
+  }
 
-  logoutLink(){}
+  logoutLink(){
+    this.hideAll();
+    this.displayLogout = true;
+  }
+
+  hideAll() {
+    this.displayOrder = false;
+    this.displayEdit = false;
+    this.displayFunds = false;
+    this.displayLogout = false;
+  }
 }
