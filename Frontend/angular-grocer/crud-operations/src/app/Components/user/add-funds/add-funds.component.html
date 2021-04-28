@@ -1,4 +1,13 @@
 <div>
+    <h2>Your Funds</h2>
+    <label>Account Number</label>
+    <input type="text" class="form-control" #idRef>
+    <br>
+    <input type="button" value="Click to View Funds" class="btn btn-success" (click)=getFunds(idRef.value)>
+    <br>
+    {{funds}}
+    <br>
+    <hr>
     <h2>Add Funds to Your Account</h2>
     <div class="form-group">
         <form #fundsRef="ngForm" (ngSubmit)="addFunds(fundsRef.value)">

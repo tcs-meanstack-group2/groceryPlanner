@@ -60,6 +60,7 @@ let addFunds = (req,res)=> {
     })
 }
 
+
 let addTicket = (req,res)=> {
     let user_id = req.body.user_id;
     let ticket_message = req.body.ticket_message;
@@ -89,5 +90,14 @@ let orderSelected = (req,res)=> {
     });
 }    
 
+let getFundsById = (req, res) => {
+    let id = req.params.id;
+    BankModel.find({_id: id}, (err, data) => {
+        if(!err) {
+            res.json(data);
+        }
+    })
+}
 
-module.exports = {getOrderById, editProfile, addFunds, addTicket, orderSelected};
+module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, orderSelected};
+

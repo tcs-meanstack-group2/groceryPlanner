@@ -12,6 +12,6 @@ export class AdminPageSignInComponent implements OnInit {
   ngOnInit(): void {
   }
   adminSigin(){
-    this.router.navigate(["admin\SignInForm"]);
+    this.router.navigate(["admin/SignInForm"]);
   }
 }
