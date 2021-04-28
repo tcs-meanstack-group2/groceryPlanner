@@ -21,4 +21,7 @@ export class MainPageComponent implements OnInit {
   }
   employeePage(){}
 
+  raiseaticketPage(){
+    this.router.navigate(["user\raise-ticket"]);
+  }
 }

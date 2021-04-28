@@ -1,7 +1,8 @@
 let OrderModel = require("../../model/user/order.model.js")
 let UserModel = require("../../model/user/user.model.js")
 let BankModel = require("../../model/user/bank.model.js")
-
+let TicketModel = require("../../model/user/ticket.model")
+let SelectedOrdersModel = require("../../model/user/selectedOrders.model")
 // Retrieving Order status from Mongo Database
 let getOrderById = (req, res) => {
     let id = req.params.id;
@@ -59,6 +60,36 @@ let addFunds = (req,res)=> {
     })
 }
 
+
+let addTicket = (req,res)=> {
+    let user_id = req.body.user_id;
+    let ticket_message = req.body.ticket_message;
+    TicketModel.insertOne({user_id:user_id}, {ticket_message:ticket_message}, (err1,result) => {
+        if(!err){
+            res.send("Ticket stored successfully ")
+            
+        }else {
+            res.send("Record didn't store, Try again! ");
+        }
+    });
+}               
+
+let orderSelected = (req,res)=> {
+    let _id = req.body._id;
+    let ProductName = req.body.ProductName;
+    let ProductPrice = req.body.ProductPrice;
+    let ProductQuantity = req.body.ProductQuantity;
+    let Discount = req.body.Discountl
+    SelectedOrdersModel.insertOne({_id:_id}, {ProductName:ProductName},{ProductPrice:ProductPrice}, {ProductQuantity:ProductQuantity}, {Discount:Discount}, (err1,result) => {
+        if(!err){
+            res.send("Orders Stored Successfully ")
+            
+        }else {
+            res.send("Order did not store, please try again! ");
+        }
+    });
+}    
+
 let getFundsById = (req, res) => {
     let id = req.params.id;
     BankModel.find({_id: id}, (err, data) => {
@@ -68,4 +99,5 @@ let getFundsById = (req, res) => {
     })
 }
 
-module.exports = {getOrderById, editProfile, addFunds, getFundsById};
+module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, orderSelected};
+
