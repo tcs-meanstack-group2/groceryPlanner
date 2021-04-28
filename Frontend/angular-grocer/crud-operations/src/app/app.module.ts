@@ -23,6 +23,7 @@ import { AddFundsComponent } from './Components/user/add-funds/add-funds.compone
 import { UserLogoutComponent } from './Components/user/user-logout/user-logout.component';
 import { CommonModule } from '@angular/common';
 import { UserPanelComponent } from './Components/user/user-panel/user-panel.component';
+import { CartComponent } from './Components/user/cart/cart.component';
     
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { UserPanelComponent } from './Components/user/user-panel/user-panel.comp
     UserLogoutComponent,
     UserPanelComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

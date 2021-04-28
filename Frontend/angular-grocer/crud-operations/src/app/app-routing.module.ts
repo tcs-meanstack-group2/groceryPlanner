@@ -27,8 +27,8 @@ const routes: Routes = [
   {path:"\customer\EditProfile",component:EditProfileComponent},
   {path:"\customer\AddFunds",component:AddFundsComponent},
   {path:"\customer\Logout",component:UserLogoutComponent},
-  { path:"\user\product-list", component: ProductListComponent },
-  { path:"\user\cart", component: CartComponent },
+  { path:"\customer\product-list", component: ProductListComponent },
+  { path:"\customer\cart", component: CartComponent },
   {path:"",redirectTo:"\home",pathMatch:"full"}
 ];
 
