@@ -6,46 +6,60 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductListComponent } from './product-list/product-list.component';
-import { CartComponent } from './cart/cart.component';
-import { RouterModule, Router } from '@angular/router';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { NavComponent } from './nav/nav.component';
+import { SigninComponent } from './Components/employee/signin/signin.component';
+import { SignupComponent } from './Components/employee/signup/signup.component';
+import { EditProfileComponent } from './Components/user/edit-profile/edit-profile.component';
+import { MainPageComponent } from './components/mainPage/main-page/main-page.component';
+import { AdminPageSignInComponent } from './components/admin/admin-page-sign-in/admin-page-sign-in.component';
+import { AdminPageSignInFormComponent } from './components/admin/admin-page-sign-in-form/admin-page-sign-in-form.component';
+import { AdminAddProductsComponent } from './Components/admin/admin-add-products/admin-add-products.component';
+import { AdminAuthGuard } from './Guards/adminAuthGuard';
+import { AdminUpdateProductsComponent } from './Components/admin/admin-update-products/admin-update-products.component';
+import { AdminDeleteProductsComponent } from './Components/admin/admin-delete-products/admin-delete-products.component';
+import {AdminPanelComponent} from './Components/admin/admin-panel/admin-panel.component';
+import { RetrieveStatusComponent } from './Components/user/retrieve-status/retrieve-status.component';
+import { AddFundsComponent } from './Components/user/add-funds/add-funds.component';
+import { UserLogoutComponent } from './Components/user/user-logout/user-logout.component';
+import { CommonModule } from '@angular/common';
+import { UserPanelComponent } from './Components/user/user-panel/user-panel.component';
 import { EmployeeComponent } from './Components/employee/employee.component';
 import { AddEmployeeComponent } from './Components/employee/add-employee/add-employee.component';
 import { DeleteEmployeeComponent } from './Components/employee/delete-employee/delete-employee.component';
 import { GenerateReportsComponent } from './Components/admin/generate-reports/generate-reports.component';
-
+    
 @NgModule({
   declarations: [
     AppComponent,
+    MainPageComponent,
+    AdminPageSignInComponent,
+    AdminPageSignInFormComponent,
+    AdminAddProductsComponent,
+    AdminUpdateProductsComponent,
+    AdminDeleteProductsComponent,
+    AdminPanelComponent,
     EmployeeComponent,
-    ProductListComponent,
-    CartComponent,
-    NavComponent,
+    EditProfileComponent,
+    RetrieveStatusComponent,
+    EditProfileComponent,
+    AddFundsComponent,
+    UserLogoutComponent,
+    UserPanelComponent,
+    SigninComponent,
+    SignupComponent,
     AddEmployeeComponent,
     DeleteEmployeeComponent,
-    GenerateReportsComponent,
+    GenerateReportsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,HttpClientModule, BrowserAnimationsModule,
-    RouterModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
+    FormsModule,
+    HttpClientModule, 
+    BrowserAnimationsModule,
+    CommonModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AdminAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

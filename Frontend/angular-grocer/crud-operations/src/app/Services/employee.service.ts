@@ -11,6 +11,15 @@ export class EmployeeService {
 
   constructor(private http:HttpClient) { }
 
+  signIn(EmployeeId:string,Password:string){
+    console.log(EmployeeId+Password);
+    return this.http.post(this.ipAddress+ '/employee/employeeSignIn',{EmployeeId,Password});
+  };
+  signUp(EmployeeId:string,Password:string,FirstName:String,LastName:String,EmailID:String){
+    console.log(EmployeeId+Password+FirstName+LastName+EmailID);
+    return this.http.post(this.ipAddress+ '/employee/employeeSignUp',{EmployeeId,Password,FirstName,LastName,EmailID});
+  };
+
   getEmployeeDetails():Observable<Employee[]>{
     return this.http.get<Employee[]>(this.ipAddress+"/admin/employee/getEmployeeDetails")
  }
