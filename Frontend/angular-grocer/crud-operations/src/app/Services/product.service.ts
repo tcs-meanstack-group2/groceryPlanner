@@ -14,14 +14,14 @@ export class ProductService {
  
   retrieveAllProductDetails():Observable<ProductDetails[]>{
     return this.http.get<ProductDetails[]>("http://localhost:9090/admin/product/allProductDetails")
- }
+  }
   retrieveFund():Observable<FundsDetails>{
-   return this.http.get<FundsDetails>("http://localhost:9090/user/addFunds/")
- }
+    return this.http.get<FundsDetails>("http://localhost:9090/user/addFunds/")
+  }
   user_cart(ProductDetails:any):any{
-  return this.http.post("http://localhost:9090/user/selectedOrders/", ProductDetails, {Response:JSON})
- }
+    return this.http.post("http://localhost:9090/user/selectedOrders/", ProductDetails, {Response:JSON})
+  }
   addTicket(TicketRef: any): any {
-  return this.http.post("http://localhost:9090/user/addTicket/", TicketRef, {Response:JSON})
-}
+    return this.http.post("http://localhost:9090/user/addTicket/", TicketRef, {Response:JSON})
+  }
 }
