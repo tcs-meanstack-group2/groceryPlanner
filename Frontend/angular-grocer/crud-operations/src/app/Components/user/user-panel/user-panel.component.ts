@@ -7,7 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
-
+  displayOrder: Boolean;
+  displayEdit: Boolean;
+  displayFunds: Boolean;
+  displayLogout: Boolean;
   constructor(public router: Router) { }
 
   ngOnInit(): void {
@@ -22,18 +25,29 @@ export class UserPanelComponent implements OnInit {
   checkOutLink(){}
 
   orderStatusLink(){
-    this.router.navigateByUrl('\customer\OrderStatus');
+    this.hideAll();
+    this.displayOrder = true;
   }
 
   editProfileLink(){
-    this.router.navigateByUrl('\customer\EditProfile');
+    this.hideAll();
+    this.displayEdit = true;
   }
 
   fundsLink(){
-    this.router.navigateByUrl('\customer\AddFunds');
+    this.hideAll();
+    this.displayFunds = true;
   }
 
   logoutLink(){
-    this.router.navigateByUrl('\customer\Logout');
+    this.hideAll();
+    this.displayLogout = true;
+  }
+
+  hideAll() {
+    this.displayOrder = false;
+    this.displayEdit = false;
+    this.displayFunds = false;
+    this.displayLogout = false;
   }
 }

@@ -19,6 +19,8 @@ import { EmployeeComponent } from './Components/employee/employee.component';
 import { RetrieveStatusComponent } from './Components/user/retrieve-status/retrieve-status.component';
 import { AddFundsComponent } from './Components/user/add-funds/add-funds.component';
 import { UserLogoutComponent } from './Components/user/user-logout/user-logout.component';
+import { CommonModule } from '@angular/common';
+import { UserPanelComponent } from './Components/user/user-panel/user-panel.component';
     
 @NgModule({
   declarations: [
@@ -36,11 +38,15 @@ import { UserLogoutComponent } from './Components/user/user-logout/user-logout.c
     EditProfileComponent,
     AddFundsComponent,
     UserLogoutComponent,
+    UserPanelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,HttpClientModule, BrowserAnimationsModule
+    FormsModule,
+    HttpClientModule, 
+    BrowserAnimationsModule,
+    CommonModule
   ],
   providers: [AdminAuthGuard],
   bootstrap: [AppComponent]
