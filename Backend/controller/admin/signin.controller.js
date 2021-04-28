@@ -12,14 +12,6 @@ let SignInFuction = (req,res)=> {
     //checking whether the request body cleared the validations 
     const errors = validationResult(req);
     //If any errors are present return the error message
-    if (!errors.isEmpty()) {
-        let errorMessage="";
-        errors.array().forEach(element => {
-            errorMessage=errorMessage+element.msg+"\n";
-        });
-        //return res.status(422).json(errorMessage);
-        return res.send(errorMessage);
-      }
       //Checking whether the id and password match the db credentials 
       //If pass make and return a jwt token
     SignInModel.find({_id:AdminId}[0],(err,data)=> {
@@ -28,10 +20,11 @@ let SignInFuction = (req,res)=> {
             {
             //res.send("Login Sucess");
             const token = jwt.encode(AdminId,jwtKey);
-            res.send(token);
+            res.send({token});
             }
             else{
-                res.send("Login Failure");
+                const token = "Enter Correct Credentials";
+                 res.send({token});
             }
         }
         else{
