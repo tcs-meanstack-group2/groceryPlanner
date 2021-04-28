@@ -16,13 +16,21 @@ export class UserPanelComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  selectItemsLink(){}
+  selectItemsLink(){
+    this.router.navigateByUrl('\user\product-list');
+  }
 
-  deleteItemsLink(){}
+  deleteItemsLink(){
+    this.router.navigateByUrl('\user\cart');
+  }
 
-  viewItemsLink(){}
+  viewItemsLink(){
+    this.router.navigateByUrl('\user\cart');
+  }
 
-  checkOutLink(){}
+  checkOutLink(){
+    this.router.navigateByUrl('\user\cart');
+  }
 
   orderStatusLink(){
     this.hideAll();
