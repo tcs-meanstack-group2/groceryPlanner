@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator');
 const EmployeeModel = require("../../model/employee/employee.model");
+const OrderModel = require("../../model/user/order.model");
 
 const addEmployeeDetails = (req,res)=> {
     const employee = new EmployeeModel({
@@ -33,6 +34,24 @@ const addEmployeeDetails = (req,res)=> {
 
 }
 
+const editOrder = (req,res)=> {
+    console.log("here you go");
+    let id = req.params.id;
+    let status = req.body.status;
+    OrderModel.updateOne({"_id": id}, {$set:{status: status}}, (err, result)=> {
+        if(!err){
+            console.log(result);
+            if(result.nModified > 0){
+                    res.send("Status updated successfully")
+            }else {
+                    res.send("Order not found");
+            }
+        }else {
+            res.send("Error generated " + err);
+        }
+    })
+}
+
 
 const deleteEmployeeDetails= (req,res)=> {
     const EmployeeID = req.params.id;
@@ -51,4 +70,4 @@ const deleteEmployeeDetails= (req,res)=> {
 }
 
 
-module.exports={addEmployeeDetails, deleteEmployeeDetails}
+module.exports={addEmployeeDetails, deleteEmployeeDetails, editOrder}

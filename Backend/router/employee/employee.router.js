@@ -12,5 +12,6 @@ check('Password').isString().withMessage('ProductQuantity should be a number')]
 ,EmployeeController.addEmployeeDetails);
 
 router.delete("/deleteEmployeeById/:id",EmployeeController.deleteEmployeeDetails);
+router.put("/updateOrder/:id",EmployeeController.editOrder);
 
 module.exports=router;

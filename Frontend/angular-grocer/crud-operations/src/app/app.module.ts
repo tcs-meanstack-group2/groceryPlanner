@@ -19,6 +19,10 @@ import { EmployeeComponent } from './Components/employee/employee.component';
 import { RetrieveStatusComponent } from './Components/user/retrieve-status/retrieve-status.component';
 import { AddFundsComponent } from './Components/user/add-funds/add-funds.component';
 import { UserLogoutComponent } from './Components/user/user-logout/user-logout.component';
+import { SendRequestComponent } from './Components/employee/send-request/send-request.component';
+import { UpdateOrderComponent } from './Components/employee/update-order/update-order.component';
+import { UnlockUserComponent } from './Components/employee/unlock-user/unlock-user.component';
+import { LogOutComponent } from './components/employee/log-out/log-out.component';
     
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { UserLogoutComponent } from './Components/user/user-logout/user-logout.c
     EditProfileComponent,
     AddFundsComponent,
     UserLogoutComponent,
+    SendRequestComponent,
+    UpdateOrderComponent,
+    UnlockUserComponent,
+    LogOutComponent,
   ],
   imports: [
     BrowserModule,

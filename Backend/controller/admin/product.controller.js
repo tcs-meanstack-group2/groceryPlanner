@@ -8,7 +8,7 @@ let addProductDetails = (req,res)=> {
     ProductModel.countDocuments().then((count) => {
         productCount=count+1; 
         console.log(productCount);    
-        //
+        console.log(req.body);
     let product = new ProductModel({
          _id:productCount,
          ProductName:req.body.ProductName,
