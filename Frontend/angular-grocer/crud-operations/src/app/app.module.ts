@@ -18,6 +18,7 @@ import {AdminPanelComponent} from './Components/admin/admin-panel/admin-panel.co
 import { EmployeeComponent } from './Components/employee/employee.component';
 import { RetrieveStatusComponent } from './Components/user/retrieve-status/retrieve-status.component';
 import { AddFundsComponent } from './Components/user/add-funds/add-funds.component';
+import { UserLogoutComponent } from './Components/user/user-logout/user-logout.component';
     
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AddFundsComponent } from './Components/user/add-funds/add-funds.compone
     RetrieveStatusComponent,
     EditProfileComponent,
     AddFundsComponent,
+    UserLogoutComponent,
   ],
   imports: [
     BrowserModule,
