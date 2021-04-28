@@ -9,7 +9,7 @@ let userSignInSchema = mongoose.Schema({
 
 
 
-let userSignInModel=mongoose.model("",userSignInSchema,"user")
+let userSignInModel=mongoose.model("",userSignInSchema,"UserDetails")
 
 
 module.exports = userSignInModel

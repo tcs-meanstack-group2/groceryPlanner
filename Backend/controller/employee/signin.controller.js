@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-let SignInModel= require("../../model/admin/signin.model.js")
+let SignInModel= require("../../model/employee/signin.model.js")
 
 let SignInFunction=(req,res)=>{
     let employeeId=req.body.employeeId;

@@ -14,6 +14,7 @@ userSignInModel.find({},(err,data)=>{
        }
 })
 }
+module.exports={userSignInFunction}
 /*
 userSignInModel.find({_id:userId},(err,data)=>{
     if(!err){
@@ -24,6 +25,6 @@ userSignInModel.find({_id:userId},(err,data)=>{
        }
 }) 
 */
-module.exports={userSignInFunction}
+
 
   

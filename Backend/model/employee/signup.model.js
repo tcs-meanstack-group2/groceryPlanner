@@ -10,7 +10,7 @@ let SignUpSchemaemp=mongoose.Schema({
    
 })
 
-let empSignUpModel=mongoose.model("",SignUpSchemaemp,"employee")
+let empSignUpModel=mongoose.model("",SignUpSchemaemp,"EmployeeDetails")
 
 
 
