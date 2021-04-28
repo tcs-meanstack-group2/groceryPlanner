@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
   selector: 'app-raise-ticket',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./raise-ticket.component.css']
 })
 export class RaiseTicketComponent implements OnInit {
-
-  constructor() { }
+Ticket?: string;
+  constructor(public productServ:ProductService) { }
 
   ngOnInit(): void {
   }
-
+  addTicket(TicketRef: any) {
+    this.productServ.addTicket(TicketRef).subscribe;
+    }
 }

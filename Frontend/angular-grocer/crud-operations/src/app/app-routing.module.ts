@@ -14,30 +14,12 @@ import { UserPanelComponent } from './Components/user/user-panel/user-panel.comp
 import { AdminAuthGuard } from './Guards/adminAuthGuard';
 import { CartComponent } from './Components/user/cart/cart.component';
 import { ProductListComponent } from './Components/user/product-list/product-list.component';
-
+import { EmployeePageComponent } from './Components/admin/employee-page/employee-page.component';
+import { GenerateReportsComponent } from './Components/admin/generate-reports/generate-reports.component';
 import { RaiseTicketComponent } from './Components/user/raise-ticket/raise-ticket.component';
 
 const routes: Routes = [
-  {path:"\home",component:MainPageComponent},
-  {path:"\admin\SignIn",component:AdminPageSignInComponent},
-  {path:"\admin\SignInForm",component:AdminPageSignInFormComponent},
-  {path:"\admin\DashBoard",component:AdminAddProductsComponent,canActivate:[AdminAuthGuard]},
-  {path:"\admin\UpdateProducts",component:AdminUpdateProductsComponent,canActivate:[AdminAuthGuard]},
-  {path:"\admin\DeleteProducts",component:AdminDeleteProductsComponent,canActivate:[AdminAuthGuard]},
-  {path:"\customer",component:UserPanelComponent},
-  {path:"\customer\OrderStatus",component:RetrieveStatusComponent},
-  {path:"\customer\EditProfile",component:EditProfileComponent},
-  {path:"\customer\AddFunds",component:AddFundsComponent},
-  {path:"\customer\Logout",component:UserLogoutComponent},
-  { path:"\user\product-list", component: ProductListComponent },
-  { path:"\user\cart", component: CartComponent },
-  { path:"\user\raise-ticket", component: RaiseTicketComponent },
-  {path:"",redirectTo:"\home",pathMatch:"full"}
 
-import { EmployeePageComponent } from './Components/admin/employee-page/employee-page.component';
-import { GenerateReportsComponent } from './Components/admin/generate-reports/generate-reports.component';
-
-const routes: Routes = [
   {path:"home",component:MainPageComponent},
   {path:"admin/SignIn",component:AdminPageSignInComponent},
   {path:"admin/SignInForm",component:AdminPageSignInFormComponent},
