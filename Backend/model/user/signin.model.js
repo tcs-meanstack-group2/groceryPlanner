@@ -5,8 +5,8 @@ let userSignInSchema = mongoose.Schema({
     _id:Number,
     Password:String,
     FirstName:String,
-        LastName:String,
-        EmailID:String,
+    LastName:String,
+    EmailID:String,
     DOB:Date,
     PhoneNumber:Number,
     Address:String,
@@ -17,7 +17,7 @@ let userSignInSchema = mongoose.Schema({
 
 
 
-let userSignInModel=mongoose.model("",userSignInSchema,"UserDetails")
+let userSignInModel=mongoose.model("userSignInModel",userSignInSchema,"UserDetails")
 
 
 module.exports = userSignInModel
