@@ -14,14 +14,14 @@ export class AdminPanelComponent implements OnInit {
   
   dashBoardLink(){
     console.log("dashboard");
-    this.router.navigateByUrl('\admin\DashBoard');
+    this.router.navigateByUrl('/admin/DashBoard');
   }
 
   deleteProductsLink(){
-    this.router.navigateByUrl('\admin\DeleteProducts');
+    this.router.navigateByUrl('/admin/DeleteProducts');
   }
 
   updateProductsLink(){
-    this.router.navigateByUrl('\admin\UpdateProducts');
+    this.router.navigateByUrl('/admin/UpdateProducts');
   }
 }
