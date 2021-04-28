@@ -1,0 +1,11 @@
+<div>
+    <h2>Add Funds to Your Account</h2>
+    <form #fundsRef="ngForm" (ngSubmit)="addFunds(fundsRef.value)">
+        <label>Account Number</label>
+        <input type="number" name="accNum" ngModel><br>
+        <label>Funds to Add</label>
+        <input type="number" name="funds" min="1" ngModel><br>
+        <input type="submit" value="Add Funds">
+    </form>
+    {{fundMsg}}
+</div>

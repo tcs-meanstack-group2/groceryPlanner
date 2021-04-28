@@ -18,4 +18,8 @@ export class UserService {
   editProfile(profileRef: any): any {
     return this.http.put("http://localhost:9090/user/editProfile/", profileRef, {responseType: 'text'})
   }
+
+  addFunds(fundsRef: any): any {
+    return this.http.put("http://localhost:9090/user/addFunds/", fundsRef, {responseType: 'text'})
+  }
 }
