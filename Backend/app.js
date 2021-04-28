@@ -45,4 +45,3 @@ app.use("/user", User);
 
 
 app.listen(9090,()=>console.log("Server running on port number 9090"));
-

@@ -1,0 +1,19 @@
+<form [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee()">
+    <div class="form-row">
+      <div class="col">
+        <input formControlName="firstName" name="firstName" type="text" class="form-control" placeholder="First Name">
+      </div>
+      <div class="col">
+        <input formControlName="lastName" name="lastName" type="text" class="form-control" placeholder="Last Name">
+      </div>
+      <div class="col">
+        <input formControlName="id" name="id" type="text" class="form-control" placeholder="Employee ID">
+      </div>
+      <div class="col">
+        <input formControlName="emailID" name="emailID" type="text" class="form-control" placeholder="Email">
+      </div>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+      </div>
+  </form>

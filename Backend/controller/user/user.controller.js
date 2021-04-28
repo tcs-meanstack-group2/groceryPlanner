@@ -59,4 +59,13 @@ let addFunds = (req,res)=> {
     })
 }
 
-module.exports = {getOrderById, editProfile, addFunds};
+let getFundsById = (req, res) => {
+    let id = req.params.id;
+    BankModel.find({_id: id}, (err, data) => {
+        if(!err) {
+            res.json(data);
+        }
+    })
+}
+
+module.exports = {getOrderById, editProfile, addFunds, getFundsById};
