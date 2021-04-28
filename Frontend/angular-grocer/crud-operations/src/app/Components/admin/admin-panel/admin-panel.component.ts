@@ -24,4 +24,12 @@ export class AdminPanelComponent implements OnInit {
   updateProductsLink(){
     this.router.navigateByUrl('/admin/UpdateProducts');
   }
+
+  checkEmployees(){
+    this.router.navigateByUrl('/admin/employees');
+  }
+
+  generateReports(){
+    this.router.navigateByUrl('/admin/GenerateReports');
+  }
 }

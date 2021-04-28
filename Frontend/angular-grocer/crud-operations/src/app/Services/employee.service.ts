@@ -1,32 +1,36 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-// import { Employee } from '../Classes/employee.model';
+import { Observable } from 'rxjs';
+import { Employee } from '../Classes/employee.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
+  ipAddress:string="http://localhost:9090";
 
   constructor(private http:HttpClient) { }
 
   signIn(EmployeeId:string,Password:string){
     console.log(EmployeeId+Password);
-    return this.http.post('http://localhost:9090/employee/employeeSignIn',{EmployeeId,Password});
+    return this.http.post(this.ipAddress+ '/employee/employeeSignIn',{EmployeeId,Password});
   };
   signUp(EmployeeId:string,Password:string,FirstName:String,LastName:String,EmailID:String){
     console.log(EmployeeId+Password+FirstName+LastName+EmailID);
-    return this.http.post('http://localhost:9090/employee/employeeSignUp',{EmployeeId,Password,FirstName,LastName,EmailID});
+    return this.http.post(this.ipAddress+ '/employee/employeeSignUp',{EmployeeId,Password,FirstName,LastName,EmailID});
   };
 
-  ipAddress:string="http://localhost:9090";
+  getEmployeeDetails():Observable<Employee[]>{
+    return this.http.get<Employee[]>(this.ipAddress+"/admin/employee/getEmployeeDetails")
+ }
 
   addEmployee(employee:any){
-    this.http.post(this.ipAddress+"/employee/addEmployeeDetails",employee,{responseType:"text"}).
+    this.http.post(this.ipAddress+"/admin/employee/addEmployeeDetails",employee,{responseType:"text"}).
     subscribe(result=>console.log(result),error=>console.log(error));
   }
   //by default all HttpClient method return type is observable with json format data. 
-  deleteProductById(empID:any):any{
-    return this.http.delete(this.ipAddress+"/employee/deleteEmployeeById/"+empID,{responseType:'text'});
+  deleteEmployee(empID:any):any{
+    return this.http.delete(this.ipAddress+"/admin/employee/deleteEmployeeById/"+empID,{responseType:'text'});
   }
 
 }

@@ -14,6 +14,8 @@ import { UserPanelComponent } from './Components/user/user-panel/user-panel.comp
 import { AdminAuthGuard } from './Guards/adminAuthGuard';
 import { CartComponent } from './Components/user/cart/cart.component';
 import { ProductListComponent } from './Components/user/product-list/product-list.component';
+import { EmployeePageComponent } from './Components/admin/employee-page/employee-page.component';
+import { GenerateReportsComponent } from './Components/admin/generate-reports/generate-reports.component';
 
 const routes: Routes = [
   {path:"home",component:MainPageComponent},
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path:"admin/DashBoard",component:AdminAddProductsComponent,canActivate:[AdminAuthGuard]},
   {path:"admin/UpdateProducts",component:AdminUpdateProductsComponent,canActivate:[AdminAuthGuard]},
   {path:"admin/DeleteProducts",component:AdminDeleteProductsComponent,canActivate:[AdminAuthGuard]},
+  {path:"admin/employees", component: EmployeePageComponent},
+  {path:"admin/GenerateReports", component: GenerateReportsComponent},
   {path:"user",component:UserPanelComponent},
   {path:"user/OrderStatus",component:RetrieveStatusComponent},
   {path:"user/EditProfile",component:EditProfileComponent},
