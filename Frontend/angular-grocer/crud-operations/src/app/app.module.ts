@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SigninComponent } from './Components/employee/signin/signin.component';
+import { SignupComponent } from './Components/employee/signup/signup.component';
 import { EditProfileComponent } from './Components/user/edit-profile/edit-profile.component';
 import { MainPageComponent } from './components/mainPage/main-page/main-page.component';
 import { AdminPageSignInComponent } from './components/admin/admin-page-sign-in/admin-page-sign-in.component';
@@ -38,7 +40,9 @@ import { UserPanelComponent } from './Components/user/user-panel/user-panel.comp
     EditProfileComponent,
     AddFundsComponent,
     UserLogoutComponent,
-    UserPanelComponent
+    UserPanelComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
