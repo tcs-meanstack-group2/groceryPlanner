@@ -11,5 +11,6 @@ export class UserHomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  userSignUp(){}
+  userSignIn(){}
 }
