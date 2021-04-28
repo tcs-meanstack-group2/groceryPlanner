@@ -30,7 +30,6 @@ const routes: Routes = [
   {path:"user/Logout",component:UserLogoutComponent},
   {path:"user/product-list", component: ProductListComponent },
   {path:"user/cart", component: CartComponent },
-  { path: 'admin/employees', component: EmployeeComponent },
   {path:"",redirectTo:"home",pathMatch:"full"}
 ];
 
