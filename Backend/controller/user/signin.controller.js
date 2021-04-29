@@ -5,7 +5,7 @@ let userSignInFunction = (req,res)=> {
     let UserId = req.body.UserId;       
     let Password = req.body.Password;
    
-        let User=  userSignInModel.findOne({_id:UserId,Password:Password}, (err,data)=>{
+        let User =  userSignInModel.findOne({_id:UserId,Password:Password}, (err,data)=>{
        if(data._id==UserId && data.Password==Password){ res.send("Login Sucess");
          
         }else{

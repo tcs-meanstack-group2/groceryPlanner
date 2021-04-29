@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Employee } from '../Model/employee.model';
 import { Order } from '../order.model';
+import { TicketDetails } from '../Model/ticket.model'
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,13 @@ export class EmployeeService {
 
   getOrders() {
     return this.http.get<Order[]>("http://localhost:9090/employee/getOrders");
+  }
 
+  getTickets() {
+    return this.http.get<TicketDetails[]>("http://localhost:9090/employee/getTickets");
+  }
+
+  unlockUser(userRef: any) {
+    return this.http.put(this.ipAddress + "/employee/unlockUser/", userRef, {responseType: 'text'})
   }
 }

@@ -11,7 +11,8 @@ let userSignInSchema = mongoose.Schema({
     PhoneNumber:Number,
     Address:String,
     Funds:Number,
-    AccountNumber:Number
+    AccountNumber:Number,
+    LoginAttempts: Number
 })
 
 

@@ -34,9 +34,9 @@ import { UpdateOrderComponent } from './Components/employee/update-order/update-
 import { EmployeePanelComponent } from './Components/employee/employee-panel/employee-panel.component';
 import { EmployeeSigninComponent } from './Components/employee/employee-signin/employee-signin.component';
 import { EmployeeProfileComponent } from './Components/employee/employee-profile/employee-profile.component';
-import {UserSiginSignUpTicketFormComponent} from './Components/user/user-sigin-sign-up-ticket-form/user-sigin-sign-up-ticket-form.component';
-import {UserSignInComponent} from './Components/user/user-sign-in/user-sign-in.component';
-import {UserSignUpComponent} from './Components/user/user-sign-up/user-sign-up.component';
+import { UnlockUsersComponent } from './Components/employee/unlock-users/unlock-users.component';
+import { UserSignInComponent } from './Components/user/user-sign-in/user-sign-in.component';
+import { UserSignUpComponent } from './Components/user/user-sign-up/user-sign-up.component';
     
 @NgModule({
   declarations: [
@@ -70,9 +70,10 @@ import {UserSignUpComponent} from './Components/user/user-sign-up/user-sign-up.c
     UpdateOrderComponent,
     EmployeePanelComponent,
     EmployeeProfileComponent,
-    UserSiginSignUpTicketFormComponent,
+    EmployeeSigninComponent,
     UserSignInComponent,
-    UserSignUpComponent
+    UserSignUpComponent,
+    UnlockUsersComponent
   ],
   imports: [
     BrowserModule,
