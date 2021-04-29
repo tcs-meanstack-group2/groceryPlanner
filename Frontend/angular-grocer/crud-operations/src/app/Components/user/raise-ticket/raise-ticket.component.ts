@@ -14,7 +14,9 @@ Ticket?: String;
   }
   
   addTicket(TicketRef: any) {
-    this.productServ.addTicket(TicketRef).subscribe;
-    alert("Ticket Stored! Thank you..")
+    this.productServ.addTicket(TicketRef);
+    alert("Ticket Submitted Successfully! Thank you..")
+    var user = document.getElementById("user");
+    user.innerHTML = "";
     }
 }

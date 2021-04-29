@@ -38,7 +38,10 @@ var User = require("./router/user/user.router.js");
 const Employee = require("./router/employee/employee.router.js");
 const Reports = require("./router/admin/reports.router.js");
 const ProdRequests = require("./router/admin/requests.router.js");
+var TicketRequest = require("./router/user/user.router")
+var Orders = require("./router/user/user.router")
 const empSignIn = require("./router/employee/signin.router.js");
+
 
 
 app.use("/admin/product",Product);
@@ -48,9 +51,11 @@ app.use("/admin/reports",Reports);
 app.use("/admin",ProdRequests);
 
 
+
+
 app.use("/user", User);
-app.use("/user/selectedOrders", User)
-app.use("/user/addTicket" , User)
+app.use("/user/orderSelected", Orders)
+app.use("/user/addTicket" , TicketRequest )
 
 app.use("/employee", Employee)
 
