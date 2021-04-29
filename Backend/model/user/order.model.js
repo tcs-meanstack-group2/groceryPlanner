@@ -7,7 +7,8 @@ let OrderSchema = mongoose.Schema({
     userID: Number,
     status: String,
     amount: Number,
-    timestamp: Date
+    timestamp: Date, 
+    // products: [ { productID: String, productQuantity: Number} ]
 });
 
 let OrderModel = mongoose.model("orderModel", OrderSchema, "Orders");
