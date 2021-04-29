@@ -12,4 +12,4 @@ let selectedOrdersSchema = mongoose.Schema({
 
 let SelectedOrdersModel = mongoose.model("selectedOrders", selectedOrdersSchema, "Orders");
 
-module.exports = TicketModel;
+module.exports = SelectedOrdersModel;

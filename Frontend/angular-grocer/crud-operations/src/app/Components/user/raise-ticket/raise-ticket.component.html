@@ -8,13 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Chat Here!</h2>
+    <h2>Raise a ticket here!</h2>
+    <div class="form-group">
     <form #TicketRef="ngForm" (ngSubmit)="addTicket(TicketRef.value)">
         <label>User Id</label>
         <input type="text" name="user_id" ngModel><br/>
         <label>Message</label>
         <input type="text" name="ticket_message" ngModel><br/>
-        <input type="submit" value="submit"/>
+        <input type="submit" value="add ticket" />
     </form>
+    </div>
 </body>
 </html>

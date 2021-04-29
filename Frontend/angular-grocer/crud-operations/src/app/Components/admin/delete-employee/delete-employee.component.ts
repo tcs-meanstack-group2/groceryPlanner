@@ -21,8 +21,8 @@ export class DeleteEmployeeComponent implements OnInit {
   }
 
   deleteEmployee() {
-    const empID = this.deleteEmployeeForm.value; //int parsing handled server-side
-    this.empService.deleteEmployee(empID);
+    const { id } = this.deleteEmployeeForm.value; //int parsing handled server-side  
+    this.empService.deleteEmployee(id);
 
     //send alert employee added
     //refresh page

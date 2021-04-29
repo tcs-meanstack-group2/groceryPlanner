@@ -19,6 +19,7 @@ import { GenerateReportsComponent } from './Components/admin/generate-reports/ge
 import { RaiseTicketComponent } from './Components/user/raise-ticket/raise-ticket.component';
 
 const routes: Routes = [
+
   {path:"home",component:MainPageComponent},
   {path:"admin/SignIn",component:AdminPageSignInComponent},
   {path:"admin/SignInForm",component:AdminPageSignInFormComponent},
@@ -26,8 +27,8 @@ const routes: Routes = [
   {path:"admin/UpdateProducts",component:AdminUpdateProductsComponent,canActivate:[AdminAuthGuard]},
   {path:"admin/DeleteProducts",component:AdminDeleteProductsComponent,canActivate:[AdminAuthGuard]},
   {path:"admin/employees", component: EmployeePageComponent},
-  {path:"admin/GenerateReports", component: GenerateReportsComponent},
   {path:"user",component:UserPanelComponent},
+  {path:"admin/GenerateReports", component: GenerateReportsComponent},
   {path:"user/OrderStatus",component:RetrieveStatusComponent},
   {path:"user/EditProfile",component:EditProfileComponent},
   {path:"user/AddFunds",component:AddFundsComponent},

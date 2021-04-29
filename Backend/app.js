@@ -36,14 +36,16 @@ var Product = require("./router/admin/product.router.js");
 var adminSignIn=require("./router/admin/signin.router.js");
 var User = require("./router/user/user.router.js");
 const Employee = require("./router/employee/employee.router.js");
+const Reports = require("./router/admin/reports.router.js");
 
 
 app.use("/admin/product",Product);
 app.use("/admin",adminSignIn);
 app.use("/admin/employee",Employee);
+app.use("/admin/reports",Reports);
 
 app.use("/user", User);
-app.use("user/selectedOrders")
-app.use("user/addTicket")
+app.use("/user/selectedOrders", User)
+app.use("/user/addTicket" , User)
 
 app.listen(9090,()=>console.log("Server running on port number 9090"));
