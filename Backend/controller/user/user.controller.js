@@ -62,25 +62,31 @@ let addFunds = (req,res)=> {
 
 
 let addTicket = (req,res)=> {
-    let user_id = req.body.user_id;
-    let ticket_message = req.body.ticket_message;
-    TicketModel.insertOne({user_id:user_id}, {ticket_message:ticket_message}, (err1,result) => {
-        if(!err){
-            res.send("Ticket stored successfully ")
-            
-        }else {
-            res.send("Record didn't store, Try again! ");
-        }
+   
+    let addTicket = new TicketModel({
+        User_id:req.body.User_id,
+        ticket_message:req.body.ticket_message,
     });
-}               
+    addTicket.save((err,result)=> {
+        if(!err){
+            res.send("Ticket submitted successfully ")
+            //res.json({"msg":"Record stored successfully"})
+        }else {
+            res.send("Ticket didn't store ");
+        }
+    })
+
+}             
 
 let orderSelected = (req,res)=> {
-    let _id = req.body._id;
-    let ProductName = req.body.ProductName;
-    let ProductPrice = req.body.ProductPrice;
-    let ProductQuantity = req.body.ProductQuantity;
-    let Discount = req.body.Discountl
-    SelectedOrdersModel.insertOne({_id:_id}, {ProductName:ProductName},{ProductPrice:ProductPrice}, {ProductQuantity:ProductQuantity}, {Discount:Discount}, (err1,result) => {
+    let orderSelected = new SelectedOrdersModel({
+         _id = req.body._id,
+        ProductName = req.body.ProductName,
+        ProductPrice = req.body.ProductPrice,
+        ProductQuantity = req.body.ProductQuantity,
+        Discount = req.body.Discountl
+    });
+    orderSelected.save((err1,result)=> {
         if(!err){
             res.send("Orders Stored Successfully ")
             
