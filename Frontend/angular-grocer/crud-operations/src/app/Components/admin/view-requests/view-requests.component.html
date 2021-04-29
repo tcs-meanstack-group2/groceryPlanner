@@ -3,7 +3,7 @@
 <h2>Employee Product Change Requests</h2>
 <hr>
 
-<div *ngIf="requests else noData">
+<div *ngIf="requests.length!==0; else noData">
 
     <table class="table table-striped">
         <thead>
@@ -12,7 +12,7 @@
             <th scope="col">Employee Id</th>
             <th scope="col">Product Id</th>
             <th scope="col">Product Quantity</th>
-            <!-- <th scope="col">Status</th>? -->
+            <!-- <th scope="col">Request string?</th>? -->
           </tr>
         </thead>
         <tbody>
@@ -21,7 +21,7 @@
                 <td>{{ request._id }}</td>
                 <td>{{ request.EmployeeID }}</td>
                 <td>{{ request.ProductID }}</td>
-                <td>{{ request.ProductQuantity }}</td>
+                <td>{{ request.ProductQuantity }}</td> 
 
               </tr>
         </tbody>
@@ -30,5 +30,5 @@
 </div>
 
 <ng-template #noData>
-    <h3>There are no requests.</h3>
+    <h3>There are no change requests.</h3>
 </ng-template>
