@@ -13,7 +13,7 @@ export class EmployeeService {
 
   signIn(EmployeeId:string,Password:string){
     console.log(EmployeeId+Password);
-    return this.http.post(this.ipAddress+ '/employee/employeeSignIn',{EmployeeId,Password});
+    return this.http.post<{token:string}>(this.ipAddress+ '/employee/employeeSignIn',{EmployeeId,Password});
   };
   signUp(EmployeeId:string,Password:string,FirstName:String,LastName:String,EmailID:String){
     console.log(EmployeeId+Password+FirstName+LastName+EmailID);

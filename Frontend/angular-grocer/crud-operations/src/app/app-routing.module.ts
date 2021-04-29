@@ -45,6 +45,7 @@ const routes: Routes = [
   { path:"user/raise-ticket", component: RaiseTicketComponent },
   { path:"employee", component: EmployeePanelComponent },
   { path:"employee/updateOrder", component: UpdateOrderComponent },
+  {path:"employee/DashBoard",component:UpdateOrderComponent},
   {path:"",redirectTo:"home",pathMatch:"full"}
 
 ];
