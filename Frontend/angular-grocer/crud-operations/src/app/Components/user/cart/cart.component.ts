@@ -51,9 +51,9 @@ export class CartComponent implements OnInit {
         var newCol7 = rows.insertCell(6);
         var delete_btn = document.createElement('button');
         delete_btn.innerHTML = "delete item";
-        delete_btn.addEventListener('click', function(){
-          user_cart_items.splice(parseInt(delete_btn.id), 1);
-        } );
+        //delete_btn.addEventListener('click', function(){
+          //user_cart_items.splice(parseInt(delete_btn.id), 1);
+        //} );
        newCol7.appendChild(delete_btn);
       }
       
