@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ProductDetails } from '../Model/model.productmodel';
 import { FundsDetails } from '../Model/funds.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,11 +14,22 @@ export class ProductService {
  
   retrieveAllProductDetails():Observable<ProductDetails[]>{
     return this.http.get<ProductDetails[]>("http://localhost:9090/admin/product/allProductDetails")
- }
+  }
   retrieveFund():Observable<FundsDetails>{
-   return this.http.get<FundsDetails>("http://localhost:9090/user/addFunds/")
- }
+    return this.http.get<FundsDetails>("http://localhost:9090/user/addFunds/")
+  }
   user_cart(ProductDetails:any):any{
-  return this.http.put("http://localhost:9090/user/cart/", {Response:JSON})
+<<<<<<< HEAD
+  return this.http.post("http://localhost:9090/user/selectedOrders/", ProductDetails)
  }
+  addTicket(ticketRef: any): any {
+  return this.http.post("http://localhost:9090/user/addTicket/", ticketRef)
+}
+=======
+    return this.http.post("http://localhost:9090/user/selectedOrders/", ProductDetails, {Response:JSON})
+  }
+  addTicket(TicketRef: any): any {
+    return this.http.post("http://localhost:9090/user/addTicket/", TicketRef, {Response:JSON})
+  }
+>>>>>>> 1b70ee48db029ce4a77b784fea71d5e8553f45d7
 }

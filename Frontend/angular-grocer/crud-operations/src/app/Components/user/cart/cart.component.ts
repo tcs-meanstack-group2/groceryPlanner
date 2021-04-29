@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductDetails } from '../../../Model/model.productmodel';
+import { ProductService } from '../../../Services/product.service';
+import { FundsDetails } from '../../../Model/funds.model';
 import { Router } from '@angular/router'
-import { ProductDetails } from 'src/app/Model/model.productmodel';
-import { ProductService } from 'src/app/Services/product.service';
-import { FundsDetails } from 'src/app/Model/funds.model';
+
 
 @Component({
   selector: 'app-cart',
@@ -94,7 +95,7 @@ export class CartComponent implements OnInit {
     
       if( check_fund_total <= this.funds){
         alert("Thank you! Order got placed");
-        this.productSer.user_cart(ProductDetails).subscribe
+        this.productSer.user_cart(ProductDetails).subscribe;
 
       }else {
         alert("Insufficient funds! Please Add more funds ");
