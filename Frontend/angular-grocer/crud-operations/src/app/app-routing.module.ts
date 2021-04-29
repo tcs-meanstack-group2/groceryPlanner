@@ -14,6 +14,11 @@ import { UserPanelComponent } from './Components/user/user-panel/user-panel.comp
 import { AdminAuthGuard } from './Guards/adminAuthGuard';
 import { CartComponent } from './Components/user/cart/cart.component';
 import { ProductListComponent } from './Components/user/product-list/product-list.component';
+import { EmpHomeComponent } from './Components/employee/emp-home/emp-home.component';
+import { UserHomeComponent } from './Components/user/user-home/user-home.component';
+import { EmployeePanelComponent } from './Components/employee/employee-panel/employee-panel.component';
+import { SignupComponent } from './Components/employee/signup/signup.component';
+import { SigninComponent } from './Components/employee/signin/signin.component';
 
 const routes: Routes = [
   {path:"home",component:MainPageComponent},
@@ -22,13 +27,18 @@ const routes: Routes = [
   {path:"admin/DashBoard",component:AdminAddProductsComponent,canActivate:[AdminAuthGuard]},
   {path:"admin/UpdateProducts",component:AdminUpdateProductsComponent,canActivate:[AdminAuthGuard]},
   {path:"admin/DeleteProducts",component:AdminDeleteProductsComponent,canActivate:[AdminAuthGuard]},
-  {path:"user",component:UserPanelComponent},
+  {path:"user",component:UserHomeComponent},
+  {path:"user/SignIn",component:SigninComponent},
+  {path:"employee/SignUp",component:SignupComponent},
   {path:"user/OrderStatus",component:RetrieveStatusComponent},
   {path:"user/EditProfile",component:EditProfileComponent},
   {path:"user/AddFunds",component:AddFundsComponent},
   {path:"user/Logout",component:UserLogoutComponent},
   {path:"user/product-list", component: ProductListComponent },
   {path:"user/cart", component: CartComponent },
+  {path:"employee",component:EmpHomeComponent},
+  {path:"employee/SignIn",component:SigninComponent},
+  {path:"employee/SignUp",component:SignupComponent},
   {path:"",redirectTo:"home",pathMatch:"full"}
 ];
 
