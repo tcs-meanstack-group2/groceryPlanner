@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SigninComponent } from './Components/employee/signin/signin.component';
 import { SignupComponent } from './Components/employee/signup/signup.component';
 import { EditProfileComponent } from './Components/user/edit-profile/edit-profile.component';
 import { MainPageComponent } from './components/mainPage/main-page/main-page.component';
@@ -33,6 +32,8 @@ import { ViewRequestsComponent } from './Components/admin/view-requests/view-req
 import { ProductListComponent } from './Components/user/product-list/product-list.component';
 import { UpdateOrderComponent } from './Components/employee/update-order/update-order.component';
 import { EmployeePanelComponent } from './Components/employee/employee-panel/employee-panel.component';
+import { EmployeeSigninComponent } from './Components/employee/employee-signin/employee-signin.component';
+import { EmployeeProfileComponent } from './Components/employee/employee-profile/employee-profile.component';
 
     
 @NgModule({
@@ -53,7 +54,7 @@ import { EmployeePanelComponent } from './Components/employee/employee-panel/emp
     UserLogoutComponent,
     UserPanelComponent,
     RaiseTicketComponent,
-    SigninComponent,
+    EmployeeSigninComponent,
     SignupComponent,
     AddEmployeeComponent,
     DeleteEmployeeComponent,
@@ -65,7 +66,9 @@ import { EmployeePanelComponent } from './Components/employee/employee-panel/emp
     UpdateOrderComponent,
     ReportsTableComponent,
     UpdateOrderComponent,
-    EmployeePanelComponent
+    EmployeePanelComponent,
+    EmployeeProfileComponent,
+    EmployeeSigninComponent
   ],
   imports: [
     BrowserModule,

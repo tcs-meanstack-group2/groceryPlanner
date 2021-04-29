@@ -1,5 +1,5 @@
 <div>
-    <h2>Edit Profile</h2>
+    <h2>Change Order Status</h2>
     <div class="form-group">
         <form #orderRef="ngForm" (ngSubmit)="editOrder(orderRef.value)">
             <label>Order ID: </label>
@@ -13,5 +13,21 @@
         <br>
         <br>
         {{orderMsg}}
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Order ID</th>
+                    <th>Order Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders">
+                    <td>{{order._id}}</td>
+                    <td>{{order.status}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
