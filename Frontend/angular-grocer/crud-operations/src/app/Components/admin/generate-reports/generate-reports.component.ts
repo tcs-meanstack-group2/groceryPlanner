@@ -32,7 +32,6 @@ export class GenerateReportsComponent implements OnInit {
   getDailyReport() {
     const {date} = this.dailyReportForm.value;
 
-
     this.adminService.generateDailyReport(date);
   }
 
