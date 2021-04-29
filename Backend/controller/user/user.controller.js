@@ -3,6 +3,8 @@ let UserModel = require("../../model/user/user.model.js")
 let BankModel = require("../../model/user/bank.model.js")
 let TicketModel = require("../../model/user/ticket.model")
 let SelectedOrdersModel = require("../../model/user/selectedOrders.model")
+let SignInModel= require("../../model/user/signin.model")
+const jwt = require('jwt-simple');
 // Retrieving Order status from Mongo Database
 let getOrderById = (req, res) => {
     let id = req.params.id;
@@ -11,6 +13,73 @@ let getOrderById = (req, res) => {
             res.json(data);
         }
     })
+}
+
+let SignInFunction=  (req,res)=>{
+  
+    let UserId=req.body.UserId
+    let Password=req.body.Password
+    let jwtKey="skjdbfksjdbf";
+    console.log(UserId);
+     SignInModel.findOne({_id:UserId},(err,data)=>{
+        console.log(Password);
+        console.log(data.password);
+       if(data==null)
+       {
+        const token = "Enter Correct ID";
+        res.send({token});
+       }
+      else if(data.password!=Password)
+      {
+        const token = "Enter Correct password";
+        res.send({token});
+      }
+      else{
+        const token = jwt.encode(UserId,jwtKey);
+        res.send({token});
+      }
+    });
+
+
+}
+
+let SignUpFunction = (req,res)=> {
+
+    let userCount;
+    //
+    UserModel.countDocuments().then((count) => {
+        userCount=count+101; 
+        console.log(userCount); 
+        console.log(req.body.newFname); 
+        console.log(req.body.newLname); 
+        console.log(req.body.newEmail); 
+        console.log(req.body.pass); 
+        console.log(req.body.newDob); 
+        console.log(req.body.newPhone); 
+        console.log(req.body.newAdd);   
+    let user = new UserModel({
+         _id:userCount,
+         fName:req.body.newFname,
+         lName:req.body.newLname,
+         email:req.body.newEmail,
+         password:req.body.pass,
+         dob:req.body.newDob,
+         pNumber:req.body.newPhone,
+         address:req.body.newAdd,
+         funds: 500,
+         accNumber: 200
+     });
+   
+     user.save((err,result)=> {
+         if(!err){
+             res.send("user added successfully ")
+         }else {
+             console.log(err);
+             res.send("user didn't add ");
+         }
+     })
+    });
+    //
 }
 
 let editProfile = (req,res)=> {
@@ -105,5 +174,5 @@ let getFundsById = (req, res) => {
     })
 }
 
-module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, orderSelected};
+module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, orderSelected,SignInFunction,SignUpFunction};
 
