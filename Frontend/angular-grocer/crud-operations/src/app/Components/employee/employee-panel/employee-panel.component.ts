@@ -25,5 +25,8 @@ export class EmployeePanelComponent implements OnInit {
 
   editProfileLink(){}
 
-  logoutLink(){}
+  logoutLink(){
+    sessionStorage.clear();
+    this.router.navigateByUrl("");
+  }
 }

@@ -31,6 +31,7 @@ import { CartComponent } from './Components/user/cart/cart.component';
 import { ReportsTableComponent } from './Components/admin/reports-table/reports-table.component';
 import { ViewRequestsComponent } from './Components/admin/view-requests/view-requests.component';
 import { ProductListComponent } from './Components/user/product-list/product-list.component';
+import { UpdateOrderComponent } from './Components/employee/update-order/update-order.component';
 
     
 @NgModule({
@@ -58,9 +59,10 @@ import { ProductListComponent } from './Components/user/product-list/product-lis
     GenerateReportsComponent,
     CartComponent,
     ProductListComponent,
-    ReportsTableComponent,
     ViewRequestsComponent,
-    ProductListComponent
+    ProductListComponent,
+    UpdateOrderComponent,
+    ReportsTableComponent
   ],
   imports: [
     BrowserModule,
