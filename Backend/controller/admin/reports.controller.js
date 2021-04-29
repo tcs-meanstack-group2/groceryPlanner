@@ -13,14 +13,14 @@ const getMonthlyReport = (req, res) => {
 
 const getDailyReport = (req, res) => {
     const date =  new Date(req.params.date);
-    const month = date.getMonth();
+    const month = date.getMonth() + 1;
     const day = date.getDate();
     const year = date.getFullYear();
 
     OrderModel.find({
         $and: [
           { $expr: {$eq: [{$month: "$timestamp"}, month]} },
-          { $expr: {$eq: [{$day: "$timestamp"}, day]} },
+          { $expr: {$eq: [{$dayOfMonth: "$timestamp"}, day]} },
           { $expr: {$eq: [{$year: "$timestamp"}, year]} }
         ]
       }, (err, result) => {
