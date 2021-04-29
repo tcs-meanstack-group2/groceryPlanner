@@ -21,23 +21,36 @@ let SignInFunction=  (req,res)=>{
     let Password=req.body.Password
     let jwtKey="skjdbfksjdbf";
     console.log(UserId);
-     SignInModel.findOne({_id:UserId},(err,data)=>{
+    SignInModel.findOne({_id:UserId},(err,data)=>{
         console.log(Password);
-        console.log(data.password);
-       if(data==null)
-       {
-        const token = "Enter Correct ID";
-        res.send({token});
-       }
-      else if(data.password!=Password)
-      {
-        const token = "Enter Correct password";
-        res.send({token});
-      }
-      else{
-        const token = jwt.encode(UserId,jwtKey);
-        res.send({token});
-      }
+        if(data.LoginAttempts > 0) {
+            if(data == null) {
+                const token = "Enter Correct ID";
+                res.send({token});
+            }
+            else if(data.password!=Password) {
+                const token = "Enter correct password. You have " + data.LoginAttempts + " attempts remaining.";
+                res.send({token});
+                SignInModel.updateOne({_id:UserId}, {$inc: {LoginAttempts: -1}}, (err,data)=>{
+                    if(err) {
+                        console.log(err);
+                    }
+                });
+            }
+            else{
+                const token = jwt.encode(UserId,jwtKey);
+                res.send({token});
+                SignInModel.updateOne({_id:UserId}, {$set: {LoginAttempts: 3}}, (err,data)=>{
+                    if(err) {
+                        console.log(err);
+                    }
+                });
+            }
+        }
+        else {
+            const token = "You have no valid login attempts remaining. Please raise a ticket to reset your account.";
+            res.send({token});
+        }
     });
 
 
@@ -58,16 +71,17 @@ let SignUpFunction = (req,res)=> {
         console.log(req.body.newPhone); 
         console.log(req.body.newAdd);   
     let user = new UserModel({
-         _id:userCount,
-         fName:req.body.newFname,
-         lName:req.body.newLname,
-         email:req.body.newEmail,
-         password:req.body.pass,
-         dob:req.body.newDob,
-         pNumber:req.body.newPhone,
-         address:req.body.newAdd,
-         funds: 500,
-         accNumber: 200
+        _id:userCount,
+        fName:req.body.newFname,
+        lName:req.body.newLname,
+        email:req.body.newEmail,
+        password:req.body.pass,
+        dob:req.body.newDob,
+        pNumber:req.body.newPhone,
+        address:req.body.newAdd,
+        funds: 500,
+        accNumber: 200,
+        LoginAttempts: 3
      });
    
      user.save((err,result)=> {
@@ -133,7 +147,7 @@ let addFunds = (req,res)=> {
 let addTicket = (req,res)=> {
    
     let addTicket = new TicketModel({
-        User_id:req.body.User_id,
+        _id:req.body.User_id,
         ticket_message:req.body.ticket_message,
     });
     addTicket.save((err,result)=> {
@@ -149,13 +163,13 @@ let addTicket = (req,res)=> {
 
 let orderSelected = (req,res)=> {
     let orderSelected = new SelectedOrdersModel({
-        _id : req.body._id,
-        ProductName : req.body.ProductName,
-        ProductPrice : req.body.ProductPrice,
-        ProductQuantity : req.body.ProductQuantity,
-        Discount : req.body.Discount
+         _id: req.body.id,
+        ProductName: req.body.ProductName,
+        ProductPrice: req.body.ProductPrice,
+        ProductQuantity: req.body.ProductQuantity,
+        Discount: req.body.Discountl
     });
-    orderSelected.save((err,result)=> {
+    orderSelected.save((err1,result)=> {
         if(!err){
             res.send("Orders Stored Successfully ")
             
@@ -174,5 +188,5 @@ let getFundsById = (req, res) => {
     })
 }
 
-module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, orderSelected,SignInFunction,SignUpFunction};
+module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, orderSelected, SignInFunction, SignUpFunction};
 

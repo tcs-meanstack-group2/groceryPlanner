@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ProductService } from 'src/app/Services/product.service';
 })
 export class RaiseTicketComponent implements OnInit {
 Ticket?: String;
-  constructor(public productServ:ProductService) { }
+  constructor(public productServ:ProductService, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -16,7 +17,6 @@ Ticket?: String;
   addTicket(TicketRef: any) {
     this.productServ.addTicket(TicketRef);
     alert("Ticket Submitted Successfully! Thank you..")
-    var user = document.getElementById("user");
-    user.innerHTML = "";
+    this.router.navigateByUrl("");
     }
 }

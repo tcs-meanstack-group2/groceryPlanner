@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../../../Services/user.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { UserService } from '../../../Services/user.service';
 })
 export class UserSignUpComponent implements OnInit {
   updateMsg?: string;
-  constructor(public userServ: UserService) { }
+  constructor(public userServ: UserService, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +19,8 @@ export class UserSignUpComponent implements OnInit {
     this.userServ.signUp(profileRef).subscribe((result: string) => {
       this.updateMsg = result;
     })
+
+    this.router.navigateByUrl("");
   }
 
 }

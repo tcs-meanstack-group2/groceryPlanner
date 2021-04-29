@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EmployeePanelComponent implements OnInit {
   displayOrder = true;
+  displayUnlock: boolean;
   displayProfile: boolean;
   constructor(public router:Router) { }
 
@@ -25,7 +26,10 @@ export class EmployeePanelComponent implements OnInit {
     this.displayOrder = true;
   }
 
-  unlockUsersLink(){}
+  unlockUsersLink(){
+    this.hideAll();
+    this.displayUnlock = true;
+  }
 
   editProfileLink(){
     this.hideAll();
@@ -39,6 +43,7 @@ export class EmployeePanelComponent implements OnInit {
 
   hideAll() {
     this.displayOrder = false;
+    this.displayUnlock = false;
     this.displayProfile = false;
   }
 }
