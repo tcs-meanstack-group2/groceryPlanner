@@ -12,7 +12,7 @@ import { Router } from '@angular/router'
 })
 export class CartComponent implements OnInit {
   user_cart?:Array<ProductDetails>;
-  user_total_price?:Array<number>;
+  user_total_price?:Array<number> = [];
   check_fund_total?:number = 0;
   funds?:Array<FundsDetails>;
   constructor(public productSer:ProductService) { }
@@ -20,9 +20,12 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.create_table();
   }
+
   create_table(){
-  var user_data = sessionStorage.getItem("user_cart");
-    var user_cart_items = JSON.parse(user_data);
+    if (this.user_cart.length == 0){
+      var user_data = sessionStorage.getItem("user_cart");
+      var user_cart_items = JSON.parse(user_data);
+    }
 
     // Insert  empty rows for all items 
     var table = document.getElementById("AddedItems");
@@ -65,17 +68,15 @@ export class CartComponent implements OnInit {
     return this.user_cart;
   }
 
-  // delete_onClick(){
+  delete_onClick(){
     
-  //   console.log("we are here")
-  //   var user_data = sessionStorage.getItem("user_cart");
-  //   var user_cart_items = JSON.parse(user_data);
-  //   for(let x = 0; x<user_cart_items.length; x++){
-  //     if (user_cart_items[x]._id == id){
-  //       this.user_cart.splice(x, 1);
-  //     }
-  //   }
-  // }
+    console.log("we are here")
+    var chosen_index = document.getElementById("product_deleter")
+    console.log("Index chose: {{}}", chosen_index)
+    this.user_cart.splice(parseInt(chosen_index.innerHTML), 1);
+    chosen_index.innerHTML = "";
+    this.create_table()
+  }
 
   calculate_total_price(){
     var user_data = sessionStorage.getItem("user_cart");
@@ -101,6 +102,8 @@ export class CartComponent implements OnInit {
         alert("Insufficient funds! Please Add more funds ");
       }
     }
+  
+    
   
 
 }
