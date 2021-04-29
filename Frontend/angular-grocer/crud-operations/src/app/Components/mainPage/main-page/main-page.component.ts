@@ -15,13 +15,11 @@ export class MainPageComponent implements OnInit {
     this.router.navigate(["admin/SignIn"]);
   }
   userPage(){
-    this.router.navigate(["customer/SignIn"]);
     this.router.navigate(["user/SignIn"]);
-
   }
   employeePage(){}
 
   raiseaticketPage(){
-    this.router.navigate(["user\raise-ticket"]);
+    this.router.navigate(["user/raise-ticket"]);
   }
 }
