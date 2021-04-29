@@ -2,6 +2,7 @@ let app = require("express")();
 let http = require("http").Server(app)
 let bodyParser = require("body-parser");
 let obj=require("mongoose");
+let cors= require("cors")
 
 let port=9090
 
@@ -12,6 +13,7 @@ const mogodboption=
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use (bodyParser.json())
+app.use(cors())
 
 let url="mongodb://localhost:27017/groceryStore"
 

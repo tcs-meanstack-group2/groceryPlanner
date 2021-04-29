@@ -6,6 +6,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class EmployeeService {
+  StoreEmployeeDetails(empId: any, Password: any, FirstName: any) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http:HttpClient) { }
 
@@ -13,6 +16,7 @@ export class EmployeeService {
     console.log(EmployeeId+Password);
     return this.http.post('http://localhost:9090/employee/employeeSignIn',{EmployeeId,Password});
   };
+  
   signUp(EmployeeId:string,Password:string,FirstName:String,LastName:String,EmailID:String){
     console.log(EmployeeId+Password+FirstName+LastName+EmailID);
     return this.http.post('http://localhost:9090/employee/employeeSignUp',{EmployeeId,Password,FirstName,LastName,EmailID});

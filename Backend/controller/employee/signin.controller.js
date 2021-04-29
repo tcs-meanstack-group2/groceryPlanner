@@ -1,21 +1,33 @@
 const { validationResult } = require('express-validator');
 let SignInModel= require("../../model/employee/signin.model.js")
 
+const jwt = require('jwt-simple');
+
 let SignInFunction=(req,res)=>{
   
     let EmployeeId=req.params.EmployeeId
     let Password=req.params.Password
 
     let Employee=  SignInModel.findOne({_id:EmployeeId,Password:Password})
+    //if(data._id==EmployeeId && data.Password==Password)
+    console.log (Employee)
    if (!Employee){
-      const error= new Error("Wrong Credentials")
-      throw error;
-    }else{
-      res.send("Login Sucess");
+    {
+      const token = jwt.encode(AdminId,jwtKey);
+      res.send({token});
+      }
+      
+        
+      
+  }
+  else{
+      res.send("Wrong Admin Credentials Try Again");
+      const token = "Enter Correct Credentials";
+      res.send({token});
+  }
     }
 
-  }
-
+  
   
   let storeEmployeeDetails=(req,res)=>{
     let Employee= new SignInModel({
@@ -47,7 +59,7 @@ module.exports={SignInFunction,storeEmployeeDetails}
       throw error;
     }
     
-  })
+  })password.isVaild
 }*/
   /*  const ValidPassword= Employee.ValidPassword(Password)
     const ValidEmployeeId=Employee.ValidPassword(EmployeeId)

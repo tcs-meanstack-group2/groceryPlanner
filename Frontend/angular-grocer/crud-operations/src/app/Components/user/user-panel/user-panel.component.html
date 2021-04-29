@@ -9,31 +9,34 @@
 
 </head>
     <body>
+        <h2>User Panel</h2>
+        <hr>
+    
         <div class="d-grid mx-auto">
             <ul class="nav center">
                 <li class="nav-item">
-                <a routerLink="SelectItems" (click)="selectItemsLink()" class="nav-link"> Select Items</a>
+                <a class="btn btn-outline-success btn-lg" data-bs-toggle="collapse" routerLink="SelectItems" (click)="selectItemsLink()" class="nav-link"> Select Items</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="DeleteItems" (click)="deleteItemsLink()" class="nav-link"> Delete Items</a>
+                    <a class="btn btn-outline-success btn-lg" data-bs-toggle="collapse"  routerLink="DeleteItems" (click)="deleteItemsLink()" class="nav-link"> Delete Items</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="ViewItems" (click)="viewItemsLink()" class="nav-link"> View Items</a>
+                    <a class="btn btn-outline-success btn-lg" data-bs-toggle="collapse" class="btn btn-outline-success btn-lg" data-bs-toggle="collapse" routerLink="ViewItems" (click)="viewItemsLink()" class="nav-link"> View Items</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="CheckOut" (click)="checkOutLink()" class="nav-link"> CheckOut</a>
+                    <a class="btn btn-outline-success btn-lg" data-bs-toggle="collapse" routerLink="CheckOut" (click)="checkOutLink()" class="nav-link"> CheckOut</a>
                 </li>
                 <li class="nav-item">
-                <a (click)="orderStatusLink()" class="nav-link">Order Status</a>
+                <a class="btn btn-outline-success btn-lg" data-bs-toggle="collapse" (click)="orderStatusLink()" class="nav-link">Order Status</a>
                 </li>
                 <li class="nav-item">
-                <a (click)="editProfileLink()" class="nav-link">Edit Profile</a>
+                <a class="btn btn-outline-success btn-lg" data-bs-toggle="collapse" (click)="editProfileLink()" class="nav-link">Edit Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="fundsLink()" class="nav-link">Funds</a>
+                    <a class="btn btn-outline-success btn-lg" data-bs-toggle="collapse" (click)="fundsLink()" class="nav-link">Funds</a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="logoutLink()" class="nav-link">Logout</a>
+                    <a class="btn btn-outline-success btn-lg" data-bs-toggle="collapse"  (click)="logoutLink()" class="nav-link">Logout</a>
                 </li>
             </ul>
         </div>

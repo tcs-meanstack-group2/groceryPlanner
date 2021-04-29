@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
   import { Employee } from '../../Classes/employee.model';
 import { EmployeeService } from '../../Services/employee.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-employee-signup',
+  selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
+  
 })
 export class EmployeeComponent implements OnInit {
 
   employees:Employee[];
 
-  constructor(private empService:EmployeeService) { }
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
   }
 
-  addEmployee(empDetails:any) {
-    this.empService.addEmployee(empDetails);
-  }
+  employeeSigUp(){this.router.navigate(["employee\SignUpForm"])}
+  
 }

@@ -26,6 +26,8 @@ import { UserPanelComponent } from './Components/user/user-panel/user-panel.comp
 import { CartComponent } from './Components/user/cart/cart.component';
 import { EmpHomeComponent } from './Components/employee/emp-home/emp-home.component';
 import { UserHomeComponent } from './Components/user/user-home/user-home.component';
+import { SignInFormComponent } from './Components/employee/sign-in-form/sign-in-form.component';
+import { SignUpFormComponent } from './Components/employee/signup/sign-up-form/sign-up-form.component';
     
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { UserHomeComponent } from './Components/user/user-home/user-home.compone
     SignupComponent,
     CartComponent,
     EmpHomeComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    SignInFormComponent,
+    SignUpFormComponent
   ],
   imports: [
     BrowserModule,
