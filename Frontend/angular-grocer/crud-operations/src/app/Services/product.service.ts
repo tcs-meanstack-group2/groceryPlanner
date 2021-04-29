@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ProductDetails } from '../Model/model.productmodel';
 import { FundsDetails } from '../Model/funds.model';
-
+import { TicketDetails} from '../Model/ticket.model'
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +15,13 @@ export class ProductService {
   retrieveAllProductDetails():Observable<ProductDetails[]>{
     return this.http.get<ProductDetails[]>("http://localhost:9090/admin/product/allProductDetails")
   }
-  retrieveFund():Observable<FundsDetails>{
-    return this.http.get<FundsDetails>("http://localhost:9090/user/addFunds/")
-  }
-  user_cart(ProductDetails:any):any{
-
-  return this.http.post("http://localhost:9090/user/selectedOrders/", ProductDetails, {responseType: 'text'})
+  user_cart(ProductDetails:any){
+   this.http.post("http://localhost:9090/user/orderSelected/", ProductDetails, {responseType: 'text'}).subscribe(result=>console.log(result),error=>console.log(error));
  }
-  addTicket(ticketRef: any): any {
-  return this.http.post("http://localhost:9090/user/addTicket/", ticketRef, {responseType: 'text'} )
+  addTicket(ticketRef: any) {
+   this.http.post("http://localhost:9090/user/addTicket/", ticketRef, {responseType: 'text'}).subscribe(result=>console.log(result),error=>console.log(error));
 }
-
+//   retrieveFunds(id: any): Observable<Funds> {
+//   return this.http.get<Funds>("http://localhost:9090/user/retrieveFunds/" + id);
+// }
 }

@@ -3,7 +3,7 @@ let mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 let TicketSchema = mongoose.Schema({
-    User_id: Number,
+    User_id: String,
     ticket_message:String,
 });
 

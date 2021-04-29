@@ -14,24 +14,21 @@ export class CartComponent implements OnInit {
   user_cart?:Array<ProductDetails>;
   user_total_price?:Array<number> = [];
   check_fund_total?:number = 0;
-  funds?:Array<FundsDetails>;
+  funds?:FundsDetails;
   constructor(public productSer:ProductService) { }
   
   ngOnInit(): void {
     this.create_table();
+    //this.productSer.retrieveFund().subscribe(result=>this.funds=result);
+    console.log(this.funds)
   }
 
   create_table(){
-
-  
     var user_data = sessionStorage.getItem("user_cart");
     var user_cart_items = JSON.parse(user_data);
-    
-
     // Insert  empty rows for all items 
     var table = document.getElementById("AddedItems");
     var body = table.getElementsByTagName("tbody")[0];
-
     // iterate over each item and add it to a row
     var index = 0;
     for (var item of user_cart_items){
@@ -51,17 +48,18 @@ export class CartComponent implements OnInit {
         var newCol7 = rows.insertCell(6);
         var delete_btn = document.createElement('button');
         delete_btn.innerHTML = "delete item";
-        //delete_btn.addEventListener('click', function(){
+        delete_btn.addEventListener('click', this.delete_onClick);
           //user_cart_items.splice(parseInt(delete_btn.id), 1);
         //} );
        newCol7.appendChild(delete_btn);
+       
       }
-      
     }
     
   get_cart() {
     return this.user_cart;
   }
+
 
   delete_onClick(){
     
@@ -85,17 +83,24 @@ export class CartComponent implements OnInit {
     //console.log(total_price);
     this.check_fund_total = total_price;
     return total_price;
-}
-  check_funds(check_fund_total){
-    //console.log(this.check_fund_total + "total product price")
     
-      if( check_fund_total <= this.funds){
-        alert("Thank you! Order got placed");
-        this.productSer.user_cart(ProductDetails).subscribe;
+}
+  check_funds(){
+    //console.log(this.check_fund_total + "total product price")
+    var user_data = sessionStorage.getItem("user_cart");
+    var user_cart_items = JSON.parse(user_data);
 
-      }else {
-        alert("Insufficient funds! Please Add more funds ");
-      }
+    alert("Thank you! Order got placed");
+    
+    console.log(user_cart_items)
+    user_cart_items.forEach(product => this.productSer.user_cart(new ProductDetails(product._id,product.ProductName,product.ProductPrice,product.ProductQuantity,product.Discount)) );
+      // if(this.check_fund_total >= this.funds._id){
+        
+      //   }
+
+      // }else {
+      //   alert("Insufficient funds! Please Add more funds ");
+      // }
     }
   
     
