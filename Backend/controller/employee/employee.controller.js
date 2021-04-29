@@ -14,10 +14,10 @@ const addEmployeeDetails = (req,res)=> {
 
     const employee = new EmployeeModel({
         _id:parseInt(req.body.id),
-        FirstName:req.body.firstName,
-        LastName:req.body.lastName,
-        EmailID:req.body.emailID,
-        Password: req.body.pwd
+        firstName:req.body.firstName,
+        lastName:req.body.lastName,
+        emailID:req.body.emailID,
+        password: req.body.pwd
     });
 
     employee.save((err,result)=> {

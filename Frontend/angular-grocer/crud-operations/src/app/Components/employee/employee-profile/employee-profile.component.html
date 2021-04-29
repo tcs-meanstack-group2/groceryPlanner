@@ -7,7 +7,15 @@
             <label>Current Password: </label>
             <input type="password" name="pass" class="form-control" ngModel required><br>
             <label>New Password: </label>
-            <input type="password" name="newPass" class="form-control" ngModel required><br>
+            <input type="password" name="newPass" class="form-control" ngModel required minlength="6" #newPass="ngModel"><br>
+            <div *ngIf="newPass.invalid && (newPass.dirty || newPass.touched)">
+                <div class="errorMessage" *ngIf="newPass.errors.required">
+                    Password is required.
+                </div>
+                <div class="errorMessage" *ngIf="newPass.errors.minlength">
+                    Password must be at least 6 characters long.
+                </div>
+            </div>
 
             <input type="submit" value="Update Profile" [disabled]="!profileRef.valid" class="btn btn-primary mr-2">
             <input type="reset" value="Reset" class="btn btn-danger">

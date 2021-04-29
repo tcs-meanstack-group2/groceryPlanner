@@ -22,6 +22,7 @@ import { RaiseTicketComponent } from './Components/user/raise-ticket/raise-ticke
 import { SigninComponent } from './Components/user/signin/signin.component';
 import { EmployeePanelComponent } from './Components/employee/employee-panel/employee-panel.component';
 import { UpdateOrderComponent } from './Components/employee/update-order/update-order.component';
+import { EmployeeSigninComponent } from './Components/employee/employee-signin/employee-signin.component';
 
 const routes: Routes = [
 
@@ -45,7 +46,7 @@ const routes: Routes = [
   { path:"user/raise-ticket", component: RaiseTicketComponent },
   { path:"employee/DashBoard", component: EmployeePanelComponent },
   { path:"employee/updateOrder", component: UpdateOrderComponent },
-  {path:"employee/DashBoard",component:UpdateOrderComponent},
+  {path:"employee/SignIn",component:EmployeeSigninComponent},
   {path:"",redirectTo:"home",pathMatch:"full"}
 
 ];

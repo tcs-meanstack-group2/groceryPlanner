@@ -67,7 +67,8 @@ import { EmployeeProfileComponent } from './Components/employee/employee-profile
     ReportsTableComponent,
     UpdateOrderComponent,
     EmployeePanelComponent,
-    EmployeeProfileComponent
+    EmployeeProfileComponent,
+    EmployeeSigninComponent
   ],
   imports: [
     BrowserModule,
