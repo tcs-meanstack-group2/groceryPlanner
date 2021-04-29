@@ -17,6 +17,7 @@ import { ProductListComponent } from './Components/user/product-list/product-lis
 import { EmployeePageComponent } from './Components/admin/employee-page/employee-page.component';
 import { GenerateReportsComponent } from './Components/admin/generate-reports/generate-reports.component';
 import { RaiseTicketComponent } from './Components/user/raise-ticket/raise-ticket.component';
+import { SigninComponent } from './Components/user/signin/signin.component';
 
 const routes: Routes = [
 
