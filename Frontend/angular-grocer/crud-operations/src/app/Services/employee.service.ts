@@ -30,7 +30,7 @@ export class EmployeeService {
   }
   //by default all HttpClient method return type is observable with json format data. 
   deleteEmployee(empID:any):any{
-    return this.http.delete(this.ipAddress+"/admin/employee/deleteEmployeeById/"+empID,{responseType:'text'});
+    this.http.post(this.ipAddress+"/admin/employee/deleteEmployeeById/"+empID,{responseType:'text'}).subscribe(result=>console.log(result),error=>console.log(error));
   }
 
 }

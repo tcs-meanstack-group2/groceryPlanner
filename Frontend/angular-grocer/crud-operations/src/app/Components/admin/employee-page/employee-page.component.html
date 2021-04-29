@@ -1,24 +1,59 @@
-<app-add-employee></app-add-employee>
-<app-delete-employee></app-delete-employee>
 
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Employee Id</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Email</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let employee of employees">
-                      
-            <td>{{ employee._id }}</td>
-            <td>{{ employee.FirstName }}</td>
-            <td>{{ employee.LastName }}</td>
-            <td>{{ employee.EmailID }}</td>
-            <td><button class="btn btn-danger" ><span
-                class="glyphicon glyphicon-trash"></span>&nbsp; Remove</button></td>
+    <app-admin-panel></app-admin-panel>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="card" style="width: 25rem;">
+                    <div class="card-body">
+                        <h3 class="card-header">Add Employee</h3>
+                        <app-add-employee></app-add-employee>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card" style="width: 25rem;">
+                    
+                    <div class="card-body">
+                        <h3 class="card-header">Delete Employee</h3>
+                        <app-delete-employee></app-delete-employee>
+                    </div>
+                  </div>
+            </div>
+
+          </div>
+    </div>
+    
+    
+    <div *ngIf="employees">
+        <h1>Employee Details</h1>
+        <hr> 
+
+         <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Employee Id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
           </tr>
-    </tbody>
-  </table>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                          
+                <td>{{ employee._id }}</td>
+                <td>{{ employee.FirstName }}</td>
+                <td>{{ employee.LastName }}</td>
+                <td>{{ employee.EmailID }}</td>
+              </tr>
+        </tbody>
+      </table>
+
+    </div>
+   
+
+
+
+
