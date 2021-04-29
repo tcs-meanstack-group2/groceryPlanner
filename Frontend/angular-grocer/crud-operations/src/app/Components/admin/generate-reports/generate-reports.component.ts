@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../../../Services/admin.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class GenerateReportsComponent implements OnInit {
   monthlyReportForm:FormGroup;
   userReportForm:FormGroup;
 
-  constructor(private fb:FormBuilder, private adminService:AdminService) { }
+  constructor(private fb:FormBuilder, private router:Router) { }
 
   ngOnInit(): void {
     this.dailyReportForm = this.fb.group({
@@ -32,8 +33,26 @@ export class GenerateReportsComponent implements OnInit {
   getDailyReport() {
     const {date} = this.dailyReportForm.value;
 
+    this.router.navigateByUrl('admin/ReportsTable/daily/'+date);
 
-    this.adminService.generateDailyReport(date);
+    
+  }
+
+  getMonthlyReport() {
+    const {month} = this.monthlyReportForm.value;
+
+    //easy way to get month num as string
+    const monthNum = new Date(Date.parse(month[0] +" 1, 2021")).getMonth()+1
+
+    this.router.navigateByUrl('admin/ReportsTable/monthly/'+monthNum);
+   
+  }
+
+  getUserReport() {
+    const {user} = this.userReportForm.value;
+
+    this.router.navigateByUrl('admin/ReportsTable/user/'+user);
+  
   }
 
 }

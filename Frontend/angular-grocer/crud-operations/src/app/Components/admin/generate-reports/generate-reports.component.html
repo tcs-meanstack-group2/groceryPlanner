@@ -22,14 +22,27 @@
 <div class="card mb-2">
     <h5 class="card-header">Generate Monthly Report</h5>
     <div class="card-body">
-        <h3 class="card-subtitle mb-2">Enter Date:</h3>
 
-        <form [formGroup]="monthlyReportForm">
-            <div class="form-row">
-                    <div class="col">
-                        <input formControlName="month" name="month" type="text" class="form-control" placeholder="MM/DD/YYYY">
-                    </div>
-            </div>
+        <form [formGroup]="monthlyReportForm" (ngSubmit)="getMonthlyReport()">
+            
+                <div class="form-group">
+                    <label for="dropdown">Select month: </label>
+                    <select multiple formControlName="month" name="month" class="form-control" id="dropdown">
+                      <option>January</option>
+                      <option>February</option>
+                      <option>March</option>
+                      <option>April</option>
+                      <option>May</option>
+                      <option>June</option>
+                      <option>July</option>
+                      <option>August</option>
+                      <option>September</option>
+                      <option>October</option>
+                      <option>November</option>
+                      <option>December</option>
+                    </select>
+                  </div>
+            
                 <br>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success mb-2">Generate</button>
@@ -42,8 +55,18 @@
     <h5 class="card-header">Generate User Report</h5>
     <div class="card-body">
 
-    <!-- <form [formGroup]="parentForm">
-        
-    </form> -->
+        <h3 class="card-subtitle mb-2">Enter User Id:</h3>
+
+        <form [formGroup]="userReportForm" (ngSubmit)="getUserReport()">
+            <div class="form-row">
+                    <div class="col">
+                        <input formControlName="user" name="user" type="text" class="form-control" placeholder="User Id">
+                    </div>
+            </div>
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success mb-2">Generate</button>
+                </div>            
+        </form>
     </div>
 </div>
