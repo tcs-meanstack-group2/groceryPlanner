@@ -23,6 +23,9 @@ import { SigninComponent } from './Components/user/signin/signin.component';
 import { EmployeePanelComponent } from './Components/employee/employee-panel/employee-panel.component';
 import { UpdateOrderComponent } from './Components/employee/update-order/update-order.component';
 import { EmployeeSigninComponent } from './Components/employee/employee-signin/employee-signin.component';
+import { UserSiginSignUpTicketFormComponent } from './Components/user/user-sigin-sign-up-ticket-form/user-sigin-sign-up-ticket-form.component';
+import { UserSignInComponent } from './Components/user/user-sign-in/user-sign-in.component';
+import { UserSignUpComponent } from './Components/user/user-sign-up/user-sign-up.component';
 
 const routes: Routes = [
 
@@ -47,6 +50,10 @@ const routes: Routes = [
   { path:"employee/DashBoard", component: EmployeePanelComponent },
   { path:"employee/updateOrder", component: UpdateOrderComponent },
   {path:"employee/SignIn",component:EmployeeSigninComponent},
+  {path:"user/SignOptions",component:UserSiginSignUpTicketFormComponent},
+  {path:"user/SignIn",component:UserSignInComponent},
+  {path:"user/SignUp",component:UserSignUpComponent},
+  {path:"user/RaiseTicket",component:RaiseTicketComponent},
   {path:"",redirectTo:"home",pathMatch:"full"}
 
 ];
