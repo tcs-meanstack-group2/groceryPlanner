@@ -80,21 +80,21 @@ let addTicket = (req,res)=> {
 
 let orderSelected = (req,res)=> {
     let orderSelected = new SelectedOrdersModel({
-         _id = req.body._id,
-        ProductName = req.body.ProductName,
-        ProductPrice = req.body.ProductPrice,
-        ProductQuantity = req.body.ProductQuantity,
-        Discount = req.body.Discountl
+        _id : req.body._id,
+        ProductName : req.body.ProductName,
+        ProductPrice : req.body.ProductPrice,
+        ProductQuantity : req.body.ProductQuantity,
+        Discount : req.body.Discount
     });
-    orderSelected.save((err1,result)=> {
+    orderSelected.save((err,result)=> {
         if(!err){
             res.send("Orders Stored Successfully ")
             
         }else {
             res.send("Order did not store, please try again! ");
         }
-    });
-}    
+    })
+} 
 
 let getFundsById = (req, res) => {
     let id = req.params.id;
