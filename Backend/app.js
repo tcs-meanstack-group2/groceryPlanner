@@ -40,6 +40,9 @@ const Reports = require("./router/admin/reports.router.js");
 const ProdRequests = require("./router/admin/requests.router.js");
 var TicketRequest = require("./router/user/user.router")
 var Orders = require("./router/user/user.router")
+const empSignIn = require("./router/employee/signin.router.js");
+
+
 
 app.use("/admin/product",Product);
 app.use("/admin",adminSignIn);
@@ -53,5 +56,7 @@ app.use("/admin",ProdRequests);
 app.use("/user", User);
 app.use("/user/orderSelected", Orders)
 app.use("/user/addTicket" , TicketRequest )
+
+app.use("/employee", Employee)
 
 app.listen(9090,()=>console.log("Server running on port number 9090"));

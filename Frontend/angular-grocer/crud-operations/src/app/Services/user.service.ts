@@ -8,23 +8,23 @@ import { Order } from '../order.model';
   providedIn: 'root'
 })
 export class UserService {
-
+  ipAddress:string="http://localhost:9090"
   constructor(public http: HttpClient) { }
 
   // Service function to get order status from backend
   retrieveOrder(id: any): Observable<Order[]> {
-    return this.http.get<Order[]>("http://localhost:9090/user/retrieveOrder/" + id);
+    return this.http.get<Order[]>(this.ipAddress + "/user/retrieveOrder/" + id);
   }
 
   editProfile(profileRef: any): any {
-    return this.http.put("http://localhost:9090/user/editProfile/", profileRef, {responseType: 'text'})
+    return this.http.put(this.ipAddress + "/user/editProfile/", profileRef, {responseType: 'text'})
   }
 
   retrieveFunds(id: any): Observable<Funds[]> {
-    return this.http.get<Funds[]>("http://localhost:9090/user/retrieveFunds/" + id);
+    return this.http.get<Funds[]>(this.ipAddress + "/user/retrieveFunds/" + id);
   }
 
   addFunds(fundsRef: any): any {
-    return this.http.put("http://localhost:9090/user/addFunds/", fundsRef, {responseType: 'text'})
+    return this.http.put(this.ipAddress + "/user/addFunds/", fundsRef, {responseType: 'text'})
   }
 }

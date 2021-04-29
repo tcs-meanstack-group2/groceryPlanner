@@ -6,7 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./employee-panel.component.css']
 })
 export class EmployeePanelComponent implements OnInit {
-
+  displayOrder = true;
+  displayProfile: boolean;
   constructor(public router:Router) { }
 
   ngOnInit(): void {
@@ -19,11 +20,25 @@ export class EmployeePanelComponent implements OnInit {
 
   sendRequestLink(){}
 
-  updateOrderStatusLink(){}
+  updateOrderStatusLink(){
+    this.hideAll();
+    this.displayOrder = true;
+  }
 
   unlockUsersLink(){}
 
-  editProfileLink(){}
+  editProfileLink(){
+    this.hideAll();
+    this.displayProfile = true;
+  }
 
-  logoutLink(){}
+  logoutLink(){
+    sessionStorage.clear();
+    this.router.navigateByUrl("");
+  }
+
+  hideAll() {
+    this.displayOrder = false;
+    this.displayProfile = false;
+  }
 }

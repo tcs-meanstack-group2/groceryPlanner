@@ -11,7 +11,7 @@ import { Order } from '../../../Model/order.model';
 export class ReportsTableComponent implements OnInit {
 
   type:String;
-  query:String;
+  query:any;
   orders?:Order[];
 
   constructor(private adminService:AdminService, private route: ActivatedRoute) { }
@@ -21,6 +21,8 @@ export class ReportsTableComponent implements OnInit {
     this.query = this.route.snapshot.params.query;
 
     if(this.type === "daily") {
+
+      console.log(this.query)
       this.adminService.generateDailyReport(this.query).subscribe(res => this.orders = res);
 
     } else if(this.type === "monthly") {
