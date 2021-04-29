@@ -32,12 +32,13 @@ const addEmployeeDetails = (req,res)=> {
 
 const deleteEmployeeDetails= (req,res)=> {
     const EmployeeID = parseInt(req.params.id);
+
     EmployeeModel.deleteOne({_id:EmployeeID},(err,result)=> {
         if(!err){
                 if(result.deletedCount>0){
-                    res.send("Product deleted successfully")
+                    res.send("Employee deleted")
                 }else {
-                    res.send("Product not present");
+                    res.send("Employee not deleted");
                 }
         }else {
             res.send("Error generated "+err);
@@ -45,6 +46,5 @@ const deleteEmployeeDetails= (req,res)=> {
     })
 
 }
-
 
 module.exports={addEmployeeDetails, deleteEmployeeDetails, getEmployeeDetails}
