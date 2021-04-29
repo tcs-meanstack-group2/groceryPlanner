@@ -1,9 +1,10 @@
+let express = require("express");
 let app = require("express")();
 let bodyParser = require("body-parser");
 let mongoose = require("mongoose");
 let cors = require("cors");
 const SignInModel = require('./model/admin/signin.model');
-
+app.use(express.static(process.cwd()));
 
 let url = "mongodb://localhost:27017/groceryStore";
 

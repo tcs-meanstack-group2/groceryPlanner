@@ -12,16 +12,16 @@
         <div class="d-grid mx-auto">
             <ul class="nav center">
                 <li class="nav-item">
-                <a routerLink="SelectItems" (click)="selectItemsLink()" class="nav-link"> Select Items</a>
+                <a (click)="selectItemsLink()" class="nav-link"> Select Items</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="DeleteItems" (click)="deleteItemsLink()" class="nav-link"> Delete Items</a>
+                    <a (click)="deleteItemsLink()" class="nav-link"> Delete Items</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="ViewItems" (click)="viewItemsLink()" class="nav-link"> View Items</a>
+                    <a (click)="viewItemsLink()" class="nav-link"> View Items</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="CheckOut" (click)="checkOutLink()" class="nav-link"> CheckOut</a>
+                    <a (click)="checkOutLink()" class="nav-link"> CheckOut</a>
                 </li>
                 <li class="nav-item">
                 <a (click)="orderStatusLink()" class="nav-link">Order Status</a>
@@ -36,6 +36,12 @@
                     <a (click)="logoutLink()" class="nav-link">Logout</a>
                 </li>
             </ul>
+        </div>
+        <div *ngIf="displayItems">
+            <app-product-list></app-product-list>
+        </div>
+        <div *ngIf="displayDelete || displayView || displayCheckout">
+            <app-cart></app-cart>
         </div>
         <div *ngIf="displayOrder">
             <app-retrieve-status></app-retrieve-status>
