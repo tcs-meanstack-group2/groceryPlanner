@@ -20,6 +20,8 @@ import { ReportsTableComponent } from './Components/admin/reports-table/reports-
 import { ViewRequestsComponent } from './Components/admin/view-requests/view-requests.component';
 import { RaiseTicketComponent } from './Components/user/raise-ticket/raise-ticket.component';
 import { SigninComponent } from './Components/user/signin/signin.component';
+import { EmployeePanelComponent } from './Components/employee/employee-panel/employee-panel.component';
+import { UpdateOrderComponent } from './Components/employee/update-order/update-order.component';
 
 const routes: Routes = [
 
@@ -41,6 +43,8 @@ const routes: Routes = [
   {path:"user/product-list", component: ProductListComponent },
   {path:"user/cart", component: CartComponent },
   { path:"user/raise-ticket", component: RaiseTicketComponent },
+  { path:"employee", component: EmployeePanelComponent },
+  { path:"employee/updateOrder", component: UpdateOrderComponent },
   {path:"",redirectTo:"home",pathMatch:"full"}
 
 ];

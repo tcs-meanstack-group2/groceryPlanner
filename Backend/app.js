@@ -52,4 +52,6 @@ app.use("/user", User);
 app.use("/user/selectedOrders", User)
 app.use("/user/addTicket" , User)
 
+app.use("/employee", Employee)
+
 app.listen(9090,()=>console.log("Server running on port number 9090"));
