@@ -19,6 +19,10 @@ import { GenerateReportsComponent } from './Components/admin/generate-reports/ge
 import { ReportsTableComponent } from './Components/admin/reports-table/reports-table.component';
 import { ViewRequestsComponent } from './Components/admin/view-requests/view-requests.component';
 import { RaiseTicketComponent } from './Components/user/raise-ticket/raise-ticket.component';
+import { SigninComponent } from './Components/user/signin/signin.component';
+import { EmployeePanelComponent } from './Components/employee/employee-panel/employee-panel.component';
+import { UpdateOrderComponent } from './Components/employee/update-order/update-order.component';
+import { EmployeeSigninComponent } from './Components/employee/employee-signin/employee-signin.component';
 
 const routes: Routes = [
 
@@ -40,6 +44,9 @@ const routes: Routes = [
   {path:"user/product-list", component: ProductListComponent },
   {path:"user/cart", component: CartComponent },
   { path:"user/raise-ticket", component: RaiseTicketComponent },
+  { path:"employee/DashBoard", component: EmployeePanelComponent },
+  { path:"employee/updateOrder", component: UpdateOrderComponent },
+  {path:"employee/SignIn",component:EmployeeSigninComponent},
   {path:"",redirectTo:"home",pathMatch:"full"}
 
 ];

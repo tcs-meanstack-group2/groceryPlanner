@@ -8,8 +8,6 @@ let SignInController = require("../../controller/employee/signin.controller.js")
 
 router.post("/employeeSignIn",SignInController.SignInFunction)
 
-router.post("/employeeSignUp",SignInController.storeEmployeeDetails)
-
 
 
 module.exports=router;

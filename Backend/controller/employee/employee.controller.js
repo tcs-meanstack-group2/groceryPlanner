@@ -1,4 +1,5 @@
 const EmployeeModel = require("../../model/employee/employee.model");
+const OrderModel = require("../../model/user/order.model.js")
 
 const getEmployeeDetails =(req,res)=> {
 
@@ -13,10 +14,10 @@ const addEmployeeDetails = (req,res)=> {
 
     const employee = new EmployeeModel({
         _id:parseInt(req.body.id),
-        FirstName:req.body.firstName,
-        LastName:req.body.lastName,
-        EmailID:req.body.emailID,
-        Password: req.body.pwd
+        firstName:req.body.firstName,
+        lastName:req.body.lastName,
+        emailID:req.body.emailID,
+        password: req.body.pwd
     });
 
     employee.save((err,result)=> {
@@ -47,4 +48,45 @@ const deleteEmployeeDetails= (req,res)=> {
 
 }
 
-module.exports={addEmployeeDetails, deleteEmployeeDetails, getEmployeeDetails}
+let editOrder = (req,res)=> {
+    let id = req.body.id;
+    let status = req.body.status;
+    OrderModel.updateOne({_id: id}, {$set:{status: status}}, (err, result)=> {
+        if(!err){
+            if(result.nModified > 0){
+                    res.send("Status updated succesfully")
+            }else {
+                    res.send("ID does not match any orders");
+            }
+        }else {
+            res.send("Error: Please ensure your Order ID is valid");
+        }
+    })
+}
+
+let editProfile = (req,res)=> {
+    let id = req.body.id;
+    let oldPass = req.body.pass;
+    let newPass = req.body.newPass;
+    EmployeeModel.updateOne({_id: id, password: oldPass}, {$set:{password: newPass}}, (err, result)=> {
+        if(!err){
+            if(result.nModified > 0){
+                    res.send("Password updated succesfully")
+            }else {
+                    res.send("User ID or Password is incorrect");
+            }
+        }else {
+            res.send("Error: Please ensure your User ID is valid");
+        }
+    })
+}
+
+let getOrders = (req, res) => {
+    OrderModel.find({}, (err, data) => {
+        if(!err) {
+            res.json(data);
+        }
+    })
+}
+
+module.exports={addEmployeeDetails, deleteEmployeeDetails, getEmployeeDetails, editOrder, editProfile, getOrders}
