@@ -7,6 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
+  displayItems: Boolean;
+  displayDelete: Boolean;
+  displayView: Boolean;
+  displayCheckout: Boolean;
   displayOrder: Boolean;
   displayEdit: Boolean;
   displayFunds: Boolean;
@@ -17,19 +21,27 @@ export class UserPanelComponent implements OnInit {
   }
   
   selectItemsLink(){
-    this.router.navigateByUrl('user/product-list');
+    // this.router.navigateByUrl('user/product-list');
+    this.hideAll();
+    this.displayItems = true;
   }
 
   deleteItemsLink(){
-    this.router.navigateByUrl('user/cart');
+    // this.router.navigateByUrl('user/cart');
+    this.hideAll();
+    this.displayDelete = true;
   }
 
   viewItemsLink(){
-    this.router.navigateByUrl('user/cart');
+    // this.router.navigateByUrl('user/cart');
+    this.hideAll();
+    this.displayView = true;
   }
 
   checkOutLink(){
-    this.router.navigateByUrl('user/cart');
+    // this.router.navigateByUrl('user/cart');
+    this.hideAll();
+    this.displayCheckout = true;
   }
 
   orderStatusLink(){
@@ -53,6 +65,10 @@ export class UserPanelComponent implements OnInit {
   }
 
   hideAll() {
+    this.displayItems = false;
+    this.displayDelete = false;
+    this.displayView = false;
+    this.displayCheckout = false;
     this.displayOrder = false;
     this.displayEdit = false;
     this.displayFunds = false;
