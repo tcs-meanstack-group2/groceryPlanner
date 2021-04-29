@@ -27,6 +27,7 @@ const routes: Routes = [
   {path:"admin/UpdateProducts",component:AdminUpdateProductsComponent,canActivate:[AdminAuthGuard]},
   {path:"admin/DeleteProducts",component:AdminDeleteProductsComponent,canActivate:[AdminAuthGuard]},
   {path:"admin/employees", component: EmployeePageComponent},
+  {path:"user",component:UserPanelComponent},
   {path:"admin/GenerateReports", component: GenerateReportsComponent},
   {path:"user/OrderStatus",component:RetrieveStatusComponent},
   {path:"user/EditProfile",component:EditProfileComponent},

@@ -21,7 +21,7 @@ export class CartComponent implements OnInit {
     this.create_table();
   }
   create_table(){
-  var user_data = sessionStorage.getItem("user_cart");
+    var user_data = sessionStorage.getItem("user_cart");
     var user_cart_items = JSON.parse(user_data);
 
     // Insert  empty rows for all items 

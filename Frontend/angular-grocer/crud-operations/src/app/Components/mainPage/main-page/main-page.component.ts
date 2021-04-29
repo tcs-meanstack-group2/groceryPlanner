@@ -20,6 +20,6 @@ export class MainPageComponent implements OnInit {
   employeePage(){}
 
   raiseaticketPage(){
-    this.router.navigate(["user\raise-ticket"]);
+    this.router.navigate(["user/raise-ticket"]);
   }
 }
