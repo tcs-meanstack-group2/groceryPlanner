@@ -28,15 +28,11 @@
 
    
 </tbody>
-<button value="compareFund" (click) ="check_funds(check_fund_total)">Place Order</button>
+<button value="compareFund" class="btn-primary" (click) ="check_funds(check_fund_total)">Place Order</button>
 </table>
 <div>
     <p style="text-align:center; color: crimson; font-size: 20px;"> Total Price:  ${{calculate_total_price()}}</p>
 </div>
-<div>
-    <label>Enter row number to delete</label>
-    <input type="text" id="product_deleter" class="form-control"/>
-    <input type="button" class="btn-primary" id="delete_btn" (click)="delete_onClick()"/>
-</div>
+
 
 </div>
