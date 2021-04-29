@@ -33,6 +33,8 @@ import { ProductListComponent } from './Components/user/product-list/product-lis
 import { UpdateOrderComponent } from './Components/employee/update-order/update-order.component';
 import { EmployeePanelComponent } from './Components/employee/employee-panel/employee-panel.component';
 import { EmployeeSigninComponent } from './Components/employee/employee-signin/employee-signin.component';
+import { EmployeeProfileComponent } from './Components/employee/employee-profile/employee-profile.component';
+
     
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { EmployeeSigninComponent } from './Components/employee/employee-signin/e
     UpdateOrderComponent,
     ReportsTableComponent,
     UpdateOrderComponent,
-    EmployeePanelComponent
+    EmployeePanelComponent,
+    EmployeeProfileComponent,
+    EmployeeSigninComponent
   ],
   imports: [
     BrowserModule,

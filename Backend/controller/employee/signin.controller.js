@@ -16,7 +16,7 @@ let SignInFunction=  (req,res)=>{
         res.send({token});
        }
   
-      else if(data.Password!=Password)
+      else if(data.password!=Password)
       {
         const token = "Enter Correct password";
         res.send({token});

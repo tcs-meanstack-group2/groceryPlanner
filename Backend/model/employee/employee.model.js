@@ -3,10 +3,10 @@ mongoose.Promise = global.Promise;      // creating reference.
 
 const EmployeeSchema = mongoose.Schema({
     _id:Number,
-    FirstName:String,
-    LastName:String,
-    EmailID:String,
-    Password:String
+    firstName:String,
+    lastName:String,
+    emailID:String,
+    password:String
 });
 
 const EmployeeModel = mongoose.model("EmployeeDetails",EmployeeSchema,"EmployeeDetails");

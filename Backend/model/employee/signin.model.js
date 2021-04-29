@@ -3,10 +3,10 @@ mongoose.Promise = global.Promise;      // creating reference.
 
 let empSignInSchema = mongoose.Schema({
     _id:Number,
-    Password:String,
-    FirstName:String,
-        LastName:String,
-        EmailID:String
+    password:String,
+    firstName:String,
+    lastName:String,
+    emailID:String
 })
 
 

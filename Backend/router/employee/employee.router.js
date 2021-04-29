@@ -9,5 +9,7 @@ router.post("/addEmployeeDetails",EmployeeController.addEmployeeDetails);
 router.post("/deleteEmployeeById/:id",EmployeeController.deleteEmployeeDetails);
 router.put("/editOrder", EmployeeController.editOrder);
 router.post("/employeeSignIn",SignInController.SignInFunction);
+router.put("/editProfile", EmployeeController.editProfile);
+router.get("/getOrders",EmployeeController.getOrders);
 
 module.exports=router;
