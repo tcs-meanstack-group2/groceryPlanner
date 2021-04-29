@@ -22,10 +22,6 @@ export class ProductService {
   addTicket(ticketRef: any) {
    this.http.post("http://localhost:9090/user/addTicket/", ticketRef, {responseType: 'text'}).subscribe(result=>console.log(result),error=>console.log(error));
 
-  retrieveFund():Observable<FundsDetails>{
-    return this.http.get<FundsDetails>(this.ipAddress+ "/user/addFunds/")
-  }
-
 }
  retrieveFunds(id: any): Observable<Funds[]> {
  return this.http.get<Funds[]>("http://localhost:9090/user/retrieveFunds/" + id);
