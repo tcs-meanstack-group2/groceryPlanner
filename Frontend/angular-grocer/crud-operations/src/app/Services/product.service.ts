@@ -19,17 +19,9 @@ export class ProductService {
     return this.http.get<FundsDetails>("http://localhost:9090/user/addFunds/")
   }
   user_cart(ProductDetails:any):any{
-<<<<<<< HEAD
   return this.http.post("http://localhost:9090/user/selectedOrders/", ProductDetails)
  }
   addTicket(ticketRef: any): any {
   return this.http.post("http://localhost:9090/user/addTicket/", ticketRef)
 }
-=======
-    return this.http.post("http://localhost:9090/user/selectedOrders/", ProductDetails, {Response:JSON})
-  }
-  addTicket(TicketRef: any): any {
-    return this.http.post("http://localhost:9090/user/addTicket/", TicketRef, {Response:JSON})
-  }
->>>>>>> 1b70ee48db029ce4a77b784fea71d5e8553f45d7
 }
