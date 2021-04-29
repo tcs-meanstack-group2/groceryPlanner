@@ -33,4 +33,7 @@ export class EmployeeService {
     this.http.post(this.ipAddress+"/admin/employee/deleteEmployeeById/"+empID,{responseType:'text'}).subscribe(result=>console.log(result),error=>console.log(error));
   }
 
+  updateOrder(orderRef: any) {
+    return this.http.put(this.ipAddress + "/employee/editOrder/", orderRef, {responseType: 'text'})
+  }
 }

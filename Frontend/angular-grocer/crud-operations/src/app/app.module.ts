@@ -32,6 +32,7 @@ import { ReportsTableComponent } from './Components/admin/reports-table/reports-
 import { ViewRequestsComponent } from './Components/admin/view-requests/view-requests.component';
 import { ProductListComponent } from './Components/user/product-list/product-list.component';
 import { UpdateOrderComponent } from './Components/employee/update-order/update-order.component';
+import { EmployeePanelComponent } from './Components/employee/employee-panel/employee-panel.component';
 
     
 @NgModule({
@@ -62,7 +63,9 @@ import { UpdateOrderComponent } from './Components/employee/update-order/update-
     ViewRequestsComponent,
     ProductListComponent,
     UpdateOrderComponent,
-    ReportsTableComponent
+    ReportsTableComponent,
+    UpdateOrderComponent,
+    EmployeePanelComponent
   ],
   imports: [
     BrowserModule,

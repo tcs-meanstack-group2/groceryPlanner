@@ -6,5 +6,6 @@ const EmployeeController = require("../../controller/employee/employee.controlle
 router.get("/getEmployeeDetails",EmployeeController.getEmployeeDetails);
 router.post("/addEmployeeDetails",EmployeeController.addEmployeeDetails);
 router.post("/deleteEmployeeById/:id",EmployeeController.deleteEmployeeDetails);
+router.put("/editOrder", EmployeeController.editOrder);
 
 module.exports=router;
