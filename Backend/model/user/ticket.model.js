@@ -9,4 +9,4 @@ let TicketSchema = mongoose.Schema({
 
 let TicketModel = mongoose.model("Ticket", TicketSchema, "UserTickets");
 
-module.exports = TicketModel;
+module.exports = TicketModel

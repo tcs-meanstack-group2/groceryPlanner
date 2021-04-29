@@ -19,6 +19,7 @@ import { GenerateReportsComponent } from './Components/admin/generate-reports/ge
 import { RaiseTicketComponent } from './Components/user/raise-ticket/raise-ticket.component';
 
 const routes: Routes = [
+
   {path:"home",component:MainPageComponent},
   {path:"admin/SignIn",component:AdminPageSignInComponent},
   {path:"admin/SignInForm",component:AdminPageSignInFormComponent},
