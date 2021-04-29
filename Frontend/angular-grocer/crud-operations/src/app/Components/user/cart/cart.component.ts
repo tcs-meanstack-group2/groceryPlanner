@@ -14,7 +14,8 @@ export class CartComponent implements OnInit {
   user_cart?:Array<ProductDetails>;
   user_total_price?:Array<number> = [];
   check_fund_total?:number = 0;
-  funds?:FundsDetails;
+  //funds?:FundsDetails;
+  funds?: Number;
   constructor(public productSer:ProductService) { }
   
   ngOnInit(): void {
@@ -86,14 +87,11 @@ export class CartComponent implements OnInit {
     
 }
   check_funds(){
-    //console.log(this.check_fund_total + "total product price")
+   // if (this.check_fund_total <= this.funds){
     var user_data = sessionStorage.getItem("user_cart");
     var user_cart_items = JSON.parse(user_data);
-
-    alert("Thank you! Order got placed");
-    
-    console.log(user_cart_items)
-    user_cart_items.forEach(product => this.productSer.user_cart(new ProductDetails(product._id,product.ProductName,product.ProductPrice,product.ProductQuantity,product.Discount)) );
+    alert("Thank you! Order got placed"); 
+    user_cart_items.forEach(product => this.productSer.user_cart(product));
       // if(this.check_fund_total >= this.funds._id){
         
       //   }
@@ -101,6 +99,19 @@ export class CartComponent implements OnInit {
       // }else {
       //   alert("Insufficient funds! Please Add more funds ");
       // }
+    //}else {
+     // console.log("Please add funds!")
+    //}
+    }
+
+    getFunds(id: any) {
+      this.productSer.retrieveFunds(id).subscribe(result => {
+        if(result?.length > 0) {
+          console.log(this.funds)
+        } else {
+          console.log("no funds")
+        }
+      })
     }
   
     
