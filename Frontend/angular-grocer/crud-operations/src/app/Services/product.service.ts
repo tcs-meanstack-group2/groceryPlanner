@@ -9,21 +9,21 @@ import { FundsDetails } from '../Model/funds.model';
   providedIn: 'root'
 })
 export class ProductService {
-
+  ipAddress:string="http://localhost:9090"
   constructor(public http:HttpClient) { }
  
   retrieveAllProductDetails():Observable<ProductDetails[]>{
-    return this.http.get<ProductDetails[]>("http://localhost:9090/admin/product/allProductDetails")
+    return this.http.get<ProductDetails[]>(this.ipAddress+ "/admin/product/allProductDetails")
   }
   retrieveFund():Observable<FundsDetails>{
-    return this.http.get<FundsDetails>("http://localhost:9090/user/addFunds/")
+    return this.http.get<FundsDetails>(this.ipAddress+ "/user/addFunds/")
   }
   user_cart(ProductDetails:any):any{
-    
-      return this.http.post("http://localhost:9090/user/selectedOrders/", ProductDetails)
-  }
-  
+
+  return this.http.post(this.ipAddress+ "/user/selectedOrders/", ProductDetails, {responseType: 'text'})
+ }
   addTicket(ticketRef: any): any {
-      return this.http.post("http://localhost:9090/user/addTicket/", ticketRef)
-  }
+  return this.http.post(this.ipAddress+ "/user/addTicket/", ticketRef, {responseType: 'text'} )
+}
+
 }

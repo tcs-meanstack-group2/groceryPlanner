@@ -1,0 +1,17 @@
+<div>
+    <h2>Edit Profile</h2>
+    <div class="form-group">
+        <form #orderRef="ngForm" (ngSubmit)="editOrder(orderRef.value)">
+            <label>Order ID: </label>
+            <input type="number" name="id" class="form-control" ngModel required><br>
+            <label>New Status: </label>
+            <input type="text" name="status" class="form-control" ngModel required><br>
+
+            <input type="submit" value="Update Order" class="btn btn-primary mr-2">
+            <input type="reset" value="Reset" class="btn btn-danger">
+        </form>
+        <br>
+        <br>
+        {{orderMsg}}
+    </div>
+</div>

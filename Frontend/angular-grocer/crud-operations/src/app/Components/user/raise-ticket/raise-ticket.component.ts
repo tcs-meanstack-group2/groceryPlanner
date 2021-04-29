@@ -15,5 +15,6 @@ Ticket?: String;
   
   addTicket(TicketRef: any) {
     this.productServ.addTicket(TicketRef).subscribe;
+    alert("Ticket Stored! Thank you..")
     }
 }

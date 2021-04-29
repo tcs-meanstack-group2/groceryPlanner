@@ -15,7 +15,7 @@ export class MainPageComponent implements OnInit {
     this.router.navigate(["admin/SignIn"]);
   }
   userPage(){
-    this.router.navigate(["user/SignIn"]);
+    this.router.navigate(["user"]);
   }
   employeePage(){}
 

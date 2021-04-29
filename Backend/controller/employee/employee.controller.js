@@ -1,4 +1,5 @@
 const EmployeeModel = require("../../model/employee/employee.model");
+const OrderModel = require("../../model/user/order.model.js")
 
 const getEmployeeDetails =(req,res)=> {
 
@@ -47,4 +48,20 @@ const deleteEmployeeDetails= (req,res)=> {
 
 }
 
-module.exports={addEmployeeDetails, deleteEmployeeDetails, getEmployeeDetails}
+let editOrder = (req,res)=> {
+    let id = req.body.id;
+    let status = req.body.status;
+    OrderModel.updateOne({_id: id}, {$set:{status: status}}, (err, result)=> {
+        if(!err){
+            if(result.nModified > 0){
+                    res.send("Status updated succesfully")
+            }else {
+                    res.send("ID does not match any orders");
+            }
+        }else {
+            res.send("Error: Please ensure your Order ID is valid");
+        }
+    })
+}
+
+module.exports={addEmployeeDetails, deleteEmployeeDetails, getEmployeeDetails, editOrder}

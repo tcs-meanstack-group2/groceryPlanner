@@ -12,7 +12,7 @@ import { Router } from '@angular/router'
 })
 export class CartComponent implements OnInit {
   user_cart?:Array<ProductDetails>;
-  user_total_price?:Array<number>;
+  user_total_price?:Array<number> = [];
   check_fund_total?:number = 0;
   funds?:Array<FundsDetails>;
   constructor(public productSer:ProductService) { }
@@ -20,9 +20,13 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.create_table();
   }
+
   create_table(){
+
+  
     var user_data = sessionStorage.getItem("user_cart");
     var user_cart_items = JSON.parse(user_data);
+    
 
     // Insert  empty rows for all items 
     var table = document.getElementById("AddedItems");
@@ -30,8 +34,6 @@ export class CartComponent implements OnInit {
 
     // iterate over each item and add it to a row
     var index = 0;
-    var product_delete_index = 0;
-    var index_to_product = {}
     for (var item of user_cart_items){
         var rows = body.insertRow(index++);
         var newCol1 = rows.insertCell(0);
@@ -47,35 +49,29 @@ export class CartComponent implements OnInit {
         var newCol6 = rows.insertCell(5);
         newCol6.innerHTML = String(item.ProductPrice - (item.ProductPrice * (item.Discount / 100)));
         var newCol7 = rows.insertCell(6);
-        index_to_product[item._id] = index;
         var delete_btn = document.createElement('button');
         delete_btn.innerHTML = "delete item";
-        delete_btn.id = product_delete_index.toString();
-        delete_btn.addEventListener('click', function(){
-          console.log("Deleting this index")
-          console.log(parseInt(delete_btn.id))
-          user_cart_items.splice(parseInt(delete_btn.id), 1);
-        } );
-        newCol7.appendChild(delete_btn);
+        //delete_btn.addEventListener('click', function(){
+          //user_cart_items.splice(parseInt(delete_btn.id), 1);
+        //} );
+       newCol7.appendChild(delete_btn);
       }
-      product_delete_index++;
+      
     }
     
   get_cart() {
     return this.user_cart;
   }
 
-  // delete_onClick(){
+  delete_onClick(){
     
-  //   console.log("we are here")
-  //   var user_data = sessionStorage.getItem("user_cart");
-  //   var user_cart_items = JSON.parse(user_data);
-  //   for(let x = 0; x<user_cart_items.length; x++){
-  //     if (user_cart_items[x]._id == id){
-  //       this.user_cart.splice(x, 1);
-  //     }
-  //   }
-  // }
+   console.log("we are here")
+   var chosen_index = document.getElementById("product_delete")
+    console.log("Index chose: {{}}", chosen_index)
+    this.user_cart.splice(parseInt(chosen_index.innerHTML), 1);
+   chosen_index.innerHTML = "";
+    
+  }
 
   calculate_total_price(){
     var user_data = sessionStorage.getItem("user_cart");
@@ -101,6 +97,8 @@ export class CartComponent implements OnInit {
         alert("Insufficient funds! Please Add more funds ");
       }
     }
+  
+    
   
 
 }
