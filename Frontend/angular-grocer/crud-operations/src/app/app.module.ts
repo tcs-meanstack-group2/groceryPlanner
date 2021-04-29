@@ -30,6 +30,7 @@ import { GenerateReportsComponent } from './Components/admin/generate-reports/ge
 import { CartComponent } from './Components/user/cart/cart.component';
 import { ReportsTableComponent } from './Components/admin/reports-table/reports-table.component';
 import { ViewRequestsComponent } from './Components/admin/view-requests/view-requests.component';
+import { ProductListComponent } from './Components/user/product-list/product-list.component';
 
     
 @NgModule({
@@ -57,7 +58,8 @@ import { ViewRequestsComponent } from './Components/admin/view-requests/view-req
     GenerateReportsComponent,
     CartComponent,
     ReportsTableComponent,
-    ViewRequestsComponent
+    ViewRequestsComponent,
+    ProductListComponent
 
   ],
   imports: [
