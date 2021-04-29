@@ -32,4 +32,16 @@ export class AdminPanelComponent implements OnInit {
   generateReports(){
     this.router.navigateByUrl('/admin/GenerateReports');
   }
+
+  viewRequests(){
+    this.router.navigateByUrl('/admin/ViewRequests');
+  }
+
+  logOut() {
+    //Ross did this
+    //clear login token
+    sessionStorage.setItem('token','');
+
+    this.router.navigateByUrl('');
+  }
 }

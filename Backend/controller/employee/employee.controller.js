@@ -38,7 +38,7 @@ const deleteEmployeeDetails= (req,res)=> {
                 if(result.deletedCount>0){
                     res.send("Employee deleted")
                 }else {
-                    res.send("Employee not deleted");
+                    res.send("Employee does not exist");
                 }
         }else {
             res.send("Error generated "+err);

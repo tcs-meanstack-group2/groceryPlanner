@@ -25,7 +25,7 @@ export class DeleteEmployeeComponent implements OnInit {
     this.empService.deleteEmployee(id);
 
     //send alert employee added
-    
+
     location.reload();
   }
 

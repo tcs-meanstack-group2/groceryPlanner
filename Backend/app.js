@@ -36,12 +36,16 @@ var adminSignIn=require("./router/admin/signin.router.js");
 var User = require("./router/user/user.router.js");
 const Employee = require("./router/employee/employee.router.js");
 const Reports = require("./router/admin/reports.router.js");
+const ProdRequests = require("./router/admin/requests.router.js");
+
 
 
 app.use("/admin/product",Product);
 app.use("/admin",adminSignIn);
 app.use("/admin/employee",Employee);
 app.use("/admin/reports",Reports);
+app.use("/admin",ProdRequests);
+
 
 app.use("/user", User);
 app.use("/user/selectedOrders", User)
