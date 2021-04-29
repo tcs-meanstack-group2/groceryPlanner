@@ -2,6 +2,9 @@
     <div class="form-row">
       <div class="col">
         <input formControlName="id" name="id" type="text" class="form-control" placeholder="Employee ID">
+        <span class="text-danger" *ngIf="(deleteEmployeeForm.get('id').touched || submitted) && deleteEmployeeForm.get('id').errors?.required">
+          Employee ID is required
+        </span>
       </div>
     </div>
     <br>

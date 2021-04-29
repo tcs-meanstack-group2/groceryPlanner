@@ -16,6 +16,8 @@ import { CartComponent } from './Components/user/cart/cart.component';
 import { ProductListComponent } from './Components/user/product-list/product-list.component';
 import { EmployeePageComponent } from './Components/admin/employee-page/employee-page.component';
 import { GenerateReportsComponent } from './Components/admin/generate-reports/generate-reports.component';
+import { ReportsTableComponent } from './Components/admin/reports-table/reports-table.component';
+import { ViewRequestsComponent } from './Components/admin/view-requests/view-requests.component';
 import { RaiseTicketComponent } from './Components/user/raise-ticket/raise-ticket.component';
 import { SigninComponent } from './Components/user/signin/signin.component';
 
@@ -30,6 +32,8 @@ const routes: Routes = [
   {path:"admin/employees", component: EmployeePageComponent},
   {path:"user",component:UserPanelComponent},
   {path:"admin/GenerateReports", component: GenerateReportsComponent},
+  {path:"admin/ReportsTable/:type/:query", component: ReportsTableComponent},
+  {path:"admin/ViewRequests", component: ViewRequestsComponent},
   {path:"user/OrderStatus",component:RetrieveStatusComponent},
   {path:"user/EditProfile",component:EditProfileComponent},
   {path:"user/AddFunds",component:AddFundsComponent},

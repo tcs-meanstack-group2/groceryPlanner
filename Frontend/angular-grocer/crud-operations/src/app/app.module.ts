@@ -28,6 +28,8 @@ import { AddEmployeeComponent } from './Components/admin/add-employee/add-employ
 import { DeleteEmployeeComponent } from './Components/admin/delete-employee/delete-employee.component';
 import { GenerateReportsComponent } from './Components/admin/generate-reports/generate-reports.component';
 import { CartComponent } from './Components/user/cart/cart.component';
+import { ReportsTableComponent } from './Components/admin/reports-table/reports-table.component';
+import { ViewRequestsComponent } from './Components/admin/view-requests/view-requests.component';
 import { ProductListComponent } from './Components/user/product-list/product-list.component';
 
     
@@ -55,8 +57,10 @@ import { ProductListComponent } from './Components/user/product-list/product-lis
     DeleteEmployeeComponent,
     GenerateReportsComponent,
     CartComponent,
+    ProductListComponent,
+    ReportsTableComponent,
+    ViewRequestsComponent,
     ProductListComponent
-
   ],
   imports: [
     BrowserModule,

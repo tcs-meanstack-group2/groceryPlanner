@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../Model/model.product';
 import { Observable } from 'rxjs';
+import { Order } from '../Model/order.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -32,16 +34,21 @@ deleteProductById(id:any):any{
   return this.http.delete('http://localhost:9090/admin/product/deleteProductDetailsById/'+id,{responseType:'text'});
 }
 
-generateDailyReport(date:any){
-  return this.http.get(this.ipAddress+"/admin/reports/getDailyReport/"+date);
+generateDailyReport(date:any):Observable<Order[]>{
+  return this.http.get<Order[]>(this.ipAddress+"/admin/reports/getDailyReport/"+date);
 }
 
-generateMonthlyReport(month:any){
-  return this.http.get(this.ipAddress+"/admin/reports/getMonthlyReport/"+month);
+generateMonthlyReport(month:any):Observable<Order[]>{
+  return this.http.get<Order[]>(this.ipAddress+"/admin/reports/getMonthlyReport/"+month);
 }
 
-generateUserReport(id:any){
-  return this.http.get(this.ipAddress+"/admin/reports/getUserReport/"+id);
+generateUserReport(id:any):Observable<Order[]>{
+  return this.http.get<Order[]>(this.ipAddress+"/admin/reports/getUserReport/"+id);
+}
+
+viewRequests():Observable<any[]>{
+  return this.http.get<any[]>(this.ipAddress+"/admin/getProdRequests");
+
 }
 
 }

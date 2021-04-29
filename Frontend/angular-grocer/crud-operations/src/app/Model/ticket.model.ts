@@ -1,3 +1,3 @@
 export class TicketDetails {
-    constructor(public User_id:number,public Ticket:string,){}
+    constructor(public User_id:number,public ticket_message:string,){}
 }
