@@ -43,7 +43,7 @@ const routes: Routes = [
   {path:"user/product-list", component: ProductListComponent },
   {path:"user/cart", component: CartComponent },
   { path:"user/raise-ticket", component: RaiseTicketComponent },
-  { path:"employee", component: EmployeePanelComponent },
+  { path:"employee/DashBoard", component: EmployeePanelComponent },
   { path:"employee/updateOrder", component: UpdateOrderComponent },
   {path:"employee/DashBoard",component:UpdateOrderComponent},
   {path:"",redirectTo:"home",pathMatch:"full"}

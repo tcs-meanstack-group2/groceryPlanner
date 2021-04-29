@@ -64,4 +64,29 @@ let editOrder = (req,res)=> {
     })
 }
 
-module.exports={addEmployeeDetails, deleteEmployeeDetails, getEmployeeDetails, editOrder}
+let editProfile = (req,res)=> {
+    let id = req.body.id;
+    let oldPass = req.body.pass;
+    let newPass = req.body.newPass;
+    EmployeeModel.updateOne({_id: id, password: oldPass}, {$set:{password: newPass}}, (err, result)=> {
+        if(!err){
+            if(result.nModified > 0){
+                    res.send("Password updated succesfully")
+            }else {
+                    res.send("User ID or Password is incorrect");
+            }
+        }else {
+            res.send("Error: Please ensure your User ID is valid");
+        }
+    })
+}
+
+let getOrders = (req, res) => {
+    OrderModel.find({}, (err, data) => {
+        if(!err) {
+            res.json(data);
+        }
+    })
+}
+
+module.exports={addEmployeeDetails, deleteEmployeeDetails, getEmployeeDetails, editOrder, editProfile, getOrders}

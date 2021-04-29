@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Employee } from '../Model/employee.model';
+import { Order } from '../order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,14 @@ export class EmployeeService {
 
   updateOrder(orderRef: any) {
     return this.http.put(this.ipAddress + "/employee/editOrder/", orderRef, {responseType: 'text'})
+  }
+
+  editProfile(profileRef: any): any {
+    return this.http.put(this.ipAddress + "/employee/editProfile/", profileRef, {responseType: 'text'})
+  }
+
+  getOrders() {
+    return this.http.get<Order[]>("http://localhost:9090/employee/getOrders");
+
   }
 }
