@@ -57,10 +57,10 @@ import { ProductListComponent } from './Components/user/product-list/product-lis
     DeleteEmployeeComponent,
     GenerateReportsComponent,
     CartComponent,
+    ProductListComponent,
     ReportsTableComponent,
     ViewRequestsComponent,
     ProductListComponent
-
   ],
   imports: [
     BrowserModule,
