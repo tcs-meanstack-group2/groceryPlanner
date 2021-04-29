@@ -19,9 +19,11 @@ export class ProductService {
     return this.http.get<FundsDetails>("http://localhost:9090/user/addFunds/")
   }
   user_cart(ProductDetails:any):any{
+
   return this.http.post("http://localhost:9090/user/selectedOrders/", ProductDetails, {responseType: 'text'})
  }
   addTicket(ticketRef: any): any {
   return this.http.post("http://localhost:9090/user/addTicket/", ticketRef, {responseType: 'text'} )
 }
+
 }

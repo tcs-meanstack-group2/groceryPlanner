@@ -22,6 +22,7 @@ export class CartComponent implements OnInit {
   }
 
   create_table(){
+
     if (this.user_cart.length == 0){
       var user_data = sessionStorage.getItem("user_cart");
       var user_cart_items = JSON.parse(user_data);

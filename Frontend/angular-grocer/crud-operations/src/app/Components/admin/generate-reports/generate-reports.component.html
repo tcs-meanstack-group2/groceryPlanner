@@ -1,1 +1,49 @@
-<p>generate-reports works!</p>
+<app-admin-panel></app-admin-panel>
+<br>
+<div class="card mb-2">
+    <h5 class="card-header">Generate Daily Report</h5>
+    <div class="card-body">
+        <h3 class="card-subtitle mb-2">Enter Date:</h3>
+
+        <form [formGroup]="dailyReportForm" (ngSubmit)="getDailyReport()">
+            <div class="form-row">
+                    <div class="col">
+                        <input formControlName="date" name="date" type="text" class="form-control" placeholder="MM-DD-YYYY">
+                    </div>
+            </div>
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success mb-2">Generate</button>
+                </div>            
+        </form>
+    </div>
+</div>
+
+<div class="card mb-2">
+    <h5 class="card-header">Generate Monthly Report</h5>
+    <div class="card-body">
+        <h3 class="card-subtitle mb-2">Enter Date:</h3>
+
+        <form [formGroup]="monthlyReportForm">
+            <div class="form-row">
+                    <div class="col">
+                        <input formControlName="month" name="month" type="text" class="form-control" placeholder="MM/DD/YYYY">
+                    </div>
+            </div>
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success mb-2">Generate</button>
+                </div>            
+        </form>
+    </div>
+</div>
+
+<div class="card mb-2">
+    <h5 class="card-header">Generate User Report</h5>
+    <div class="card-body">
+
+    <!-- <form [formGroup]="parentForm">
+        
+    </form> -->
+    </div>
+</div>

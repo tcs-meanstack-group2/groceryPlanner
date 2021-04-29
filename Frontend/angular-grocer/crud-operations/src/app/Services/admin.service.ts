@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminService {
+  ipAddress:string="http://localhost:9090";
 
   constructor(public http:HttpClient) { }
 
@@ -29,6 +30,18 @@ export class AdminService {
 
 deleteProductById(id:any):any{
   return this.http.delete('http://localhost:9090/admin/product/deleteProductDetailsById/'+id,{responseType:'text'});
+}
+
+generateDailyReport(date:any){
+  return this.http.get(this.ipAddress+"/admin/reports/getDailyReport/"+date);
+}
+
+generateMonthlyReport(month:any){
+  return this.http.get(this.ipAddress+"/admin/reports/getMonthlyReport/"+month);
+}
+
+generateUserReport(id:any){
+  return this.http.get(this.ipAddress+"/admin/reports/getUserReport/"+id);
 }
 
 }
