@@ -28,6 +28,7 @@ import { AddEmployeeComponent } from './Components/admin/add-employee/add-employ
 import { DeleteEmployeeComponent } from './Components/admin/delete-employee/delete-employee.component';
 import { GenerateReportsComponent } from './Components/admin/generate-reports/generate-reports.component';
 import { CartComponent } from './Components/user/cart/cart.component';
+import { ProductListComponent } from './Components/user/product-list/product-list.component';
 
     
 @NgModule({
@@ -53,7 +54,8 @@ import { CartComponent } from './Components/user/cart/cart.component';
     AddEmployeeComponent,
     DeleteEmployeeComponent,
     GenerateReportsComponent,
-    CartComponent
+    CartComponent,
+    ProductListComponent
 
   ],
   imports: [
