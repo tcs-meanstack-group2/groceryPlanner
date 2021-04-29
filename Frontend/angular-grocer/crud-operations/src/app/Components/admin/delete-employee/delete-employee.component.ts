@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { EmployeeService } from '../../../Services/employee.service';
 
 @Component({
@@ -10,12 +10,13 @@ import { EmployeeService } from '../../../Services/employee.service';
 export class DeleteEmployeeComponent implements OnInit {
 
   deleteEmployeeForm:FormGroup;
+  submitted = false;
 
   constructor(private fb:FormBuilder, private empService:EmployeeService) { }
 
   ngOnInit(): void {
     this.deleteEmployeeForm = this.fb.group({
-      id: '' 
+      id: ['', Validators.required] 
     });
 
   }
@@ -24,9 +25,16 @@ export class DeleteEmployeeComponent implements OnInit {
     const { id } = this.deleteEmployeeForm.value; //int parsing handled server-side  
     this.empService.deleteEmployee(id);
 
+    if(this.deleteEmployeeForm.valid) {
+      this.empService.deleteEmployee(id);
+      location.reload();
+      alert('Success: Employee deleted');
+    }
+
     //send alert employee added
+    //refresh page
     
-    location.reload();
+    //location.reload();
   }
 
 }

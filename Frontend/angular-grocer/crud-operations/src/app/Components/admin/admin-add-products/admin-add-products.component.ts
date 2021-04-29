@@ -15,9 +15,10 @@ export class AdminAddProductsComponent implements OnInit {
   ngOnInit(): void {
     this.adminService.retrieveAllProductDetails().subscribe(result=>this.products=result);
   }
+
   addProduct(adminAddProductsRef:any){
     console.log(adminAddProductsRef);
     this.adminService.storeProductDetailsInfo(adminAddProductsRef);
-}
+  }
 
 }
