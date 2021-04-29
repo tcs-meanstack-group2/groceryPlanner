@@ -7,11 +7,12 @@ import { ProductService } from 'src/app/Services/product.service';
   styleUrls: ['./raise-ticket.component.css']
 })
 export class RaiseTicketComponent implements OnInit {
-Ticket?: string;
+Ticket?: String;
   constructor(public productServ:ProductService) { }
 
   ngOnInit(): void {
   }
+  
   addTicket(TicketRef: any) {
     this.productServ.addTicket(TicketRef).subscribe;
     }
