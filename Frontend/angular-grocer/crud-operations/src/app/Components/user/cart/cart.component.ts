@@ -70,6 +70,7 @@ export class CartComponent implements OnInit {
     }
     else{
       this.user_cart.splice(parseInt(chosen_index.innerHTML)-1, 1);
+      sessionStorage.setItem('user_cart', JSON.stringify(this.user_cart));
       chosen_index.innerHTML = "";
       var table = document.getElementById("AddedItems");
       var body = table.getElementsByTagName("tbody")[0];
@@ -97,13 +98,18 @@ export class CartComponent implements OnInit {
       const fundsLeftOver = this.funds - this.check_fund_total;
 
       if (fundsLeftOver > 0) {
+        
         //decrease Product Quantity of purchased products
         user_cart_items.forEach((item) => {
           const { _id } = item;
+      
           //should
           this.userService.subtractProductQuant({ id: _id });
 
         });
+
+        //subtract funds from user funds
+        this.userService.changeFunds({"accNum": accNum, "funds":this.check_fund_total*-1}).subscribe();
 
         //add to Orders table
         const newOrder:Order = {

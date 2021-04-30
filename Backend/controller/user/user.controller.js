@@ -136,10 +136,11 @@ let editProfile = (req,res)=> {
     })
 }
 
-let addFunds = (req,res)=> {
-    let id = req.body.accNum;
-    let addFund = req.body.funds;
-    BankModel.updateOne({_id: id}, {$inc:{funds: addFund}}, (err, result)=> {
+let changeFunds = (req,res)=> {
+    let accNum = req.body.accNum;
+    let changeToFund = req.body.funds;
+
+    UserModel.updateOne({accNumber: accNum}, {$inc:{funds: changeToFund}}, (err, result)=> {
         if(!err){
             if(result.nModified > 0){
                     res.send("Balance updated succesfully");
@@ -216,5 +217,5 @@ let subtractProductQuantity= (req,res)=> {
 
 }
 
-module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, newOrders,SignUpFunction,SignInFunction, getUserById, subtractProductQuantity};
+module.exports = {getOrderById, editProfile, changeFunds, getFundsById, addTicket, newOrders,SignUpFunction,SignInFunction, getUserById, subtractProductQuantity};
 

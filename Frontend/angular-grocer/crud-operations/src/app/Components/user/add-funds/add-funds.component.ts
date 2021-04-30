@@ -27,7 +27,7 @@ export class AddFundsComponent implements OnInit {
   }
 
   addFunds(fundsRef: any) {
-    this.userServ.addFunds(fundsRef).subscribe((result: string) => {
+    this.userServ.changeFunds(fundsRef).subscribe((result: string) => {
       this.fundMsg = result;
     })
   }

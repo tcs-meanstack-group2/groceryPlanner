@@ -32,8 +32,8 @@ export class UserService {
     return this.http.get<any>(this.ipAddress + "/user/retrieveFunds/" + id);
   }
 
-  addFunds(fundsRef: any): any {
-    return this.http.put(this.ipAddress + "/user/addFunds/", fundsRef, {responseType: 'text'})
+  changeFunds(fundsRef: any): any {
+    return this.http.put(this.ipAddress + "/user/changeFunds/", fundsRef, {responseType: 'text'})
   }
   
   addNewOrder(Order: any):any {
