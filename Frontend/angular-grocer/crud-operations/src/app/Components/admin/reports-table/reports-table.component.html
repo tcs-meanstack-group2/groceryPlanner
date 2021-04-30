@@ -6,13 +6,18 @@
 </div>
 
 <div *ngIf="type ==='monthly'">
-    <h1>Report for Month: {{ query }}</h1>
+    <h1>Report for {{ query }}</h1>
     <hr>
 </div>
 
 <div *ngIf="type ==='user'">
     <h1>Report for User Id: {{ query }}</h1>
     <hr>
+</div>
+
+<div *ngIf="type ==='weekly'">
+  <h1>Report for Dates: {{ startDate }} to {{ endDate }}</h1>
+  <hr>
 </div>
 
 <div *ngIf="orders.length !== 0; else noData">

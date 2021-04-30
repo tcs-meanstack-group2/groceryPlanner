@@ -12,6 +12,8 @@ export class ReportsTableComponent implements OnInit {
 
   type:String;
   query:any;
+  startDate?:any;
+  endDate?:any;
   orders?:Order[];
 
   constructor(private adminService:AdminService, private route: ActivatedRoute) { }
@@ -19,10 +21,11 @@ export class ReportsTableComponent implements OnInit {
   ngOnInit(): void {
     this.type = this.route.snapshot.params.type;
     this.query = this.route.snapshot.params.query;
+    this.startDate = this.route.snapshot.params.startDate; //weeklyReport only
+    this.endDate = this.route.snapshot.params.endDate;  //weeklyReport only
 
     if(this.type === "daily") {
 
-      console.log(this.query)
       this.adminService.generateDailyReport(this.query).subscribe(res => this.orders = res);
 
     } else if(this.type === "monthly") {
@@ -30,6 +33,8 @@ export class ReportsTableComponent implements OnInit {
 
     } else if(this.type === "user") {
       this.adminService.generateUserReport(this.query).subscribe(res => this.orders = res);
+    } else if(this.type === "weekly") {
+      this.adminService.generateWeeklyReport(this.startDate, this.endDate).subscribe(res => this.orders = res);
     }
 
   }

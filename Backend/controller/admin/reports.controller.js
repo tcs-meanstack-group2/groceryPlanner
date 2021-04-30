@@ -2,13 +2,19 @@ const OrderModel = require("../../model/user/order.model.js")
 
 const getMonthlyReport = (req, res) => {
     const month = parseInt(req.params.month); //should be number of month
+    const year = parseInt(req.params.year);
 
-    OrderModel.find({ $expr: { $eq: [{ $month: "$timestamp" }, month] } }, (err, result) => {
-        if(!err){
-            //returns json of all entries of the specific month
-            res.json(result);
-        }
-      });
+    OrderModel.find({
+      $and: [
+        { $expr: {$eq: [{$month: "$timestamp"}, month]} },
+        { $expr: {$eq: [{$year: "$timestamp"}, year]} }
+      ]
+    }, (err, result) => {
+      if(!err){
+          //returns json of all entries of the specific day
+          res.json(result);
+      }
+    });
 }
 
 const getDailyReport = (req, res) => {
@@ -29,6 +35,18 @@ const getDailyReport = (req, res) => {
             res.json(result);
         }
       });
+}
+
+const getWeeklyReport = (req, res) => {
+  const startDate =  new Date(req.params.startDate);
+  const endDate =  new Date(req.params.endDate);
+
+  OrderModel.find({timestamp:{$gt:startDate,$lt:endDate}}, (err, result) => {
+      if(!err){
+          //returns json of all entries of the specific day
+          res.json(result);
+      }
+    });
 }
 
 const getUserReport = (req, res) => {
@@ -54,4 +72,4 @@ const getUserReport = (req, res) => {
 //       });
 // }
 
-module.exports={getDailyReport, getMonthlyReport, getUserReport}
+module.exports={getDailyReport, getMonthlyReport, getUserReport, getWeeklyReport}

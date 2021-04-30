@@ -2,7 +2,7 @@ let OrderModel = require("../../model/user/order.model.js")
 let UserModel = require("../../model/user/user.model.js")
 let BankModel = require("../../model/user/bank.model.js")
 let TicketModel = require("../../model/user/ticket.model")
-//let SelectedOrdersModel = require("../../model/user/selectedOrders.model")
+let ProductModel = require("../../model/admin/product.model.js");
 let SignInModel= require("../../model/user/signin.model")
 const jwt = require('jwt-simple');
 // Retrieving Order status from Mongo Database
@@ -15,7 +15,16 @@ let getOrderById = (req, res) => {
     })
 }
 
-let SignInFunction=  (req,res)=>{
+let getUserById = (req, res) => {
+    let id = req.params.id;
+    UserModel.find({_id: id}, (err, data) => {
+        if(!err) {
+            res.json(data);
+        }
+    })
+}
+
+let SignInFunction= (req,res)=>{
   
     let UserId=req.body.UserId
     let Password=req.body.Password
@@ -127,10 +136,11 @@ let editProfile = (req,res)=> {
     })
 }
 
-let addFunds = (req,res)=> {
-    let id = req.body.accNum;
-    let addFund = req.body.funds;
-    BankModel.updateOne({_id: id}, {$inc:{funds: addFund}}, (err, result)=> {
+let changeFunds = (req,res)=> {
+    let accNum = req.body.accNum;
+    let changeToFund = req.body.funds;
+
+    UserModel.updateOne({accNumber: accNum}, {$inc:{funds: changeToFund}}, (err, result)=> {
         if(!err){
             if(result.nModified > 0){
                     res.send("Balance updated succesfully");
@@ -161,15 +171,17 @@ let addTicket = (req,res)=> {
 
 }             
 
-let newOrders = (req,res)=> {
-    let newOrders = new OrderModel({
-        _id:req.body._id,
-        userId:req.body.userId,
+let newOrders = (req,res) => {
+    let newOrder = new OrderModel({
+        _id:req.body.id,
+        userID:Number(req.body.userId),
         status:req.body.status,
-        date:req.body.date,
-        amount:req.body.amount
+        amount:req.body.amount,
+        timestamp: new Date(req.body.timestamp)
+        
     });
-    newOrders.save((err,result)=> {
+
+    newOrder.save((err,result)=> {
         if(!err){
             res.send("Orders Stored Successfully ")
             
@@ -181,12 +193,29 @@ let newOrders = (req,res)=> {
 
 let getFundsById = (req, res) => {
     let id = req.params.id;
-    BankModel.find({_id: id}, (err, data) => {
+    UserModel.find({accNumber: id}, (err, data) => {
         if(!err) {
             res.json(data);
         }
     })
 }
 
-module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, newOrders,SignUpFunction,SignInFunction};
+let subtractProductQuantity= (req,res)=> {
+    let ProductID = req.body.id;
+    //should take extra param of subtracted total quant
+    ProductModel.updateMany({_id:ProductID},{$inc:{ProductQuantity:-1}},(err,result)=> {
+        if(!err){
+            if(result.nModified>0){
+                    res.send("Product quantity updated succesfully")
+            }else {
+                    res.send("Product is not available");
+            }
+        }else {
+            res.send("Error generated "+err);
+        }
+    })
+
+}
+
+module.exports = {getOrderById, editProfile, changeFunds, getFundsById, addTicket, newOrders,SignUpFunction,SignInFunction, getUserById, subtractProductQuantity};
 

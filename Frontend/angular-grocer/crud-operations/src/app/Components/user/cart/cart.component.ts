@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductDetails } from '../../../Model/model.productmodel';
+import { UserService } from '../../../Services/user.service';
+import { AdminService } from '../../../Services/admin.service';
+import { Order } from '../../../Model/order.model';
+import { Router } from '@angular/router';
 import { ProductService } from '../../../Services/product.service';
 
 
@@ -7,15 +11,21 @@ import { ProductService } from '../../../Services/product.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  user_cart?:Array<ProductDetails>;
-  user_total_price?:Array<number> = [];
-  check_fund_total?:number = 0;
-  funds?: Number;
-  constructor(public productSer:ProductService) { }
-  
+  user_cart?: Array<ProductDetails>;
+  user_total_price?: Array<number> = [];
+  check_fund_total?: number = 0;
+  //funds?:FundsDetails;
+  funds?: number;
+
+  constructor(
+    private userService: UserService,
+    private adminService: AdminService,
+    public productSer:ProductService
+  ) {}
+
   ngOnInit(): void {
     this.load_user_cart()
     this.create_table();
@@ -60,6 +70,7 @@ export class CartComponent implements OnInit {
     }
     else{
       this.user_cart.splice(parseInt(chosen_index.innerHTML)-1, 1);
+      sessionStorage.setItem('user_cart', JSON.stringify(this.user_cart));
       chosen_index.innerHTML = "";
       var table = document.getElementById("AddedItems");
       var body = table.getElementsByTagName("tbody")[0];
@@ -73,58 +84,55 @@ export class CartComponent implements OnInit {
     }
     this.check_fund_total = total_price;
     return total_price;
-    
-}
-  check_funds(){
-   //if (this.check_fund_total <= this.funds){
-    var user_data = sessionStorage.getItem("user_cart");
+  }
+  check_funds() {
+    var user_data = sessionStorage.getItem('user_cart');
+    const accNum = sessionStorage.getItem('accNum');
     var user_cart_items = JSON.parse(user_data);
-    alert("Thank you! Order got placed"); 
-    
-  
-    //id: Date.now() ;
-    //userID: Number; 
-    //status: String;
-    //amount: Number;
-    //timestamp: Date;
-      // if(this.check_fund_total >= this.funds._id){
+
+    console.log(user_cart_items);
+
+    this.userService.retrieveFunds(accNum).subscribe((result) => {
+      this.funds = result[0].funds;
+
+      const fundsLeftOver = this.funds - this.check_fund_total;
+
+      if (fundsLeftOver > 0) {
         
-      //   }
+        //decrease Product Quantity of purchased products
+        user_cart_items.forEach((item) => {
+          const { _id } = item;
+      
+          //should
+          this.userService.subtractProductQuant({ id: _id });
 
-      // }else {
-      //   alert("Insufficient funds! Please Add more funds ");
-      // }
-    //}else {
-     // console.log("Please add funds!")
-    //}
-    }
+        });
 
-    getFunds(id: any) {
-      this.productSer.retrieveFunds(id).subscribe(result => {
-        if(result?.length > 0) {
-          console.log(this.funds)
-        } else {
-          console.log("no funds")
+        //subtract funds from user funds
+        this.userService.changeFunds({"accNum": accNum, "funds":this.check_fund_total*-1}).subscribe();
+
+        //add to Orders table
+        const newOrder:Order = {
+          id: Date.now(), //cheap way to add unique id
+          userId: sessionStorage.getItem('userID'),
+          status: "Ordered",
+          amount: this.check_fund_total,
+          timestamp: Date()
         }
-      })
-    }
-  
-    
-  
 
+        // console.log(newOrder)
+        this.userService.addNewOrder(newOrder);
+
+        //success alert
+        alert('Thank you! Order got placed');
+
+        //clear cart in storage
+        sessionStorage.setItem('user_cart', JSON.stringify([]));
+      } else {
+        alert('Error: Not enough funds to purchase items.');
+      }
+    });
+
+    //update funds for acc
+  }
 }
-  
-
-  
-  
- 
-
-  
-
-  
- 
-
-
-
-
-

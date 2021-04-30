@@ -39,6 +39,7 @@ const routes: Routes = [
   {path:"user",component:UserPanelComponent},
   {path:"admin/GenerateReports", component: GenerateReportsComponent},
   {path:"admin/ReportsTable/:type/:query", component: ReportsTableComponent},
+  {path:"admin/ReportsTable/:type/:startDate/:endDate", component: ReportsTableComponent},
   {path:"admin/ViewRequests", component: ViewRequestsComponent},
   {path:"user/OrderStatus",component:RetrieveStatusComponent},
   {path:"user/EditProfile",component:EditProfileComponent},

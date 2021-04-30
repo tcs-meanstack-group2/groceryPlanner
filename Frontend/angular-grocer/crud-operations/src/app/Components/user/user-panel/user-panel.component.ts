@@ -15,9 +15,20 @@ export class UserPanelComponent implements OnInit {
   displayEdit: Boolean;
   displayFunds: Boolean;
   displayLogout: Boolean;
+  accNum?:String;
+  userID?:String;
+
   constructor(public router: Router) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("userID")) {
+      this.userID = sessionStorage.getItem("userID");
+    }
+
+    if(sessionStorage.getItem("accNum")) {
+      this.accNum = sessionStorage.getItem("accNum");
+    }
+
   }
   
   selectItemsLink(){

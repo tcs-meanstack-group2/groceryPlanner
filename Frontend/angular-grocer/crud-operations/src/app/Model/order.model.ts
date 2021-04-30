@@ -1,7 +1,7 @@
 export class Order {
     id: Number;
-    userID: Number;
+    userId: Number | String;
     status: String;
     amount: Number;
-    timestamp: Date;
+    timestamp: String;
 }
