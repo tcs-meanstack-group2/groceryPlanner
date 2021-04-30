@@ -15,6 +15,15 @@ let getOrderById = (req, res) => {
     })
 }
 
+let getUserById = (req, res) => {
+    let id = req.params.id;
+    UserModel.find({_id: id}, (err, data) => {
+        if(!err) {
+            res.json(data);
+        }
+    })
+}
+
 let SignInFunction=  (req,res)=>{
   
     let UserId=req.body.UserId
@@ -190,5 +199,5 @@ let getFundsById = (req, res) => {
     })
 }
 
-module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, newOrders,SignUpFunction,SignInFunction};
+module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, newOrders,SignUpFunction,SignInFunction, getUserById};
 

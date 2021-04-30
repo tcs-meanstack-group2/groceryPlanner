@@ -29,10 +29,10 @@
     </div>
     
     <br>
-    <div *ngIf="employees">
-        <h1>Employee Details</h1>
+    <h1>Employee Details</h1>
         <hr> 
 
+    <div *ngIf="employees.length !== 0; else noData">
          <table class="table table-striped">
         <thead>
           <tr>
@@ -54,6 +54,10 @@
       </table>
 
     </div>
+
+    <ng-template #noData>
+      <h3>There are no employees in the database.</h3>
+  </ng-template>
    
 
 

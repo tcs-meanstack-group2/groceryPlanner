@@ -38,4 +38,8 @@ export class UserService {
   newOrders(Order: any):any {
     this.http.post(this.ipAddress + "/user/newOrders", Order, {responseType: 'text'})
   }
+
+  getUserById(id:any):Observable<any> {
+    return this.http.get<any>(this.ipAddress + "/user/getUser/" + id);
+  }
 }
