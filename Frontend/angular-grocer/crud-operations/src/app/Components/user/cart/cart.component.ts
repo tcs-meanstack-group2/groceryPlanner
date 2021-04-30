@@ -4,6 +4,9 @@ import { UserService } from '../../../Services/user.service';
 import { AdminService } from '../../../Services/admin.service';
 import { Order } from '../../../Model/order.model';
 import { Router } from '@angular/router';
+import { ProductService } from '../../../Services/product.service';
+
+
 
 @Component({
   selector: 'app-cart',
@@ -19,75 +22,65 @@ export class CartComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private adminService: AdminService
+    private adminService: AdminService,
+    public productSer:ProductService
   ) {}
 
   ngOnInit(): void {
+    this.load_user_cart()
     this.create_table();
-    //this.productSer.retrieveFund().subscribe(result=>this.funds=result);
-    console.log(this.funds);
   }
-
-  create_table() {
-    var user_data = sessionStorage.getItem('user_cart');
-    var user_cart_items = JSON.parse(user_data);
-    // Insert  empty rows for all items
-    var table = document.getElementById('AddedItems');
-    var body = table.getElementsByTagName('tbody')[0];
+  create_table(){
+    // Insert  empty rows for all items 
+    var table = document.getElementById("AddedItems");
+    var body = table.getElementsByTagName("tbody")[0];
     // iterate over each item and add it to a row
     var index = 0;
-    for (var item of user_cart_items) {
-      var rows = body.insertRow(index++);
-      var newCol1 = rows.insertCell(0);
-      newCol1.innerHTML = item._id;
-      var newCol2 = rows.insertCell(1);
-      newCol2.innerHTML = item.ProductName;
-      var newCol3 = rows.insertCell(2);
-      newCol3.innerHTML = item.ProductPrice;
-      var newCol4 = rows.insertCell(3);
-      newCol4.innerHTML = "<div contenteditable='false'>1</div>";
-      var newCol5 = rows.insertCell(4);
-      newCol5.innerHTML = item.Discount;
-      var newCol6 = rows.insertCell(5);
-      newCol6.innerHTML = String(
-        item.ProductPrice - item.ProductPrice * (item.Discount / 100)
-      );
-      var newCol7 = rows.insertCell(6);
-      var delete_btn = document.createElement('button');
-      delete_btn.innerHTML = 'delete item';
-      delete_btn.addEventListener('click', this.delete_onClick);
-      //user_cart_items.splice(parseInt(delete_btn.id), 1);
-      //} );
-      newCol7.appendChild(delete_btn);
+    console.log("Printing the product array")
+    console.log(this.user_cart)
+    for (var item of this.user_cart){
+        var rows = body.insertRow(index++);
+        var newCol1 = rows.insertCell(0);
+        newCol1.innerHTML = item._id.toString();
+        var newCol2 = rows.insertCell(1);
+        newCol2.innerHTML = item.ProductName;
+        var newCol3 = rows.insertCell(2);
+        newCol3.innerHTML = item.ProductPrice.toString();
+        var newCol4 = rows.insertCell(3);
+        newCol4.innerHTML = "<div contenteditable='false'>1</div>";
+        var newCol5 = rows.insertCell(4);
+        newCol5.innerHTML = item.Discount.toString();
+        var newCol6 = rows.insertCell(5);
+        newCol6.innerHTML = String(item.ProductPrice - (item.ProductPrice * (item.Discount / 100)));
+      }
+    }
+  load_user_cart(){
+    var user_data = sessionStorage.getItem("user_cart");
+    this.user_cart = JSON.parse(user_data);
+  }
+  delete_onClick(){
+    var chosen_index = <HTMLInputElement>document.getElementById("deleter")
+    var index = parseInt(chosen_index.value)
+    if ((index) > this.user_cart.length){
+      console.log("im here index less than cart")
+      alert("Specified index out of range")
+    }
+    else if(index <= 0){
+      alert("Index number cannot be less than 0")
+    }
+    else{
+      this.user_cart.splice(parseInt(chosen_index.innerHTML)-1, 1);
+      chosen_index.innerHTML = "";
+      var table = document.getElementById("AddedItems");
+      var body = table.getElementsByTagName("tbody")[0];
+      body.deleteRow((index-1))
     }
   }
-
-  get_cart() {
-    return this.user_cart;
-  }
-
-  delete_onClick() {
-    console.log('we are here');
-    var chosen_index = document.getElementById('product_delete');
-    console.log('Index chose: {{}}', chosen_index);
-    this.user_cart.splice(parseInt(chosen_index.innerHTML), 1);
-    chosen_index.innerHTML = '';
-  }
-
-  calculate_total_price() {
-    var user_data = sessionStorage.getItem('user_cart');
-    var user_cart_items = JSON.parse(user_data);
-    let total_price: number = 0;
-    for (var index = 0; index < user_cart_items.length; index++) {
-      //console.log(user_cart_items[index]["ProductPrice"])
-      total_price =
-        total_price +
-        user_cart_items[index]['ProductPrice'] -
-        user_cart_items[index]['ProductPrice'] *
-          (user_cart_items[index]['Discount'] / 100);
+  calculate_total_price(){
+    let total_price:number = 0;
+    for(var index = 0; index < this.user_cart.length; index++){
+      total_price = total_price + this.user_cart[index]["ProductPrice"] - (this.user_cart[index]["ProductPrice"] * (this.user_cart[index]["Discount"] / 100))
     }
-    //console.log("The total Price:")
-    //console.log(total_price);
     this.check_fund_total = total_price;
     return total_price;
   }
