@@ -14,7 +14,7 @@
     
     <form  #adminSignInRef="ngForm" (ngSubmit)="signIn(adminSignInRef.value)">
         <div class="d-grid gap-2 col-4 ">     
-    <label >Admin ID</label>
+    <label >Admin ID (DEFAULT: 123)</label>
     <input type="text" name="adminId"  id="id" ngModel required minlength="3" #adminId="ngModel" >
     <div *ngIf="adminId.invalid && (adminId.dirty || adminId.touched)">
         <div class="errorMessage" *ngIf="adminId.errors.required">
@@ -25,7 +25,7 @@
         </div>
       </div>
 
-    <label >Password</label>
+    <label >Password (DEFAULT: admin123)</label>
     <input type="password" name="password" id="pass"  ngModel required minlength="6" #password="ngModel"><br/>
     <div *ngIf="password.invalid && (password.dirty || password.touched)">
         <div class="errorMessage" *ngIf="password.errors.required">

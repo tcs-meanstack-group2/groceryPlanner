@@ -38,7 +38,6 @@ export class AdminPanelComponent implements OnInit {
   }
 
   logOut() {
-    //Ross did this
     //clear login token
     sessionStorage.clear()
 
