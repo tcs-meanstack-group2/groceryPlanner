@@ -2,6 +2,33 @@ const EmployeeModel = require("../../model/employee/employee.model");
 const OrderModel = require("../../model/user/order.model.js")
 const TicketModel = require("../../model/user/ticket.model.js")
 const UserModel = require("../../model/user/user.model.js")
+const ProdReqModel = require("../../model/employee/requests.model");
+const changeProductDetails = (req,res)=> {
+
+    let changeproductCount;
+    ProdReqModel.countDocuments().then((count) => {
+        changeproductCount=count+1; 
+        console.log(changeproductCount);    
+        //
+    let product = new ProdReqModel({
+         _id:changeproductCount,
+         EmployeeID:req.body.EmployeeID,
+         ProductID:req.body.ProductID,
+         ProductQuantity:req.body.ProductQuantity,
+         ProductTask:req.body.ProductTask
+     });
+   
+     product.save((err,result)=> {
+         if(!err){
+             res.send("Request sent successfully ")
+         }else {
+             res.send("Couldnt send request ");
+         }
+     })
+     //    
+    });
+
+}
 
 const getEmployeeDetails =(req,res)=> {
 
@@ -125,4 +152,4 @@ let unlockUser = (req,res)=> {
     });
 }
 
-module.exports={addEmployeeDetails, deleteEmployeeDetails, getEmployeeDetails, editOrder, editProfile, getOrders, getTickets, unlockUser}
+module.exports={addEmployeeDetails, deleteEmployeeDetails, getEmployeeDetails, editOrder, editProfile, getOrders, getTickets, unlockUser,changeProductDetails}
