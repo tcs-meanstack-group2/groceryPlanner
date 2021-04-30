@@ -9,6 +9,7 @@ export class EmployeePanelComponent implements OnInit {
   displayOrder = true;
   displayUnlock: boolean;
   displayProfile: boolean;
+  sendRequest: boolean;
   constructor(public router:Router) { }
 
   ngOnInit(): void {
@@ -19,7 +20,10 @@ export class EmployeePanelComponent implements OnInit {
     this.router.navigateByUrl('\admin\DashBoard');
   }*/
 
-  sendRequestLink(){}
+  sendRequestLink(){
+    this.hideAll();
+    this.sendRequest = true;
+  }
 
   updateOrderStatusLink(){
     this.hideAll();
@@ -45,5 +49,6 @@ export class EmployeePanelComponent implements OnInit {
     this.displayOrder = false;
     this.displayUnlock = false;
     this.displayProfile = false;
+    this.sendRequest = false;
   }
 }

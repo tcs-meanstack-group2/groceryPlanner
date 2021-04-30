@@ -37,7 +37,7 @@ import { EmployeeProfileComponent } from './Components/employee/employee-profile
 import { UnlockUsersComponent } from './Components/employee/unlock-users/unlock-users.component';
 import { UserSignInComponent } from './Components/user/user-sign-in/user-sign-in.component';
 import { UserSignUpComponent } from './Components/user/user-sign-up/user-sign-up.component';
-    
+import {EmployeeSendRequestComponent} from './Components/employee/employee-send-request/employee-send-request.component'    
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +73,8 @@ import { UserSignUpComponent } from './Components/user/user-sign-up/user-sign-up
     EmployeeSigninComponent,
     UserSignInComponent,
     UserSignUpComponent,
-    UnlockUsersComponent
+    UnlockUsersComponent,
+    EmployeeSendRequestComponent
   ],
   imports: [
     BrowserModule,

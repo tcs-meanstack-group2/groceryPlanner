@@ -13,5 +13,5 @@ router.put("/editProfile", EmployeeController.editProfile);
 router.get("/getOrders",EmployeeController.getOrders);
 router.get("/getTickets",EmployeeController.getTickets);
 router.put("/unlockUser", EmployeeController.unlockUser);
-
+router.post("/changeProductDetails",EmployeeController.changeProductDetails);
 module.exports=router;
