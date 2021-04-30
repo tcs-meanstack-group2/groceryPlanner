@@ -40,7 +40,7 @@ export class AdminPanelComponent implements OnInit {
   logOut() {
     //Ross did this
     //clear login token
-    sessionStorage.setItem('token','');
+    sessionStorage.clear()
 
     this.router.navigateByUrl('');
   }

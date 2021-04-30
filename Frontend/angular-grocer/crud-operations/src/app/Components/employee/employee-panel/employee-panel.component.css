@@ -11,4 +11,5 @@ a{
 a:hover{
     color: white;
     background-color: rgb(30, 82, 24);
+    cursor: pointer;
 }
