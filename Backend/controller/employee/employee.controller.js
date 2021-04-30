@@ -1,5 +1,7 @@
 const EmployeeModel = require("../../model/employee/employee.model");
 const OrderModel = require("../../model/user/order.model.js")
+const TicketModel = require("../../model/user/ticket.model.js")
+const UserModel = require("../../model/user/user.model.js")
 
 const getEmployeeDetails =(req,res)=> {
 
@@ -44,7 +46,7 @@ const deleteEmployeeDetails= (req,res)=> {
         }else {
             res.send("Error generated "+err);
         }
-    })
+    });
 
 }
 
@@ -89,4 +91,38 @@ let getOrders = (req, res) => {
     })
 }
 
-module.exports={addEmployeeDetails, deleteEmployeeDetails, getEmployeeDetails, editOrder, editProfile, getOrders}
+let getTickets= (req, res) => {
+    TicketModel.find({}, (err, data) => {
+        if(!err) {
+            res.json(data);
+        }
+    });
+}
+
+let unlockUser = (req,res)=> {
+    let id = req.body.id;
+
+    TicketModel.deleteOne({_id: id},(err,result)=> {
+        if(!err){
+            if(result.deletedCount > 0){
+                UserModel.updateOne({_id: id}, {$set:{LoginAttempts: 3}}, (err, result)=> {
+                    if(!err){
+                        if(result.nModified > 0){
+                                res.send("User unlocked succesfully")
+                        }else {
+                                res.send("ID not found");
+                        }
+                    }else {
+                        res.send("Error: Please ensure your ID is valid");
+                    }
+                });
+            }else {
+                res.send("Ticket does not exist");
+            }
+        }else {
+            res.send("Error generated " + err);
+        }
+    });
+}
+
+module.exports={addEmployeeDetails, deleteEmployeeDetails, getEmployeeDetails, editOrder, editProfile, getOrders, getTickets, unlockUser}

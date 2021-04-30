@@ -3,7 +3,7 @@ mongoose.Promise = global.Promise;      // creating reference.
 
 let userSignInSchema = mongoose.Schema({
     _id:Number,
-    Password:String,
+    password:String,
     FirstName:String,
     LastName:String,
     EmailID:String,
@@ -11,7 +11,8 @@ let userSignInSchema = mongoose.Schema({
     PhoneNumber:Number,
     Address:String,
     Funds:Number,
-    AccountNumber:Number
+    AccountNumber:Number,
+    LoginAttempts: Number
 })
 
 

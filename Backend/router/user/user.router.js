@@ -9,6 +9,7 @@ router.put("/addFunds", UserController.addFunds);
 router.post("/newOrders", UserController.newOrders);
 router.post("/addTicket", UserController.addTicket);
 router.get("/retrieveFunds/:id", UserController.getFundsById);
-
+router.post("/userSignIn", UserController.SignInFunction);
+router.post("/userSignUp", UserController.SignUpFunction);
 
 module.exports = router;

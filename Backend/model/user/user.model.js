@@ -12,7 +12,8 @@ let UserSchema = mongoose.Schema({
     pNumber: Number,
     address: String,
     funds: Number,
-    accNumber: Number
+    accNumber: Number,
+    LoginAttempts: Number
 });
 
 let UserModel = mongoose.model("userModel", UserSchema, "UserDetails");

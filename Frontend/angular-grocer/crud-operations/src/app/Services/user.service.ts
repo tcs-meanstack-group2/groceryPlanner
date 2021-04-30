@@ -10,7 +10,15 @@ import { Order } from '../order.model';
 export class UserService {
   ipAddress:string="http://localhost:9090"
   constructor(public http: HttpClient) { }
+  signIn(UserId:string,Password:string){
+    console.log(UserId+Password);
+    return this.http.post<{token:string}>(this.ipAddress+ "/user/userSignIn",{UserId,Password});
+  };
 
+  signUp(profileRef: any): any {
+    return this.http.post(this.ipAddress + "/user/userSignUp", profileRef, {responseType: 'text'})
+  }
+  
   // Service function to get order status from backend
   retrieveOrder(id: any): Observable<Order[]> {
     return this.http.get<Order[]>(this.ipAddress + "/user/retrieveOrder/" + id);
