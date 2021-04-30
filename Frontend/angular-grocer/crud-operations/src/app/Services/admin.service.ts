@@ -38,13 +38,17 @@ generateDailyReport(date:any):Observable<Order[]>{
   return this.http.get<Order[]>(this.ipAddress+"/admin/reports/getDailyReport/"+date);
 }
 
+generateWeeklyReport(startDate:any, endDate:any):Observable<Order[]>{
+  return this.http.get<Order[]>(this.ipAddress+`/admin/reports/getWeeklyReport/${startDate}/${endDate}`);
+}
+
 generateMonthlyReport(yearMonthString:any):Observable<Order[]>{
   const tmp = yearMonthString.split(/\s*\-\s*/g);
 
   //split query param by hyphen delimiter 
   const year = tmp[1];
   const month = tmp[0];
-  
+
   //api takes in number of month
   const monthNum = new Date(month+'1, 2021').getMonth()+1;
   

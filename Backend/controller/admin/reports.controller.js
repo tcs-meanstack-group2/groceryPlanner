@@ -37,6 +37,18 @@ const getDailyReport = (req, res) => {
       });
 }
 
+const getWeeklyReport = (req, res) => {
+  const startDate =  new Date(req.params.startDate);
+  const endDate =  new Date(req.params.endDate);
+
+  OrderModel.find({timestamp:{$gt:startDate,$lt:endDate}}, (err, result) => {
+      if(!err){
+          //returns json of all entries of the specific day
+          res.json(result);
+      }
+    });
+}
+
 const getUserReport = (req, res) => {
     const id = req.params.id; 
 
@@ -60,4 +72,4 @@ const getUserReport = (req, res) => {
 //       });
 // }
 
-module.exports={getDailyReport, getMonthlyReport, getUserReport}
+module.exports={getDailyReport, getMonthlyReport, getUserReport, getWeeklyReport}
