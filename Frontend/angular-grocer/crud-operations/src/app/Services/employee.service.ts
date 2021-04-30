@@ -12,7 +12,10 @@ export class EmployeeService {
   ipAddress:string="http://localhost:9090";
 
   constructor(private http:HttpClient) { }
-
+  changeProductRequest(changeProductRequestRef:any){
+    return this.http.post(this.ipAddress+"/employee/changeProductDetails",changeProductRequestRef,{responseType:"text"});
+   }
+   
   signIn(EmployeeId:string,Password:string){
     console.log(EmployeeId+Password);
     return this.http.post<{token:string}>(this.ipAddress+ '/employee/employeeSignIn',{EmployeeId,Password});

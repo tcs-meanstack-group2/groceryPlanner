@@ -5,7 +5,8 @@ const ProdRequestSchema = mongoose.Schema({
     _id:Number,
     EmployeeID:Number,
     ProductID:Number,
-    ProductQuantity:Number
+    ProductQuantity:Number,
+    ProductTask:String
 });
 
 const ProdReqModel = mongoose.model("ProductQuantityTickets",ProdRequestSchema,"ProductQuantityTickets");
