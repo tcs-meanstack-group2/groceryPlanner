@@ -89,7 +89,7 @@ let SignUpFunction = (req,res)=> {
         pNumber:req.body.newPhone,
         address:req.body.newAdd,
         funds: 500,
-        accNumber: 200,
+        accNumber: Date.now(),
         LoginAttempts: 3
      });
    
