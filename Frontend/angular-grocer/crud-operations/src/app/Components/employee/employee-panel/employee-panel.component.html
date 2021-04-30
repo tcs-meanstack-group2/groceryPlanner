@@ -18,7 +18,7 @@
                 <a (click)="updateOrderStatusLink()" class="nav-link">Update Order Status</a>
                 </li>
                 <li class="nav-item">
-                <a routerLink="UnlockUsers" (click)="unlockUsersLink()" class="nav-link">Unlock Users</a>
+                <a (click)="unlockUsersLink()" class="nav-link">Unlock Users</a>
                 </li>
                 <li class="nav-item">
                     <a (click)="editProfileLink()" class="nav-link">Edit Profile</a>
@@ -30,6 +30,9 @@
         </div>
         <div *ngIf="displayOrder">
             <app-update-order></app-update-order>
+        </div>
+        <div *ngIf="displayUnlock">
+            <app-unlock-users></app-unlock-users>
         </div>
         <div *ngIf="displayProfile">
             <app-employee-profile></app-employee-profile>

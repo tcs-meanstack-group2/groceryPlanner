@@ -1,8 +1,8 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
+import { ProductDetails } from '../../../Model/model.productmodel';
+import { ProductService } from '../../../Services/product.service';
 import { Router } from '@angular/router'
-import { ProductDetails } from 'src/app/Model/model.productmodel';
-import { ProductService } from 'src/app/Services/product.service';
 
 let user_products = []
 
@@ -13,8 +13,7 @@ let user_products = []
 })
 
 export class ProductListComponent implements OnInit {
-  //p1?:Product;
-  //product?[];
+  
   products?:Array<ProductDetails> = [];
   
    
@@ -25,7 +24,7 @@ export class ProductListComponent implements OnInit {
   }
   addToCart(pp){
     user_products.push(pp);
-    console.log(user_products)
+    console.log(user_products);
     sessionStorage.setItem("user_cart", JSON.stringify(user_products))
   }
     

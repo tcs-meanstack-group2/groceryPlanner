@@ -12,10 +12,10 @@
     <div class="form-group">
     <form #TicketRef="ngForm" (ngSubmit)="addTicket(TicketRef.value)">
         <label>User Id</label>
-        <input type="text" name="user_id" class="form-control" ngModel><br/>
+        <input type="text" name="User_id" id ="user" class="form-control" ngModel><br/>
         <label>Message</label>
         <input type="text" name="ticket_message" class="form-control" ngModel><br/>
-        <input type="submit" class="btn-primary" value="add ticket"/>
+        <input type="submit" class="btn btn-primary" value="Add Ticket"/>
     </form>
     </div>
 </body>
