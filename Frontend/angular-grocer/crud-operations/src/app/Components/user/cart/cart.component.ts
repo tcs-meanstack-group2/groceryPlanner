@@ -111,9 +111,10 @@ export class CartComponent implements OnInit {
         //subtract funds from user funds
         this.userService.changeFunds({"accNum": accNum, "funds":this.check_fund_total*-1}).subscribe();
 
+        const orderId = Date.now()
         //add to Orders table
         const newOrder:Order = {
-          id: Date.now(), //cheap way to add unique id
+          id: orderId, //cheap way to add unique id
           userId: sessionStorage.getItem('userID'),
           status: "Ordered",
           amount: this.check_fund_total,
@@ -124,7 +125,7 @@ export class CartComponent implements OnInit {
         this.userService.addNewOrder(newOrder);
 
         //success alert
-        alert('Thank you! Order got placed');
+        alert(`Thank you! Order got placed. Your Order Id is ${orderId}`);
 
         //clear cart in storage
         sessionStorage.setItem('user_cart', JSON.stringify([]));
