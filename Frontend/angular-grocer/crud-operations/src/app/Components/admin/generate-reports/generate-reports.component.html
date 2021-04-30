@@ -24,7 +24,13 @@
     <div class="card-body">
 
         <form [formGroup]="monthlyReportForm" (ngSubmit)="getMonthlyReport()">
-            
+                <label for="year">Enter year: </label>
+                <div class="form-row">
+                    <div class="col">
+                        <input id="year" formControlName="year" name="year" type="text" class="form-control" placeholder="YYYY">
+                    </div>
+                </div>
+                <br>
                 <div class="form-group">
                     <label for="dropdown">Select month: </label>
                     <select multiple formControlName="month" name="month" class="form-control" id="dropdown">

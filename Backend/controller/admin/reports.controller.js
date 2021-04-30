@@ -2,13 +2,19 @@ const OrderModel = require("../../model/user/order.model.js")
 
 const getMonthlyReport = (req, res) => {
     const month = parseInt(req.params.month); //should be number of month
+    const year = parseInt(req.params.year);
 
-    OrderModel.find({ $expr: { $eq: [{ $month: "$timestamp" }, month] } }, (err, result) => {
-        if(!err){
-            //returns json of all entries of the specific month
-            res.json(result);
-        }
-      });
+    OrderModel.find({
+      $and: [
+        { $expr: {$eq: [{$month: "$timestamp"}, month]} },
+        { $expr: {$eq: [{$year: "$timestamp"}, year]} }
+      ]
+    }, (err, result) => {
+      if(!err){
+          //returns json of all entries of the specific day
+          res.json(result);
+      }
+    });
 }
 
 const getDailyReport = (req, res) => {

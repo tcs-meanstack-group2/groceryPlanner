@@ -38,8 +38,17 @@ generateDailyReport(date:any):Observable<Order[]>{
   return this.http.get<Order[]>(this.ipAddress+"/admin/reports/getDailyReport/"+date);
 }
 
-generateMonthlyReport(month:any):Observable<Order[]>{
-  return this.http.get<Order[]>(this.ipAddress+"/admin/reports/getMonthlyReport/"+month);
+generateMonthlyReport(yearMonthString:any):Observable<Order[]>{
+  const tmp = yearMonthString.split(/\s*\-\s*/g);
+
+  //split query param by hyphen delimiter 
+  const year = tmp[1];
+  const month = tmp[0];
+  
+  //api takes in number of month
+  const monthNum = new Date(month+'1, 2021').getMonth()+1;
+  
+  return this.http.get<Order[]>(this.ipAddress+`/admin/reports/getMonthlyReport/${year}/${monthNum}`);
 }
 
 generateUserReport(id:any):Observable<Order[]>{

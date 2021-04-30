@@ -22,7 +22,6 @@ export class ReportsTableComponent implements OnInit {
 
     if(this.type === "daily") {
 
-      console.log(this.query)
       this.adminService.generateDailyReport(this.query).subscribe(res => this.orders = res);
 
     } else if(this.type === "monthly") {

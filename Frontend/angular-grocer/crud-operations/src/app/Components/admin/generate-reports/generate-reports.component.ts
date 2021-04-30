@@ -22,6 +22,7 @@ export class GenerateReportsComponent implements OnInit {
     });
 
     this.monthlyReportForm = this.fb.group({
+      year: '',
       month: ''
     });
 
@@ -39,12 +40,12 @@ export class GenerateReportsComponent implements OnInit {
   }
 
   getMonthlyReport() {
-    const {month} = this.monthlyReportForm.value;
+    const {year, month} = this.monthlyReportForm.value;
 
     //easy way to get month num as string
-    const monthNum = new Date(Date.parse(month[0] +" 1, 2021")).getMonth()+1
+    // const monthNum = new Date(Date.parse(month[0] +" 1, 2021")).getMonth()+1
 
-    this.router.navigateByUrl('admin/ReportsTable/monthly/'+monthNum);
+    this.router.navigateByUrl(`admin/ReportsTable/monthly/${month[0]}-${year}`);
    
   }
 
