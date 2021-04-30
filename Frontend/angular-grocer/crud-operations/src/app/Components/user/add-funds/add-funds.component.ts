@@ -14,10 +14,12 @@ export class AddFundsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getFunds(id: any) {
+  getFunds(id: String) {
     this.userServ.retrieveFunds(id).subscribe(result => {
+
+      console.log(result);
       if(result?.length > 0) {
-        this.funds = "Account Number " + result[0]._id + ". Funds in your account: " + result[0].funds;
+        this.funds = "Funds in your account: "  + result[0].funds;
       } else {
         this.funds = "Account not found."
       }

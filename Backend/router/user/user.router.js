@@ -12,5 +12,6 @@ router.post("/addTicket", UserController.addTicket);
 router.get("/retrieveFunds/:id", UserController.getFundsById);
 router.post("/userSignIn", UserController.SignInFunction);
 router.post("/userSignUp", UserController.SignUpFunction);
+router.put("/subtractProductQuantity", UserController.subtractProductQuantity);
 
 module.exports = router;

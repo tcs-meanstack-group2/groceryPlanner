@@ -2,7 +2,7 @@ let OrderModel = require("../../model/user/order.model.js")
 let UserModel = require("../../model/user/user.model.js")
 let BankModel = require("../../model/user/bank.model.js")
 let TicketModel = require("../../model/user/ticket.model")
-//let SelectedOrdersModel = require("../../model/user/selectedOrders.model")
+let ProductModel = require("../../model/admin/product.model.js");
 let SignInModel= require("../../model/user/signin.model")
 const jwt = require('jwt-simple');
 // Retrieving Order status from Mongo Database
@@ -24,7 +24,7 @@ let getUserById = (req, res) => {
     })
 }
 
-let SignInFunction=  (req,res)=>{
+let SignInFunction= (req,res)=>{
   
     let UserId=req.body.UserId
     let Password=req.body.Password
@@ -173,10 +173,10 @@ let addTicket = (req,res)=> {
 let newOrders = (req,res) => {
     let newOrder = new OrderModel({
         _id:req.body.id,
-        userId:req.body.userId,
+        userID:Number(req.body.userId),
         status:req.body.status,
         amount:req.body.amount,
-        date:req.body.date
+        timestamp: new Date(req.body.timestamp)
         
     });
 
@@ -192,12 +192,29 @@ let newOrders = (req,res) => {
 
 let getFundsById = (req, res) => {
     let id = req.params.id;
-    BankModel.find({_id: id}, (err, data) => {
+    UserModel.find({accNumber: id}, (err, data) => {
         if(!err) {
             res.json(data);
         }
     })
 }
 
-module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, newOrders,SignUpFunction,SignInFunction, getUserById};
+let subtractProductQuantity= (req,res)=> {
+    let ProductID = req.body.id;
+    //should take extra param of subtracted total quant
+    ProductModel.updateMany({_id:ProductID},{$inc:{ProductQuantity:-1}},(err,result)=> {
+        if(!err){
+            if(result.nModified>0){
+                    res.send("Product quantity updated succesfully")
+            }else {
+                    res.send("Product is not available");
+            }
+        }else {
+            res.send("Error generated "+err);
+        }
+    })
+
+}
+
+module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, newOrders,SignUpFunction,SignInFunction, getUserById, subtractProductQuantity};
 

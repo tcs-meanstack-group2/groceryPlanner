@@ -28,18 +28,25 @@ export class UserService {
     return this.http.put(this.ipAddress + "/user/editProfile/", profileRef, {responseType: 'text'})
   }
 
-  retrieveFunds(id: any): Observable<Funds[]> {
-    return this.http.get<Funds[]>(this.ipAddress + "/user/retrieveFunds/" + id);
+  retrieveFunds(id: any): Observable<any> {
+    return this.http.get<any>(this.ipAddress + "/user/retrieveFunds/" + id);
   }
 
   addFunds(fundsRef: any): any {
     return this.http.put(this.ipAddress + "/user/addFunds/", fundsRef, {responseType: 'text'})
   }
-  newOrders(Order: any):any {
-    this.http.post(this.ipAddress + "/user/newOrders", Order, {responseType: 'text'})
+  
+  addNewOrder(Order: any):any {
+    this.http.post(this.ipAddress + "/user/newOrders/", Order, {responseType: 'text'}).
+    subscribe(result=>console.log(result),error=>console.log(error));
   }
 
   getUserById(id:any):Observable<any> {
     return this.http.get<any>(this.ipAddress + "/user/getUser/" + id);
+  }
+
+  subtractProductQuant(id:any) {
+    this.http.put(this.ipAddress + "/user/subtractProductQuantity", id, {responseType: 'text'}).
+    subscribe(result=>console.log(result),error=>console.log(error));
   }
 }
