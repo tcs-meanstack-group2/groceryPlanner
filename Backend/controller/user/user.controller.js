@@ -161,15 +161,17 @@ let addTicket = (req,res)=> {
 
 }             
 
-let newOrders = (req,res)=> {
-    let newOrders = new OrderModel({
-        _id:req.body._id,
+let newOrders = (req,res) => {
+    let newOrder = new OrderModel({
+        _id:req.body.id,
         userId:req.body.userId,
         status:req.body.status,
-        date:req.body.date,
-        amount:req.body.amount
+        amount:req.body.amount,
+        date:req.body.date
+        
     });
-    newOrders.save((err,result)=> {
+
+    newOrder.save((err,result)=> {
         if(!err){
             res.send("Orders Stored Successfully ")
             
@@ -188,5 +190,5 @@ let getFundsById = (req, res) => {
     })
 }
 
-module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, newOrders};
+module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, newOrders,SignUpFunction, SignInFunction};
 

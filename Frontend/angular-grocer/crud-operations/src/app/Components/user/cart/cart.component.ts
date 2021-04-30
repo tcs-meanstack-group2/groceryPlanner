@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductDetails } from '../../../Model/model.productmodel';
-import { ProductService } from '../../../Services/product.service';
+import { UserService } from '../../../Services/user.service';
 import { FundsDetails } from '../../../Model/funds.model';
 import { Router } from '@angular/router'
 
@@ -16,7 +16,8 @@ export class CartComponent implements OnInit {
   check_fund_total?:number = 0;
   //funds?:FundsDetails;
   funds?: Number;
-  constructor(public productSer:ProductService) { }
+
+  constructor(private userService:UserService) { }
   
   ngOnInit(): void {
     this.create_table();
@@ -91,21 +92,13 @@ export class CartComponent implements OnInit {
     var user_data = sessionStorage.getItem("user_cart");
     var user_cart_items = JSON.parse(user_data);
     alert("Thank you! Order got placed"); 
-    user_cart_items.forEach(product => this.productSer.user_cart(product));
-      // if(this.check_fund_total >= this.funds._id){
-        
-      //   }
 
-      // }else {
-      //   alert("Insufficient funds! Please Add more funds ");
-      // }
-    //}else {
-     // console.log("Please add funds!")
-    //}
-    }
+    console.log(user_cart_items);
+   
+  }
 
     getFunds(id: any) {
-      this.productSer.retrieveFunds(id).subscribe(result => {
+      this.userService.retrieveFunds(id).subscribe(result => {
         if(result?.length > 0) {
           console.log(this.funds)
         } else {
@@ -115,10 +108,7 @@ export class CartComponent implements OnInit {
     }
   
     
-  
-
-}
-  
+  }
 
   
   
