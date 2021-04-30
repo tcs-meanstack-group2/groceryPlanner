@@ -33,7 +33,7 @@ export class AddEmployeeComponent implements OnInit {
     if(this.addEmployeeForm.valid) {
       this.empService.addEmployee(empDetails);
       location.reload();
-      alert('Success: Employee added');
+      alert('Success: Employee added. DEFAULT PASSWORD: welcome123');
     }
    
   }
