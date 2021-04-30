@@ -15,6 +15,11 @@
     <hr>
 </div>
 
+<div *ngIf="type ==='weekly'">
+  <h1>Report for Dates: {{ startDate }} to {{ endDate }}</h1>
+  <hr>
+</div>
+
 <div *ngIf="orders.length !== 0; else noData">
 
     <table class="table table-striped">
