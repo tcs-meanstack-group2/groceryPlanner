@@ -37,9 +37,7 @@ export class UserSignInComponent implements OnInit {
       this.userDetails = res;
       sessionStorage.setItem('userID', this.userDetails[0]._id);
       sessionStorage.setItem('accNum', this.userDetails[0].accNumber);
-      sessionStorage.setItem('funds', this.userDetails[0].funds);
-      location.reload();
-      
+      sessionStorage.setItem('funds', this.userDetails[0].funds);      
     })
   }
 
