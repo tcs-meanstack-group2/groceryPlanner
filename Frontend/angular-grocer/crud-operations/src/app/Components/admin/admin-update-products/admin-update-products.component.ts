@@ -21,7 +21,7 @@ export class AdminUpdateProductsComponent implements OnInit {
     console.log(adminUpdateProductsRef);
     this.adminService.updateProductDetails(adminUpdateProductsRef).subscribe((result:string)=> {
       this.message=result;
-    });;
+    });
 }
 
 }
