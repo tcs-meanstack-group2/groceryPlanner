@@ -18,23 +18,24 @@
             <th>Product Name |</th>
             <th>Product Price |</th>
             <th>Product Quantity |</th>
-            <th>Product Discount |</th>
+            <th>Product Discount % |</th>
             <th>Total Product Price |</th>
-            <th>Delete</th>  
          </tr>
-        
+            
     </thead> 
  <tbody>
-
-   
 </tbody>
-
 </table>
 <div>
     <button value="compareFund" class="btn-primary" (click) ="check_funds()">Place Order</button>
 </div>
 <div>
     <p style="text-align:center; color: crimson; font-size: 20px;"> Total Price:  ${{calculate_total_price()}}</p>
+</div>
+<div>
+    <h2 style="color: blue;">Enter the row to be deleted</h2>
+    <input type="text" class="form" id="deleter"/>
+    <button id ="click_to_delete" class="btn-primary" (click)="delete_onClick()">Delete</button> 
 </div>
 
 
