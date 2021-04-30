@@ -2,7 +2,7 @@ let OrderModel = require("../../model/user/order.model.js")
 let UserModel = require("../../model/user/user.model.js")
 let BankModel = require("../../model/user/bank.model.js")
 let TicketModel = require("../../model/user/ticket.model")
-let SelectedOrdersModel = require("../../model/user/selectedOrders.model")
+//let SelectedOrdersModel = require("../../model/user/selectedOrders.model")
 let SignInModel= require("../../model/user/signin.model")
 const jwt = require('jwt-simple');
 // Retrieving Order status from Mongo Database
@@ -161,15 +161,15 @@ let addTicket = (req,res)=> {
 
 }             
 
-let orderSelected = (req,res)=> {
-    let orderSelected = new SelectedOrdersModel({
-         _id: req.body.id,
-        ProductName: req.body.ProductName,
-        ProductPrice: req.body.ProductPrice,
-        ProductQuantity: req.body.ProductQuantity,
-        Discount: req.body.Discountl
+let newOrders = (req,res)=> {
+    let newOrders = new OrderModel({
+        _id:req.body._id,
+        userId:req.body.userId,
+        status:req.body.status,
+        date:req.body.date,
+        amount:req.body.amount
     });
-    orderSelected.save((err1,result)=> {
+    newOrders.save((err,result)=> {
         if(!err){
             res.send("Orders Stored Successfully ")
             
@@ -188,5 +188,5 @@ let getFundsById = (req, res) => {
     })
 }
 
-module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, orderSelected, SignInFunction, SignUpFunction};
+module.exports = {getOrderById, editProfile, addFunds, getFundsById, addTicket, newOrders};
 
